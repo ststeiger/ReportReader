@@ -1,8 +1,12 @@
 ﻿
 namespace ReportReader
 {
+
+
     class Program
     {
+
+
         static void Main(string[] args)
         {
             string fn = "/var/opt/mssql/backup/SNB/SNB_Berichte/SNB_Berichte/AL_Anlageblatt.rdl";
@@ -20,6 +24,10 @@ namespace ReportReader
             System.Console.WriteLine(" --- Press any key to continue --- ");
             while (!System.Console.KeyAvailable)
                 System.Threading.Thread.Sleep(500);
-        }
-    }
-}
+        } // End Sub Main 
+
+
+    } // End Class Program 
+
+
+} // End Namespace ReportReader 
