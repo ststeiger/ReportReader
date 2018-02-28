@@ -1,9 +1,9 @@
 ﻿
 using System.Collections.Generic;
 
-namespace ReportReader.OmgJSON
-{
 
+namespace ReportReader.Xml2Json2CSharp
+{
 
 
     public class DataSource

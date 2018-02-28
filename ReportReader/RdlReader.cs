@@ -9,6 +9,7 @@ namespace ReportReader
     {
 
         protected System.Xml.XmlDocument m_document;
+        protected string m_xml;
         protected System.Xml.XmlNamespaceManager m_nsmgr;
 
 
@@ -21,6 +22,30 @@ namespace ReportReader
             document.XmlResolver = null;
             document.PreserveWhitespace = true;
             document.LoadXml(xml);
+
+            string default_namespace = Xml2CSharp.Report.DEFAULT_NAMESPACE;
+            string designer_namespace = Xml2CSharp.Report.DESIGNER_NAMESPACE;
+
+            if (document.DocumentElement.HasAttribute("xmlns"))
+                default_namespace = document.DocumentElement.Attributes["xmlns"].Value;
+
+            if (document.DocumentElement.HasAttribute("xmlns:rd"))
+                designer_namespace = document.DocumentElement.Attributes["xmlns:rd"].Value;
+
+            this.m_xml = xml
+                .Replace(default_namespace, Xml2CSharp.Report.DEFAULT_NAMESPACE)
+                .Replace(designer_namespace, Xml2CSharp.Report.DESIGNER_NAMESPACE);
+
+            document = null;
+
+
+            document = new System.Xml.XmlDocument();
+            document.XmlResolver = null;
+            document.PreserveWhitespace = true;
+            document.LoadXml(this.m_xml);
+
+            Xml2CSharp.Report rep = Xml2CSharp.Report.DeserializeXmlFromString(this.m_xml);
+            rep.ToJSON("newton.json");
 
             this.m_document = document;
             this.m_nsmgr = GetReportNamespaceManager(this.m_document);
@@ -79,8 +104,14 @@ namespace ReportReader
             json = "var a = \"" +  System.Web.HttpUtility.JavaScriptStringEncode(json) +"\";";
             json += System.Environment.NewLine;
             json += "var b = JSON.parse(a)";
-            
-            System.IO.File.WriteAllText("newt.js", json, System.Text.Encoding.UTF8);
+
+
+            string fnJS = System.IO.Path.Combine(
+                System.IO.Path.GetDirectoryName(fileName),
+                System.IO.Path.GetFileNameWithoutExtension(fileName) + ".js"
+            );
+
+            System.IO.File.WriteAllText(fnJS, json, System.Text.Encoding.UTF8);
             
             return json;
         }
