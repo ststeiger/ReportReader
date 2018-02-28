@@ -73,13 +73,75 @@ namespace ReportReader.Xml2CSharp
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string CommandType { get; set; }
 
+        public bool IsStoredProcedure
+        {
+            get
+            {
+                return string.Equals(this.CommandType, "StoredProcedure", System.StringComparison.InvariantCultureIgnoreCase);
+            }
+        }
+
+
+        public string DbDependencies
+        {
+            get
+            {
+                string cmd = Helpers.RemoveSqlComments(this.CommandText);
+                cmd = cmd.Replace("[", "").Replace("]", "");
+                cmd = cmd.Replace("dbo.", "");
+
+                string[] tokens = cmd.Split(new char[] { '\r','\n', ' ', '\t', '(', ')' }, System.StringSplitOptions.RemoveEmptyEntries);
+
+                bool hasAll = false;
+
+                List<string> ls = new List<string>();
+
+                if (tokens.Length == 1)
+                    ls.Add(cmd);
+                else
+                {
+                    for (int i = 1; i < tokens.Length; ++i)
+                    {
+                        if (
+                               string.Equals(tokens[i - 1], "FROM", System.StringComparison.InvariantCultureIgnoreCase)
+                            || string.Equals(tokens[i - 1], "JOIN", System.StringComparison.InvariantCultureIgnoreCase)
+                            || string.Equals(tokens[i - 1], "APPLY", System.StringComparison.InvariantCultureIgnoreCase)
+                            || string.Equals(tokens[i - 1], "EXECUTE", System.StringComparison.InvariantCultureIgnoreCase)
+                            || string.Equals(tokens[i - 1], "EXEC", System.StringComparison.InvariantCultureIgnoreCase)
+                            )
+                        {
+                            if (
+                                   tokens[i].StartsWith("V_", System.StringComparison.InvariantCultureIgnoreCase)
+                                || tokens[i].StartsWith("tfu_", System.StringComparison.InvariantCultureIgnoreCase)
+                                || tokens[i].StartsWith("sp_", System.StringComparison.InvariantCultureIgnoreCase)
+                                || tokens[i].StartsWith("T_", System.StringComparison.InvariantCultureIgnoreCase)
+
+                                )
+                            {
+                                if (!string.Equals(tokens[i], "tfu_rpt_sel_alle", System.StringComparison.InvariantCultureIgnoreCase))
+                                    ls.Add(tokens[i]);
+                                else
+                                    hasAll = true;
+                            }
+                        } // End if FROM, JOIN, APPLY
+                    } // Next i 
+                }
+
+                if (ls.Count == 0 && hasAll)
+                    ls.Add("Alle");
+
+                return string.Join(", ", ls.ToArray());
+            }
+        }
+
+
         [XmlElement(ElementName = "CommandText",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string CommandText { get; set; }
 
         [XmlElement(ElementName = "Timeout",
             Namespace = Report.DEFAULT_NAMESPACE)]
-        public string Timeout { get; set; }
+        public int Timeout { get; set; }
 
         [XmlElement(ElementName = "UseGenericDesigner",
             Namespace = Report.DESIGNER_NAMESPACE)]
@@ -149,13 +211,13 @@ namespace ReportReader.Xml2CSharp
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class DefaultValue
     {
-        [XmlElement(ElementName = "Values",
-            Namespace = Report.DEFAULT_NAMESPACE)]
-        public Values Values { get; set; }
-
         [XmlElement(ElementName = "DataSetReference",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public DataSetReference DataSetReference { get; set; }
+
+        [XmlElement(ElementName = "Values",
+            Namespace = Report.DEFAULT_NAMESPACE)]
+        public Values Values { get; set; }
     }
 
     [XmlRoot(ElementName = "ReportParameter",
@@ -174,16 +236,66 @@ namespace ReportReader.Xml2CSharp
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string Prompt { get; set; }
 
+
+        public bool IsTranslated
+        {
+            get
+            {
+                return this.Prompt != null && this.Prompt.Contains("/");
+            }
+        }
+
+
+        public string PromptGerman
+        {
+            get
+            {
+                if (!this.IsTranslated)
+                    return this.Prompt;
+
+                string[] prompts = this.Prompt.Split('/');
+                if (prompts[0] != null)
+                    prompts[0] = prompts[0].Trim();
+
+                return prompts[0];
+            }
+        }
+
+
+
         [XmlElement(ElementName = "Hidden",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string Hidden { get; set; }
+        
+        public bool IsHidden
+        {
+            get {
+
+                return string.Equals(this.Hidden, "true", System.StringComparison.InvariantCultureIgnoreCase);
+            }
+        }
+        
+
 
         [XmlAttribute(AttributeName = "Name")]
         public string Name { get; set; }
 
+
+        [XmlElement(ElementName = "UsedInQuery", Namespace = Report.DEFAULT_NAMESPACE)]
+        public string UsedInQuery { get; set; }
+
         [XmlElement(ElementName = "ValidValues",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public ValidValues ValidValues { get; set; }
+
+        [XmlElement(ElementName = "MultiValue", Namespace = Report.DEFAULT_NAMESPACE)]
+        public string MultiValue { get; set; }
+
+        [XmlElement(ElementName = "Nullable", Namespace = Report.DEFAULT_NAMESPACE)]
+        public string Nullable { get; set; }
+
+        [XmlElement(ElementName = "AllowBlank", Namespace = Report.DEFAULT_NAMESPACE)]
+        public string AllowBlank { get; set; }
     }
 
     [XmlRoot(ElementName = "DataSetReference",
@@ -203,6 +315,25 @@ namespace ReportReader.Xml2CSharp
         public string LabelField { get; set; }
     }
 
+
+    [XmlRoot(ElementName = "ParameterValue", Namespace = Report.DEFAULT_NAMESPACE)]
+    public class ParameterValue
+    {
+        [XmlElement(ElementName = "Value", Namespace = Report.DEFAULT_NAMESPACE)]
+        public string Value { get; set; }
+        [XmlElement(ElementName = "Label", Namespace = Report.DEFAULT_NAMESPACE)]
+        public string Label { get; set; }
+    }
+
+
+    [XmlRoot(ElementName = "ParameterValues", Namespace = Report.DEFAULT_NAMESPACE)]
+    public class ParameterValues
+    {
+        [XmlElement(ElementName = "ParameterValue", Namespace = Report.DEFAULT_NAMESPACE)]
+        public List<ParameterValue> ParameterValue { get; set; }
+    }
+
+
     [XmlRoot(ElementName = "ValidValues",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class ValidValues
@@ -210,6 +341,10 @@ namespace ReportReader.Xml2CSharp
         [XmlElement(ElementName = "DataSetReference",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public DataSetReference DataSetReference { get; set; }
+
+
+        [XmlElement(ElementName = "ParameterValues", Namespace = Report.DEFAULT_NAMESPACE)]
+        public ParameterValues ParameterValues { get; set; }
     }
 
     [XmlRoot(ElementName = "ReportParameters",

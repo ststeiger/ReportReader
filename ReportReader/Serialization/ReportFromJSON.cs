@@ -98,7 +98,7 @@ namespace ReportReader.Json2CSharp
         public string CommandText { get; set; }
 
         [JsonProperty("Timeout")]
-        public string Timeout { get; set; }
+        public int Timeout { get; set; }
 
         [JsonProperty("UseGenericDesigner")]
         public string UseGenericDesigner { get; set; }
@@ -163,8 +163,20 @@ namespace ReportReader.Json2CSharp
         [JsonProperty("Name")]
         public string Name { get; set; }
 
+        [JsonProperty("UsedInQuery")]
+        public string UsedInQuery { get; set; }
+
         [JsonProperty("ValidValues")]
         public ValidValues ValidValues { get; set; }
+
+        [JsonProperty("MultiValue")]
+        public string MultiValue { get; set; }
+
+        [JsonProperty("Nullable")]
+        public string Nullable { get; set; }
+
+        [JsonProperty("AllowBlank")]
+        public string AllowBlank { get; set; }
     }
 
     public partial class DefaultValue
@@ -194,10 +206,30 @@ namespace ReportReader.Json2CSharp
         public string Value { get; set; }
     }
 
+
+    public partial class ParameterValue
+    {
+        [JsonProperty("Value")]
+        public string Value { get; set; }
+
+        [JsonProperty("Label")]
+        public string Label { get; set; }
+    }
+
+
+    public partial class ParameterValues
+    {
+        [JsonProperty("ParameterValue")]
+        public List<ParameterValue> ParameterValue { get; set; }
+    }
+
     public partial class ValidValues
     {
         [JsonProperty("DataSetReference")]
         public DataSetReference DataSetReference { get; set; }
+
+        [JsonProperty("ParameterValues")]
+        public ParameterValues ParameterValues { get; set; }
     }
 
     public partial class Report

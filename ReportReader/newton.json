@@ -4,7 +4,7 @@
     "DataSource": {
       "DataSourceReference": "COR_Basic",
       "SecurityType": "None",
-      "DataSourceID": "addde073-f37c-4b59-ae3a-25231ffc0ec6",
+      "DataSourceID": "b05b98e6-b4c4-4d90-9baa-1af1b3237726",
       "Name": "COR_Basic"
     }
   },
@@ -16,784 +16,13 @@
           "QueryParameters": {
             "QueryParameter": [
               {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              },
-              {
-                "Value": "=Parameters!in_standort.Value",
-                "Name": "@in_standort"
-              },
-              {
-                "Value": "=Parameters!in_gebaeude.Value",
-                "Name": "@in_gebaeude"
-              },
-              {
-                "Value": "=Parameters!in_geschoss.Value",
-                "Name": "@in_geschoss"
-              },
-              {
-                "Value": "=Parameters!in_trakt.Value",
-                "Name": "@in_trakt"
-              },
-              {
-                "Value": "=Parameters!in_raum.Value",
-                "Name": "@in_raum"
-              },
-              {
-                "Value": "=Parameters!in_anlage.Value",
-                "Name": "@in_anlage"
-              },
-              {
-                "Value": "=\",\" + JOIN(Parameters!in_bauteil.Value, \",\") + \",\"",
-                "Name": "@in_anlageteil"
-              },
-              {
-                "Value": "=Parameters!in_kostenart.Value",
-                "Name": "@in_kostenart"
-              },
-              {
-                "Value": "=Parameters!in_jahr.Value",
-                "Name": "@in_jahr"
-              },
-              {
-                "Value": "=Parameters!in_stichtag.Value",
-                "Name": "@in_stichtag"
-              },
-              {
-                "Value": "=Parameters!in_groups.Value",
-                "Name": "@in_groups"
-              }
-            ]
-          },
-          "CommandType": "StoredProcedure",
-          "CommandText": "sp_RPT_DATA_AL_Anlagenblatt",
-          "Timeout": "3000",
-          "UseGenericDesigner": null
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_SO_Nummer",
-              "TypeName": "System.String",
-              "Name": "RPT_SO_Nummer"
-            },
-            {
-              "DataField": "RPT_SO_Bezeichnung",
-              "TypeName": "System.String",
-              "Name": "RPT_SO_Bezeichnung"
-            },
-            {
-              "DataField": "RPT_GB_Nr",
-              "TypeName": "System.String",
-              "Name": "RPT_GB_Nr"
-            },
-            {
-              "DataField": "RPT_GB_Bezeichnung",
-              "TypeName": "System.String",
-              "Name": "RPT_GB_Bezeichnung"
-            },
-            {
-              "DataField": "RPT_TK_Bezeichnung",
-              "TypeName": "System.String",
-              "Name": "RPT_TK_Bezeichnung"
-            },
-            {
-              "DataField": "RPT_GS_LangBeschreibung",
-              "TypeName": "System.String",
-              "Name": "RPT_GS_LangBeschreibung"
-            },
-            {
-              "DataField": "RPT_GS_Sort",
-              "TypeName": "System.Int32",
-              "Name": "RPT_GS_Sort"
-            },
-            {
-              "DataField": "RPT_TK_Nr",
-              "TypeName": "System.Int32",
-              "Name": "RPT_TK_Nr"
-            },
-            {
-              "DataField": "RPT_RM_Nr",
-              "TypeName": "System.String",
-              "Name": "RPT_RM_Nr"
-            },
-            {
-              "DataField": "RPT_AL_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_AL_UID"
-            },
-            {
-              "DataField": "RPT_AL_Main_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_AL_Main_UID"
-            },
-            {
-              "DataField": "RPT_AL_Hersteller",
-              "TypeName": "System.String",
-              "Name": "RPT_AL_Hersteller"
-            },
-            {
-              "DataField": "RPT_AL_Modell",
-              "TypeName": "System.String",
-              "Name": "RPT_AL_Modell"
-            },
-            {
-              "DataField": "RPT_AL_Main_Typ",
-              "TypeName": "System.String",
-              "Name": "RPT_AL_Main_Typ"
-            },
-            {
-              "DataField": "RPT_AL_Main_TypenNr",
-              "TypeName": "System.String",
-              "Name": "RPT_AL_Main_TypenNr"
-            },
-            {
-              "DataField": "RPT_AL_Main_SerienNr",
-              "TypeName": "System.String",
-              "Name": "RPT_AL_Main_SerienNr"
-            },
-            {
-              "DataField": "RPT_AL_Nr",
-              "TypeName": "System.String",
-              "Name": "RPT_AL_Nr"
-            },
-            {
-              "DataField": "RPT_AL_Main_Nr",
-              "TypeName": "System.String",
-              "Name": "RPT_AL_Main_Nr"
-            },
-            {
-              "DataField": "RPT_AL_Main_Baujahr",
-              "TypeName": "System.Int32",
-              "Name": "RPT_AL_Main_Baujahr"
-            },
-            {
-              "DataField": "RPT_Anlagenkategorie",
-              "TypeName": "System.String",
-              "Name": "RPT_Anlagenkategorie"
-            },
-            {
-              "DataField": "RPT_Lieferant",
-              "TypeName": "System.String",
-              "Name": "RPT_Lieferant"
-            },
-            {
-              "DataField": "RPT_AL_Sort",
-              "TypeName": "System.String",
-              "Name": "RPT_AL_Sort"
-            },
-            {
-              "DataField": "RPT_AL_Depth",
-              "TypeName": "System.Int32",
-              "Name": "RPT_AL_Depth"
-            },
-            {
-              "DataField": "RPT_BP_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_BP_UID"
-            },
-            {
-              "DataField": "RPT_VerantwortlichBP",
-              "TypeName": "System.String",
-              "Name": "RPT_VerantwortlichBP"
-            },
-            {
-              "DataField": "RPT_Budget_summierung",
-              "TypeName": "System.Double",
-              "Name": "RPT_Budget_summierung"
-            },
-            {
-              "DataField": "RPT_Budget",
-              "TypeName": "System.Double",
-              "Name": "RPT_Budget"
-            },
-            {
-              "DataField": "RPT_Text",
-              "TypeName": "System.String",
-              "Name": "RPT_Text"
-            },
-            {
-              "DataField": "RPT_Bemerkung",
-              "TypeName": "System.String",
-              "Name": "RPT_Bemerkung"
-            },
-            {
-              "DataField": "RPT_BKP_Kurz",
-              "TypeName": "System.String",
-              "Name": "RPT_BKP_Kurz"
-            },
-            {
-              "DataField": "RPT_BKP_Lang",
-              "TypeName": "System.String",
-              "Name": "RPT_BKP_Lang"
-            },
-            {
-              "DataField": "RPT_RK_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_RK_UID"
-            },
-            {
-              "DataField": "RPT_Beleg",
-              "TypeName": "System.String",
-              "Name": "RPT_Beleg"
-            },
-            {
-              "DataField": "RPT_Datum",
-              "TypeName": "System.DateTime",
-              "Name": "RPT_Datum"
-            },
-            {
-              "DataField": "RPT_RechnungsAdresse",
-              "TypeName": "System.String",
-              "Name": "RPT_RechnungsAdresse"
-            },
-            {
-              "DataField": "RPT_Kosten",
-              "TypeName": "System.Double",
-              "Name": "RPT_Kosten"
-            },
-            {
-              "DataField": "RPT_RechnungsBetreff",
-              "TypeName": "System.String",
-              "Name": "RPT_RechnungsBetreff"
-            },
-            {
-              "DataField": "RPT_ErfasserRK",
-              "TypeName": "System.String",
-              "Name": "RPT_ErfasserRK"
-            }
-          ]
-        },
-        "Name": "DATA_Anlagenblatt"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              },
-              {
-                "Value": "=Parameters!in_stichtag.Value",
-                "Name": "@in_stichtag"
-              }
-            ]
-          },
-          "CommandType": "StoredProcedure",
-          "CommandText": "sp_RPT_DESIGN_Logo",
-          "Timeout": "300",
-          "UseGenericDesigner": "true"
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "LOGO_Mime",
-              "TypeName": "System.String",
-              "Name": "LOGO_Mime"
-            },
-            {
-              "DataField": "LOGO_Mandant",
-              "TypeName": "System.Int32",
-              "Name": "LOGO_Mandant"
-            },
-            {
-              "DataField": "LOGO_Base64",
-              "TypeName": "System.String",
-              "Name": "LOGO_Base64"
-            },
-            {
-              "DataField": "LOGO_Width",
-              "TypeName": "System.Int32",
-              "Name": "LOGO_Width"
-            },
-            {
-              "DataField": "LOGO_Height",
-              "TypeName": "System.Int32",
-              "Name": "LOGO_Height"
-            },
-            {
-              "DataField": "LOGO_PaddingLeft",
-              "TypeName": "System.Double",
-              "Name": "LOGO_PaddingLeft"
-            },
-            {
-              "DataField": "LOGO_PaddingRight",
-              "TypeName": "System.Double",
-              "Name": "LOGO_PaddingRight"
-            },
-            {
-              "DataField": "LOGO_PaddingTop",
-              "TypeName": "System.Double",
-              "Name": "LOGO_PaddingTop"
-            },
-            {
-              "DataField": "LOGO_PaddingBottom",
-              "TypeName": "System.Double",
-              "Name": "LOGO_PaddingBottom"
-            },
-            {
-              "DataField": "LOGO_Hide",
-              "TypeName": "System.Boolean",
-              "Name": "LOGO_Hide"
-            }
-          ]
-        },
-        "Name": "SEL_Image"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              },
-              {
-                "Value": "=Parameters!in_stichtag.Value",
-                "Name": "@in_stichtag"
-              },
-              {
-                "Value": "=Parameters!in_report_name.Value",
-                "Name": "@in_report_name"
-              }
-            ]
-          },
-          "CommandType": "StoredProcedure",
-          "CommandText": "sp_RPT_Report_TitleTranslation",
-          "Timeout": "300",
-          "UseGenericDesigner": null
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RTR_UID",
-              "TypeName": "System.Guid",
-              "Name": "RTR_UID"
-            },
-            {
-              "DataField": "RPT_Title",
-              "TypeName": "System.String",
-              "Name": "RPT_Title"
-            }
-          ]
-        },
-        "Name": "SEL_Report_Title"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              },
-              {
-                "Value": "=Parameters!in_stichtag.Value",
-                "Name": "@in_stichtag"
-              },
-              {
-                "Value": "=Parameters!in_report_name.Value",
-                "Name": "@in_report_name"
-              }
-            ]
-          },
-          "CommandType": "StoredProcedure",
-          "CommandText": "sp_RPT_Report_Translation",
-          "Timeout": "300",
-          "UseGenericDesigner": "true"
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_PARA_ReportingDate",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_ReportingDate"
-            },
-            {
-              "DataField": "RPT_PARA_Selections",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Selections"
-            },
-            {
-              "DataField": "RPT_PARA_Total",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Total"
-            },
-            {
-              "DataField": "RPT_PARA_Wing",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Wing"
-            },
-            {
-              "DataField": "RPT_PARA_Site",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Site"
-            },
-            {
-              "DataField": "RPT_PARA_Building",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Building"
-            },
-            {
-              "DataField": "RPT_PARA_Floor",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Floor"
-            },
-            {
-              "DataField": "RPT_PARA_Room",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Room"
-            },
-            {
-              "DataField": "RPT_PARA_Usage_Type",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Usage_Type"
-            },
-            {
-              "DataField": "RPT_Page",
-              "TypeName": "System.String",
-              "Name": "RPT_Page"
-            },
-            {
-              "DataField": "RPT_Title",
-              "TypeName": "System.String",
-              "Name": "RPT_Title"
-            },
-            {
-              "DataField": "RPT_PreName",
-              "TypeName": "System.String",
-              "Name": "RPT_PreName"
-            },
-            {
-              "DataField": "RPT_LastName",
-              "TypeName": "System.String",
-              "Name": "RPT_LastName"
-            },
-            {
-              "DataField": "RPT_PARA_OU",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_OU"
-            },
-            {
-              "DataField": "RPT_PARA_Kst",
-              "TypeName": "System.String",
-              "Name": "RPT_PARA_Kst"
-            },
-            {
-              "DataField": "RPT_Entry",
-              "TypeName": "System.String",
-              "Name": "RPT_Entry"
-            },
-            {
-              "DataField": "RPT_Function",
-              "TypeName": "System.String",
-              "Name": "RPT_Function"
-            },
-            {
-              "DataField": "RPT_OU",
-              "TypeName": "System.String",
-              "Name": "RPT_OU"
-            },
-            {
-              "DataField": "RPT_CostCenter",
-              "TypeName": "System.String",
-              "Name": "RPT_CostCenter"
-            },
-            {
-              "DataField": "RPT_Token",
-              "TypeName": "System.String",
-              "Name": "RPT_Token"
-            }
-          ]
-        },
-        "Name": "DATA_Report_Translation"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_gebaeude.Value",
-                "Name": "@in_gebaeude"
-              },
-              {
-                "Value": "=Parameters!in_groups.Value",
-                "Name": "@in_groups"
+                "Value": "=Parameters!in_be_id.Value",
+                "Name": "@in_be_id"
               }
             ]
           },
           "CommandType": null,
-          "CommandText": "/*\nDECLARE @in_standort varchar(36) \nDECLARE @in_gebaeude varchar(36) \nDECLARE @in_geschoss varchar(36) \nDECLARE @in_trakt varchar(36) \nDECLARE @in_haus varchar(36) \nDECLARE @in_raum varchar(36) \n\nSET @in_standort = '00000000-0000-0000-0000-000000000000' \nSET @in_gebaeude = '00000000-0000-0000-0000-000000000000' \nSET @in_geschoss = '00000000-0000-0000-0000-000000000000' \nSET @in_trakt = '00000000-0000-0000-0000-000000000000' \nSET @in_haus = '00000000-0000-0000-0000-000000000000' \nSET @in_raum = '00000000-0000-0000-0000-000000000000' \n*/\n/*\nSELECT '00000000-0000-0000-0000-000000000000' AS RPT_AL_UID, 'Alle' AS RPT_Name, -999 AS RPT_Sort \n\nUNION \n*/\nSELECT \n\t AL_UID AS RPT_AL_UID\n\t,AL_Name_DE AS RPT_Name\n\t,AL_Sort_DE AS RPT_Sort \nFROM V_RPT_SEL_AL_Anlage\n\nWHERE (1=1) \n/*\nAND\n(\n\tAL_SO_UID = @in_standort \n\tOR \n\t'00000000-0000-0000-0000-000000000000' = @in_standort \n)\n*/\nAND\n(\n\tAL_GB_UID = @in_gebaeude \n\tOR \n\t'00000000-0000-0000-0000-000000000000' = @in_gebaeude \n)\n/*\nAND\n(\n\tAL_GS_UID = @in_geschoss \n\tOR \n\t'00000000-0000-0000-0000-000000000000' = @in_geschoss \n)\n\nAND\n(\n\tAL_RM_UID = @in_raum \n\tOR \n\t'00000000-0000-0000-0000-000000000000' = @in_raum \n)\n\nAND\n(\n\t(\n\t\tCASE WHEN @in_raum = '00000000-0000-0000-0000-000000000000' \n\t\t\t\tAND @in_geschoss = '00000000-0000-0000-0000-000000000000' \n\t\t\t\tAND @in_gebaeude = '00000000-0000-0000-0000-000000000000' \n\t\t\t\tAND @in_standort = '00000000-0000-0000-0000-000000000000' \n\t\t\tTHEN 0\n\t\t\tELSE 1\n\t\tEND\n\t) = 1\n)\n*/\nAND \n( \n\t( @in_groups = '0000') \n\tOR\n\t(\n\t\tSELECT \n\t\t\tISNULL(SUM(CAST(ALR_IsRead AS int)), 0) AS ALR_IsRead \n\t\tFROM T_SYS_Anlagerechte \n\t\tWHERE (1=1) \n\t\tAND T_SYS_Anlagerechte.ALR_AL_UID = V_RPT_SEL_AL_Anlage.AL_UID \n\t\tAND @in_groups LIKE '%,' + CAST(T_SYS_Anlagerechte.ALR_GRANTEE_ID AS varchar(36)) + ',%' \n\t) > 0 \n)\n\n\nORDER BY RPT_Sort",
-          "Timeout": "300",
-          "UseGenericDesigner": "true"
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_AL_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_AL_UID"
-            },
-            {
-              "DataField": "RPT_Name",
-              "TypeName": "System.String",
-              "Name": "RPT_Name"
-            },
-            {
-              "DataField": "RPT_Sort",
-              "TypeName": "System.Int64",
-              "Name": "RPT_Sort"
-            }
-          ]
-        },
-        "Name": "SEL_Anlage"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              }
-            ]
-          },
-          "CommandType": null,
-          "CommandText": "SELECT     RPT_UID, RPT_Lang, RPT_Sort_Alpha_ASC AS RPT_Sort\nFROM         dbo.tfu_RPT_SEL_Alle(@in_mandant, @in_sprache) AS tfu_RPT_SEL_Alle_1\n\n/*\nUNION\n\nSELECT     RPT_UID, RPT_Name_Beta AS RPT_Lang, RPT_Sort\nFROM         dbo.tfu_RPT_SEL_Standort(@in_mandant, @in_sprache, @in_groups) AS tfu_RPT_SEL_Standort_1\nORDER BY RPT_Sort\n*/",
-          "Timeout": "300",
-          "UseGenericDesigner": "true"
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_UID",
-              "TypeName": "System.String",
-              "Name": "RPT_UID"
-            },
-            {
-              "DataField": "RPT_Lang",
-              "TypeName": "System.String",
-              "Name": "RPT_Lang"
-            },
-            {
-              "DataField": "RPT_Sort",
-              "TypeName": "System.String",
-              "Name": "RPT_Sort"
-            }
-          ]
-        },
-        "Name": "SEL_Standort"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              },
-              {
-                "Value": "=Parameters!in_standort.Value",
-                "Name": "@in_standort"
-              },
-              {
-                "Value": "=Parameters!in_groups.Value",
-                "Name": "@in_groups"
-              }
-            ]
-          },
-          "CommandType": null,
-          "CommandText": "SELECT     RPT_UID, RPT_Lang, RPT_Sort_Alpha_ASC AS RPT_Sort\nFROM         dbo.tfu_RPT_SEL_Alle(@in_mandant, @in_sprache) AS tfu_RPT_SEL_Alle_1\nUNION\nSELECT     RPT_UID, RPT_Name_Beta, RPT_Sort\n--FROM         dbo.tfu_RPT_SEL_Gebaeude(@in_mandant, @in_sprache, @in_standort, @in_groups) AS tfu_RPT_SEL_Gebaeude_1\nFROM dbo.tfu_RPT_SEL_Gebaeude_AllOnAll(@in_mandant, @in_sprache, @in_standort, @in_groups)  AS tfu_RPT_SEL_Gebaeude_1\nORDER BY RPT_Sort",
-          "Timeout": "300",
-          "UseGenericDesigner": "true"
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_UID"
-            },
-            {
-              "DataField": "RPT_Lang",
-              "TypeName": "System.String",
-              "Name": "RPT_Lang"
-            },
-            {
-              "DataField": "RPT_Sort",
-              "TypeName": "System.String",
-              "Name": "RPT_Sort"
-            }
-          ]
-        },
-        "Name": "SEL_Gebaeude"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              }
-            ]
-          },
-          "CommandType": null,
-          "CommandText": "SELECT \n\t RPT_UID \n\t,RPT_MDT_ID \n\t,RPT_Nr \n\t,RPT_Code \n\t,RPT_Kurz \n\t,RPT_Lang \n\t,RPT_Sort \nFROM tfu_RPT_SEL_Alle(@in_mandant, @in_sprache) \n\n/*\nUNION \n\n\nSELECT \n\t RPT_UID \n\t,RPT_MDT_ID \n\t,RPT_Nr \n\t,RPT_Code \n\t,RPT_Kurz \n\t,LTRIM(RTRIM( ISNULL(RPT_Lang, '') + ' ' + ISNULL(RPT_Nr, '') )) AS RPT_Name \n\t,RPT_Sort \nFROM tfu_RPT_SEL_Geschoss(@in_mandant, @in_sprache, @in_gebaeude, @in_groups) \n\nORDER BY RPT_Sort\n*/",
-          "Timeout": "300",
-          "UseGenericDesigner": "true"
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_UID",
-              "TypeName": "System.String",
-              "Name": "RPT_UID"
-            },
-            {
-              "DataField": "RPT_MDT_ID",
-              "TypeName": "System.String",
-              "Name": "RPT_MDT_ID"
-            },
-            {
-              "DataField": "RPT_Nr",
-              "TypeName": "System.String",
-              "Name": "RPT_Nr"
-            },
-            {
-              "DataField": "RPT_Code",
-              "TypeName": "System.String",
-              "Name": "RPT_Code"
-            },
-            {
-              "DataField": "RPT_Kurz",
-              "TypeName": "System.String",
-              "Name": "RPT_Kurz"
-            },
-            {
-              "DataField": "RPT_Lang",
-              "TypeName": "System.String",
-              "Name": "RPT_Lang"
-            },
-            {
-              "DataField": "RPT_Sort",
-              "TypeName": "System.Int32",
-              "Name": "RPT_Sort"
-            }
-          ]
-        },
-        "Name": "SEL_Geschoss"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              },
-              {
-                "Value": "=Parameters!in_standort.Value",
-                "Name": "@in_standort"
-              },
-              {
-                "Value": "=Parameters!in_gebaeude.Value",
-                "Name": "@in_gebaeude"
-              },
-              {
-                "Value": "=Parameters!in_geschoss.Value",
-                "Name": "@in_geschoss"
-              },
-              {
-                "Value": "=Parameters!in_trakt.Value",
-                "Name": "@in_trakt"
-              },
-              {
-                "Value": "=Parameters!in_groups.Value",
-                "Name": "@in_groups"
-              }
-            ]
-          },
-          "CommandType": "StoredProcedure",
-          "CommandText": "sp_RPT_SEL_Raum",
-          "Timeout": "300",
-          "UseGenericDesigner": null
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_UID"
-            },
-            {
-              "DataField": "RPT_Name",
-              "TypeName": "System.String",
-              "Name": "RPT_Name"
-            },
-            {
-              "DataField": "RPT_Sort",
-              "TypeName": "System.String",
-              "Name": "RPT_Sort"
-            }
-          ]
-        },
-        "Name": "SEL_Raum"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!proc.Value",
-                "Name": "@proc"
-              }
-            ]
-          },
-          "CommandType": "StoredProcedure",
-          "CommandText": "sp_RPT_Report_GetUser",
+          "CommandText": "SELECT * FROM T_Benutzer WHERE BE_ID = @in_be_id",
           "Timeout": "300",
           "UseGenericDesigner": "true"
         },
@@ -805,135 +34,105 @@
               "Name": "BE_ID"
             },
             {
+              "DataField": "BE_Name",
+              "TypeName": "System.String",
+              "Name": "BE_Name"
+            },
+            {
+              "DataField": "BE_Vorname",
+              "TypeName": "System.String",
+              "Name": "BE_Vorname"
+            },
+            {
               "DataField": "BE_User",
               "TypeName": "System.String",
               "Name": "BE_User"
             },
             {
-              "DataField": "BE_Kurz",
+              "DataField": "BE_Passwort",
               "TypeName": "System.String",
-              "Name": "BE_Kurz"
+              "Name": "BE_Passwort"
+            },
+            {
+              "DataField": "BE_Language",
+              "TypeName": "System.String",
+              "Name": "BE_Language"
+            },
+            {
+              "DataField": "BE_Hash",
+              "TypeName": "System.String",
+              "Name": "BE_Hash"
+            },
+            {
+              "DataField": "BE_Level",
+              "TypeName": "System.Byte",
+              "Name": "BE_Level"
+            },
+            {
+              "DataField": "BE_isLDAPSync",
+              "TypeName": "System.Boolean",
+              "Name": "BE_isLDAPSync"
+            },
+            {
+              "DataField": "BE_Domaene",
+              "TypeName": "System.String",
+              "Name": "BE_Domaene"
+            },
+            {
+              "DataField": "BE_Hide",
+              "TypeName": "System.Boolean",
+              "Name": "BE_Hide"
+            },
+            {
+              "DataField": "BE_Email",
+              "TypeName": "System.String",
+              "Name": "BE_Email"
+            },
+            {
+              "DataField": "BE_TelNr",
+              "TypeName": "System.String",
+              "Name": "BE_TelNr"
+            },
+            {
+              "DataField": "BE_CurrencyID",
+              "TypeName": "System.Int32",
+              "Name": "BE_CurrencyID"
+            },
+            {
+              "DataField": "BE_Status",
+              "TypeName": "System.Int32",
+              "Name": "BE_Status"
+            },
+            {
+              "DataField": "BE_IsCOR_Hash",
+              "TypeName": "System.String",
+              "Name": "BE_IsCOR_Hash"
+            },
+            {
+              "DataField": "BE_IsGuest",
+              "TypeName": "System.Boolean",
+              "Name": "BE_IsGuest"
+            },
+            {
+              "DataField": "BE_Augen",
+              "TypeName": "System.Int32",
+              "Name": "BE_Augen"
+            },
+            {
+              "DataField": "_BE_Label",
+              "TypeName": "System.String",
+              "Name": "ID_BE_Label"
             }
           ]
         },
-        "Name": "SEL_Benutzer"
+        "Name": "DataSet1"
       },
       {
         "Query": {
           "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              },
-              {
-                "Value": "=Parameters!in_anlage.Value",
-                "Name": "@in_anlage"
-              }
-            ]
-          },
+          "QueryParameters": null,
           "CommandType": null,
-          "CommandText": "/*\nDECLARE @in_sprache varchar(2) \nSET @in_sprache = 'DE'\n\nDECLARE @in_stichtag datetime\nSET @in_stichtag = GETDATE()\n\nDECLARE @in_anlage varchar(36) \nSET @in_anlage = '00000000-0000-0000-0000-000000000000' \n\nDECLARE @in_gebaeude varchar(36) \nSET @in_gebaeude = '00000000-0000-0000-0000-000000000000' \n*/\n\n\nSELECT '00000000-0000-0000-0000-000000000000' AS RPT_AL_UID, 'nur Anlage' AS RPT_Name, 99999 AS RPT_Sort \n\nUNION \n\n\nSELECT \n\t AL_UID AS RPT_AL_UID \n\t,AL_Nr + ' (' + AK_Lang + ')' AS RPT_Name \n\t,ROW_NUMBER() OVER (ORDER BY AL_Nr + ' (' + AK_Lang + ')') AS RPT_Sort \nFROM tfu_RPT_SEL_Anlage(@in_sprache, getdate()) \nWHERE AL_IsBauteil = 1 \n\n/*\nAND AL_UID IN \n(\nSELECT BP_Objekt_UID \nFROM T_UPS_BudgetPositionen \nWHERE T_UPS_BudgetPositionen.BP_Status = 1 \n)\n*/\n\nAND\n(\n\tMain_AL_UID = @in_anlage \n\tOR \n\t '00000000-0000-0000-0000-000000000000' = @in_anlage \n)\n\n/*\nAND\n(\n\tGB_UID = @in_gebaeude \n\tOR \n\t'00000000-0000-0000-0000-000000000000' = @in_gebaeude \n)\n*/\nORDER BY RPT_Sort",
-          "Timeout": null,
-          "UseGenericDesigner": "true"
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_AL_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_AL_UID"
-            },
-            {
-              "DataField": "RPT_Name",
-              "TypeName": "System.String",
-              "Name": "RPT_Name"
-            },
-            {
-              "DataField": "RPT_Sort",
-              "TypeName": "System.Int64",
-              "Name": "RPT_Sort"
-            }
-          ]
-        },
-        "Name": "SEL_Bauteil"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!in_mandant.Value",
-                "Name": "@in_mandant"
-              },
-              {
-                "Value": "=Parameters!in_sprache.Value",
-                "Name": "@in_sprache"
-              },
-              {
-                "Value": "=Parameters!in_jahr.Value",
-                "Name": "@in_jahr"
-              },
-              {
-                "Value": "=Parameters!in_gebaeude.Value",
-                "Name": "@in_gebaeude"
-              },
-              {
-                "Value": "=Parameters!in_anlage.Value",
-                "Name": "@in_anlage"
-              },
-              {
-                "Value": "=\",\" + JOIN(Parameters!in_bauteil.Value, \",\") + \",\"",
-                "Name": "@in_bauteil"
-              }
-            ]
-          },
-          "CommandType": null,
-          "CommandText": "SELECT    RPT_UID AS RPT_BPK_UID, RPT_Lang AS RPT_Aufwandskonto_Kurz, RPT_Lang  AS RPT_Aufwandskonto_Lang, -99 AS RPT_Sort\nFROM         dbo.tfu_RPT_SEL_Alle(@in_mandant, @in_sprache) AS tfu_RPT_SEL_Alle_1\nUNION\nSELECT \n\t RPT_BPK_UID\n\t,RPT_Aufwandskonto_Kurz\n                ,RPT_Aufwandskonto_Lang\n\t,RPT_Sort\nFROM tfu_RPT_SEL_UPS_Baukostenplan(@in_mandant, @in_sprache, 0) \n\n\nWHERE \n(\n\nRPT_BPK_UID IN \n(\n\tSELECT ISNULL(BP_BKP_UID, '00000000-0000-0000-0000-000000000000') \n\tFROM tfu_RPT_AL_Anlagenblatt(@in_mandant, @in_sprache, @in_jahr, @in_gebaeude, @in_anlage, @in_bauteil) \n)\nOR\n\nRPT_BPK_UID = '00000000-0000-0000-0000-000000000000'\n)\n\nORDER BY RPT_Sort, RPT_Aufwandskonto_Lang",
-          "Timeout": null,
-          "UseGenericDesigner": "true"
-        },
-        "Fields": {
-          "Field": [
-            {
-              "DataField": "RPT_BPK_UID",
-              "TypeName": "System.Guid",
-              "Name": "RPT_BPK_UID"
-            },
-            {
-              "DataField": "RPT_Aufwandskonto_Kurz",
-              "TypeName": "System.String",
-              "Name": "RPT_Aufwandskonto_Kurz"
-            },
-            {
-              "DataField": "RPT_Aufwandskonto_Lang",
-              "TypeName": "System.String",
-              "Name": "RPT_Aufwandskonto_Lang"
-            },
-            {
-              "DataField": "RPT_Sort",
-              "TypeName": "System.Double",
-              "Name": "RPT_Sort"
-            }
-          ]
-        },
-        "Name": "SEL_Kostenart"
-      },
-      {
-        "Query": {
-          "DataSourceName": "COR_Basic",
-          "QueryParameters": {
-            "QueryParameter": [
-              {
-                "Value": "=Parameters!proc.Value",
-                "Name": "@proc"
-              }
-            ]
-          },
-          "CommandType": "StoredProcedure",
-          "CommandText": "sp_RPT_SEL_GetCurrentUser",
+          "CommandText": "SELECT * FROM T_Benutzer",
           "Timeout": "300",
           "UseGenericDesigner": null
         },
@@ -960,9 +159,19 @@
               "Name": "BE_User"
             },
             {
+              "DataField": "BE_Passwort",
+              "TypeName": "System.String",
+              "Name": "BE_Passwort"
+            },
+            {
               "DataField": "BE_Language",
               "TypeName": "System.String",
               "Name": "BE_Language"
+            },
+            {
+              "DataField": "BE_Hash",
+              "TypeName": "System.String",
+              "Name": "BE_Hash"
             },
             {
               "DataField": "BE_Level",
@@ -975,18 +184,58 @@
               "Name": "BE_isLDAPSync"
             },
             {
-              "DataField": "BG_IDs",
+              "DataField": "BE_Domaene",
               "TypeName": "System.String",
-              "Name": "BG_IDs"
+              "Name": "BE_Domaene"
             },
             {
-              "DataField": "BG_Namen",
+              "DataField": "BE_Hide",
+              "TypeName": "System.Boolean",
+              "Name": "BE_Hide"
+            },
+            {
+              "DataField": "BE_Email",
               "TypeName": "System.String",
-              "Name": "BG_Namen"
+              "Name": "BE_Email"
+            },
+            {
+              "DataField": "BE_TelNr",
+              "TypeName": "System.String",
+              "Name": "BE_TelNr"
+            },
+            {
+              "DataField": "BE_CurrencyID",
+              "TypeName": "System.Int32",
+              "Name": "BE_CurrencyID"
+            },
+            {
+              "DataField": "BE_Status",
+              "TypeName": "System.Int32",
+              "Name": "BE_Status"
+            },
+            {
+              "DataField": "BE_IsCOR_Hash",
+              "TypeName": "System.String",
+              "Name": "BE_IsCOR_Hash"
+            },
+            {
+              "DataField": "BE_IsGuest",
+              "TypeName": "System.Boolean",
+              "Name": "BE_IsGuest"
+            },
+            {
+              "DataField": "BE_Augen",
+              "TypeName": "System.Int32",
+              "Name": "BE_Augen"
+            },
+            {
+              "DataField": "_BE_Label",
+              "TypeName": "System.String",
+              "Name": "ID_BE_Label"
             }
           ]
         },
-        "Name": "SEL_User"
+        "Name": "SEL_Benutzer"
       }
     ]
   },
@@ -995,490 +244,71 @@
       {
         "DataType": "String",
         "DefaultValue": {
-          "Values": {
-            "Value": "administrator"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Benutzer",
-        "Hidden": "true",
-        "Name": "proc",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "0"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "in_mandant",
-        "Hidden": "true",
-        "Name": "in_mandant",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_User",
-            "ValueField": "BG_IDs",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Gruppen",
-        "Hidden": "true",
-        "Name": "in_groups",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_User",
-            "ValueField": "BG_IDs",
-            "LabelField": "BG_Namen"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_User",
-            "ValueField": "BE_Language",
-            "LabelField": null
-          }
-        },
-        "Prompt": "in_sprache",
-        "Hidden": "true",
-        "Name": "in_sprache",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_User",
-            "ValueField": "BE_Language",
-            "LabelField": "BE_Language"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "AD_Mitarbeiterliste_ML"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Berichtsname",
-        "Hidden": "true",
-        "Name": "in_report_name",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "00000000-0000-0000-0000-000000000000"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Liegenschaft / Immeuble / Patrimonio immobiliare / Estate",
-        "Hidden": "true",
-        "Name": "in_standort",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Gebaeude",
-            "ValueField": "RPT_UID",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Gebäude / Bâtiment / Edificio / Building",
-        "Hidden": null,
-        "Name": "in_gebaeude",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Gebaeude",
-            "ValueField": "RPT_UID",
-            "LabelField": "RPT_Lang"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "00000000-0000-0000-0000-000000000000"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Geschoss / Étage / Piano / Floor",
-        "Hidden": "true",
-        "Name": "in_geschoss",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "00000000-0000-0000-0000-000000000000"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Trakt / Aile / Ala / Wing",
-        "Hidden": "true",
-        "Name": "in_trakt",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "00000000-0000-0000-0000-000000000000"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Haus / Maison / Casa / House",
-        "Hidden": "true",
-        "Name": "in_haus",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "00000000-0000-0000-0000-000000000000"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Raum / Pièce / Stanza / Room",
-        "Hidden": "true",
-        "Name": "in_raum",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": null,
-        "Prompt": "Anlage",
-        "Hidden": null,
-        "Name": "in_anlage",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Anlage",
-            "ValueField": "RPT_AL_UID",
-            "LabelField": "RPT_Name"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Bauteil",
-            "ValueField": "RPT_AL_UID",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Anlageteil",
-        "Hidden": null,
-        "Name": "in_bauteil",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Bauteil",
-            "ValueField": "RPT_AL_UID",
-            "LabelField": "RPT_Name"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "=System.DateTime.Now.Year"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Jahr",
-        "Hidden": null,
-        "Name": "in_jahr",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Kostenart",
-            "ValueField": "RPT_BPK_UID",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Kostenart",
-        "Hidden": null,
-        "Name": "in_kostenart",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Kostenart",
-            "ValueField": "RPT_BPK_UID",
-            "LabelField": "RPT_Aufwandskonto_Kurz"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": {
-            "Value": "=System.DateTime.Now.ToString(\"dd.MM.yyyy\")"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "Stichtag / Jour de référence / Giorno di riferimento / Reporting date",
-        "Hidden": "true",
-        "Name": "in_stichtag",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_Base64",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Logo",
-        "Hidden": "true",
-        "Name": "def_logo",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_Base64",
-            "LabelField": "LOGO_Mandant"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_PaddingLeft",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Pad Left",
-        "Hidden": "true",
-        "Name": "def_padding_left",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_PaddingLeft",
-            "LabelField": "LOGO_PaddingLeft"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_PaddingRight",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Pad Right",
-        "Hidden": "true",
-        "Name": "def_padding_right",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_PaddingRight",
-            "LabelField": "LOGO_PaddingRight"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_PaddingTop",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Pad Top",
-        "Hidden": "true",
-        "Name": "def_padding_top",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_PaddingTop",
-            "LabelField": "LOGO_PaddingTop"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_PaddingBottom",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Pad Bottom",
-        "Hidden": "true",
-        "Name": "def_padding_bottom",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_PaddingBottom",
-            "LabelField": "LOGO_PaddingBottom"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_Mime",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Mime",
-        "Hidden": "true",
-        "Name": "def_mime",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_Mime",
-            "LabelField": "LOGO_Mime"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_Hide",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Hide Logo",
-        "Hidden": "true",
-        "Name": "def_HideLogo",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Image",
-            "ValueField": "LOGO_Hide",
-            "LabelField": "LOGO_Hide"
-          }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
-          "DataSetReference": {
-            "DataSetName": "SEL_Report_Title",
-            "ValueField": "RTR_UID",
-            "LabelField": null
-          }
-        },
-        "Prompt": "Titel",
-        "Hidden": "true",
-        "Name": "def_titel",
-        "ValidValues": {
-          "DataSetReference": {
-            "DataSetName": "SEL_Report_Title",
-            "ValueField": "RTR_UID",
-            "LabelField": "RPT_Title"
-          }
-        }
-      },
-      {
-        "DataType": "Integer",
-        "DefaultValue": {
-          "Values": {
-            "Value": "1"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "in_siInterval",
-        "Hidden": "true",
-        "Name": "in_siInterval",
-        "ValidValues": null
-      },
-      {
-        "DataType": "Boolean",
-        "DefaultValue": {
-          "Values": {
-            "Value": "false"
-          },
-          "DataSetReference": null
-        },
-        "Prompt": "in_bFlag",
-        "Hidden": "true",
-        "Name": "in_bFlag",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": {
-          "Values": null,
           "DataSetReference": {
             "DataSetName": "SEL_Benutzer",
             "ValueField": "BE_ID",
             "LabelField": null
-          }
+          },
+          "Values": null
         },
         "Prompt": "Benutzer",
-        "Hidden": "true",
-        "Name": "in_user",
+        "Hidden": null,
+        "Name": "in_be_id",
+        "UsedInQuery": "True",
         "ValidValues": {
           "DataSetReference": {
             "DataSetName": "SEL_Benutzer",
             "ValueField": "BE_ID",
-            "LabelField": "BE_Kurz"
+            "LabelField": "BE_User"
+          },
+          "ParameterValues": null
+        },
+        "MultiValue": "true",
+        "Nullable": null,
+        "AllowBlank": null
+      },
+      {
+        "DataType": "String",
+        "DefaultValue": {
+          "DataSetReference": null,
+          "Values": {
+            "Value": "anbcder"
           }
-        }
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": null,
+        },
         "Prompt": "ReportParameter1",
-        "Hidden": "true",
-        "Name": "in_NavGB",
-        "ValidValues": null
-      },
-      {
-        "DataType": "String",
-        "DefaultValue": null,
-        "Prompt": "ReportParameter1",
-        "Hidden": "true",
-        "Name": "in_NavJahr",
-        "ValidValues": null
+        "Hidden": null,
+        "Name": "MANUAL",
+        "UsedInQuery": null,
+        "ValidValues": {
+          "DataSetReference": null,
+          "ParameterValues": {
+            "ParameterValue": [
+              {
+                "Value": "myValue1",
+                "Label": "MyLabel1"
+              },
+              {
+                "Value": "myValue2",
+                "Label": "MyLaberl2"
+              },
+              {
+                "Value": "myValue3",
+                "Label": "MyLabel3"
+              }
+            ]
+          }
+        },
+        "MultiValue": null,
+        "Nullable": "true",
+        "AllowBlank": "true"
       }
     ]
   },
-  "Code": "\n    Public Function GetDateForCulture(ByVal iDay As Integer, ByVal iMonthNum As Integer, ByVal iYear As Integer, ByVal strReportLanguage As String) As String\n        Dim strReturnValue As String = \"\"\n        Try\n            strReportLanguage = strReportLanguage.ToLower()\n\n            'Dim dtThisDateDate As DateTime = DateTime.Now\n            'Dim dtThisDateDate As New DateTime(2010, 12, 31)\n            Dim dtThisDateDate As New DateTime(iYear, iMonthNum, iDay)\n\n            Dim strCultureString As String = \"\"\n            Select Case strReportLanguage\n                Case \"de\"\n                    strCultureString = \"de-ch\"\n                Case \"fr\"\n                    strCultureString = \"fr-ch\"\n                Case \"it\"\n                    strCultureString = \"it-ch\"\n                Case \"en\"\n                    strCultureString = \"en-us\"\n                Case Else\n                    strCultureString = strReportLanguage\n            End Select\n\n            Dim ci As New System.Globalization.CultureInfo(strCultureString)\n\n            Dim strFormat = ci.DateTimeFormat.LongDatePattern\n            If ci.CompareInfo.IndexOf(strFormat, \"dddd, \", System.Globalization.CompareOptions.IgnoreCase) > -1 Then\n                strFormat = Mid(ci.DateTimeFormat.LongDatePattern, Len(\"dddd, \") + 1)\n            End If\n\n            strReturnValue = dtThisDateDate.ToString(strFormat, ci)\n            'strReturnValue = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(strReturnValue)\n            strReturnValue = ci.TextInfo.ToTitleCase(strReturnValue)\n        Catch ex As Exception\n            strReturnValue = iDay.ToString().PadLeft(2, \"0\") + \".\" + iMonthNum.ToString().PadLeft(2, \"0\") + \".\" + iYear.ToString()\n        End Try\n\n        Return strReturnValue\n    End Function\n\n",
-  "Language": "de-CH",
+  "Code": null,
+  "Language": "de-DE",
   "ConsumeContainerWhitespace": "true",
-  "ReportUnitType": "Cm",
-  "ReportID": "7293a383-cd4b-47af-bf0d-e5f0b24a7de5",
+  "ReportUnitType": "Inch",
+  "ReportID": "1c8e3b24-d1f5-49eb-bba9-db5f6001bb79",
   "Xmlns": null,
   "Rd": "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner"
 }
