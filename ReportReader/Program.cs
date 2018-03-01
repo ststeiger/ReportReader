@@ -25,6 +25,9 @@ namespace ReportReader
 
                 if (fileName.StartsWith("yyy", System.StringComparison.InvariantCultureIgnoreCase))
                     continue;
+                
+                if (fileName.StartsWith("zzz", System.StringComparison.InvariantCultureIgnoreCase))
+                    continue;
 
                 ProcessReport(sb, report);
             } // Next report 
@@ -46,6 +49,24 @@ namespace ReportReader
             RdlReader report = new RdlReader().OpenFile(fileName);
             // report.GetDataSets();
             // report.ToJSON();
+
+
+            System.Collections.Generic.HashSet<string> hs = new System.Collections.Generic.HashSet<string>(System.StringComparer.InvariantCultureIgnoreCase);
+            
+            hs.Add("DATA_Report_Translation");
+            hs.Add("DATA_Report_Title");
+            hs.Add("SEL_Report_Title");
+            hs.Add("LANG_Report_Title");
+            
+
+            hs.Add("SEL_User");
+            hs.Add("SEL_Benutzer");
+            
+            hs.Add("SEL_Image");
+            hs.Add("LANG_DateFormatString");
+            hs.Add("LANG_PageFormatString");
+
+
 
 
             sb.AppendLine(report.ReportName);
@@ -100,6 +121,10 @@ namespace ReportReader
             foreach (string key in report.DataSets.Keys)
             {
                 Xml2CSharp.DataSet ds = report.DataSets[key];
+
+                if(hs.Contains(ds.Name)) // Default-report objects (LANG_, Translation, title)
+                    continue;
+
                 sb.Append("    -- ");
                 sb.Append(ds.Name);
 
