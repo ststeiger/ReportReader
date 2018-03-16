@@ -1,0 +1,23 @@
+="SELECT     '00000000-0000-0000-0000-000000000000' AS ID, 'Alle' AS Name, -1 AS Sort " &
+"UNION " &
+"SELECT     KS_ApertureID AS ID, KS_Name AS Name, KS_Sort AS Sort " &
+"FROM         V_AP_BERICHT_SEL_KS " &
+"WHERE KS_GM_UID = '" & Parameters!Gemeinde.Value & "' " &
+"ORDER BY Sort, Name "
+
+
+
+
+
+="SELECT 2 AS ID, 2 AS Sort, 'Alle' AS Name " &
+"UNION " &
+"SELECT  DISTINCT  PZ_IsAltlasten AS ID, PZ_IsAltlasten AS Sort, 'Ja' AS Name " &
+"FROM         V_AP_BERICHT_SEL_PZ_Altlasten  " &
+"WHERE PZ_IsAltlasten = 1  " &
+IIF(Parameters!Vermessungsbezirk.Value="00000000-0000-0000-0000-000000000000", IIF(Parameters!Kreis.Value="00000000-0000-0000-0000-000000000000", IIF(Parameters!Gemeinde.Value="00000000-0000-0000-0000-000000000000", "","AND GM_ApertureID = '" & Parameters!Gemeinde.Value & "' "),"AND KS_ApertureID = '" & Parameters!Kreis.Value & "' "),"AND VB_ApertureID = '" & Parameters!Vermessungsbezirk.Value & "' ") &
+"UNION " &
+"SELECT  DISTINCT  PZ_IsAltlasten AS ID, PZ_IsAltlasten AS Sort, 'Nein' AS Name " &
+"FROM        V_AP_BERICHT_SEL_PZ_Altlasten " &
+"WHERE PZ_IsAltlasten = 0 " &
+IIF(Parameters!Vermessungsbezirk.Value="00000000-0000-0000-0000-000000000000", IIF(Parameters!Kreis.Value="00000000-0000-0000-0000-000000000000", IIF(Parameters!Gemeinde.Value="00000000-0000-0000-0000-000000000000", "","AND GM_ApertureID = '" & Parameters!Gemeinde.Value & "' "),"AND KS_ApertureID = '" & Parameters!Kreis.Value & "' "),"AND VB_ApertureID = '" & Parameters!Vermessungsbezirk.Value & "' ") &
+"ORDER BY Sort DESC "
