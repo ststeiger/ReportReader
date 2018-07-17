@@ -75,7 +75,25 @@ namespace ReportReader.PostReportCode
 
         public static string ExecuteParameter(ParameterStore Parameters)
         {
-            return Microsoft.VisualBasic.CompilerServices.Conversions.ToString(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject("SELECT 2 AS ID, 2 AS Sort, 'Alle' AS Name UNION SELECT DISTINCT PZ_IsAltlasten AS ID, PZ_IsAltlasten AS Sort, 'Ja' AS Name FROM V_AP_BERICHT_SEL_PZ_Altlasten  WHERE PZ_IsAltlasten = 1  ", ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Vermessungsbezirk"].Value, "00000000-0000-0000-0000-000000000000", false) == 0, RuntimeHelpers.GetObjectValue(ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Kreis"].Value, "00000000-0000-0000-0000-000000000000", false) == 0, RuntimeHelpers.GetObjectValue(ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Gemeinde"].Value, "00000000-0000-0000-0000-000000000000", false) == 0, "", "AND GM_ApertureID = '" + Parameters["Gemeinde"].Value + "' ")), "AND KS_ApertureID = '" + Parameters["Kreis"].Value + "' ")), "AND VB_ApertureID = '" + Parameters["Vermessungsbezirk"].Value + "' ")), "UNION "), "SELECT DISTINCT PZ_IsAltlasten AS ID, PZ_IsAltlasten AS Sort, 'Nein' AS Name "), "FROM V_AP_BERICHT_SEL_PZ_Altlasten "), "WHERE PZ_IsAltlasten = 0 "), ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Vermessungsbezirk"].Value, "00000000-0000-0000-0000-000000000000", false) == 0, RuntimeHelpers.GetObjectValue(ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Kreis"].Value, "00000000-0000-0000-0000-000000000000", false) == 0, RuntimeHelpers.GetObjectValue(ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Gemeinde"].Value, "00000000-0000-0000-0000-000000000000", false) == 0, "", "AND GM_ApertureID = '" + Parameters["Gemeinde"].Value + "' ")), "AND KS_ApertureID = '" + Parameters["Kreis"].Value + "' ")), "AND VB_ApertureID = '" + Parameters["Vermessungsbezirk"].Value + "' ")), "ORDER BY Sort DESC "));
+            return "";
+//            return Microsoft.VisualBasic.CompilerServices.Conversions.ToString(
+//                Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(
+//                    Operators.ConcatenateObject(Operators.ConcatenateObject(Operators.ConcatenateObject(
+//                        Operators.ConcatenateObject(
+//                            @"SELECT 2 AS ID, 2 AS Sort, 'Alle' AS Name UNION SELECT DISTINCT PZ_IsAltlasten AS ID, PZ_IsAltlasten AS Sort, 'Ja' AS Name 
+//FROM V_AP_BERICHT_SEL_PZ_Altlasten  WHERE PZ_IsAltlasten = 1  "
+//, ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Vermessungsbezirk"].Value, "00000000-0000-0000-0000-000000000000", false) == 0
+//, RuntimeHelpers.GetObjectValue(ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Kreis"].Value, "00000000-0000-0000-0000-000000000000", false) == 0
+//, RuntimeHelpers.GetObjectValue(ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Gemeinde"].Value, "00000000-0000-0000-0000-000000000000", false) == 0
+//, "", "AND GM_ApertureID = '" + Parameters["Gemeinde"].Value + "' ")), "AND KS_ApertureID = '" + Parameters["Kreis"].Value + "' "))
+//, "AND VB_ApertureID = '" + Parameters["Vermessungsbezirk"].Value + "' ")), "UNION ")
+//, "SELECT DISTINCT PZ_IsAltlasten AS ID, PZ_IsAltlasten AS Sort, 'Nein' AS Name "), "FROM V_AP_BERICHT_SEL_PZ_Altlasten ")
+//, "WHERE PZ_IsAltlasten = 0 "), ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Vermessungsbezirk"].Value
+//, "00000000-0000-0000-0000-000000000000", false) == 0, 
+//RuntimeHelpers.GetObjectValue(ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Kreis"].Value, "00000000-0000-0000-0000-000000000000", false) == 0, 
+//RuntimeHelpers.GetObjectValue(ParameterStore.IIF(EmbeddedOperators.CompareString(Parameters["Gemeinde"].Value, "00000000-0000-0000-0000-000000000000", false) == 0, "", 
+//"AND GM_ApertureID = '" + Parameters["Gemeinde"].Value + "' ")), "AND KS_ApertureID = '" + Parameters["Kreis"].Value + "' ")), 
+//"AND VB_ApertureID = '" + Parameters["Vermessungsbezirk"].Value + "' ")), "ORDER BY Sort DESC "));
         }
 
 
