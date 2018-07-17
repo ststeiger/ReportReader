@@ -1,0 +1,115 @@
+﻿
+/dft:Report/dft:DataSets/dft:DataSet[@Name="DATA_AuswertungIstKosten"]
+/dft:Report/dft:DataSets/dft:DataSet[1]/dft:Query/dft:QueryParameters/dft:QueryParameter[1]
+
+
+/dft:Report/dft:DataSets/dft:DataSet[4]/dft:Query/dft:QueryParameters/dft:QueryParameter[1][@Name="@in_mandant"]
+
+
+/dft:Report/dft:ReportParameters/dft:ReportParameter[8][@Name="in_stichtag"]
+/dft:Report/dft:ReportParameters/dft:ReportParameter[8]/dft:DefaultValue/dft:Values/dft:Value
+
+
+
+
+
+<DataSets>
+<DataSet Name="DATA_AuswertungIstKosten">
+<Query>
+<DataSourceName>COR_Basic</DataSourceName>
+<QueryParameters>
+<QueryParameter Name="@in_mandant">
+<Value>=Parameters!in_mandant.Value</Value>
+</QueryParameter>
+<QueryParameter Name="@in_sprache">
+<Value>=Parameters!in_sprache.Value</Value>
+</QueryParameter>
+<QueryParameter Name="@in_standort">
+<Value>=Parameters!in_standort.Value</Value>
+</QueryParameter>
+<QueryParameter Name="@in_gebaeude">
+<Value>=Parameters!in_gebaeude.Value</Value>
+</QueryParameter>
+<QueryParameter Name="@in_budgetjahr">
+<Value>=Parameters!in_budgetjahr.Value</Value>
+</QueryParameter>
+<QueryParameter Name="@in_anlage">
+<Value>=Parameters!in_anlage.Value</Value>
+</QueryParameter>
+<QueryParameter Name="@in_groups">
+<Value>=Parameters!in_groups.Value</Value>
+</QueryParameter>
+</QueryParameters>
+<CommandType>StoredProcedure</CommandType>
+<CommandText>sp_RPT_DATA_UPS_AuswertungIstKosten_MultiEbene</CommandText>
+<Timeout>300</Timeout>
+</Query>
+<Fields>
+<Field Name="RPT_RK_UID">
+<DataField>RPT_RK_UID</DataField>
+<rd:TypeName>System.Guid</rd:TypeName>
+</Field>
+<Field Name="RPT_Year">
+<DataField>RPT_Year</DataField>
+<rd:TypeName>System.Int32</rd:TypeName>
+</Field>
+<Field Name="RPT_IstAmount">
+<DataField>RPT_IstAmount</DataField>
+<rd:TypeName>System.Double</rd:TypeName>
+</Field>
+<Field Name="SO_UID">
+<DataField>SO_UID</DataField>
+<rd:TypeName>System.Guid</rd:TypeName>
+</Field>
+<Field Name="RPT_BKP_UID">
+<DataField>RPT_BKP_UID</DataField>
+<rd:TypeName>System.Guid</rd:TypeName>
+</Field>
+<Field Name="GB_UID">
+<DataField>GB_UID</DataField>
+<rd:TypeName>System.Guid</rd:TypeName>
+</Field>
+<Field Name="RPT_Kostenart">
+<DataField>RPT_Kostenart</DataField>
+<rd:TypeName>System.String</rd:TypeName>
+</Field>
+<Field Name="GS_UID">
+<DataField>GS_UID</DataField>
+<rd:TypeName>System.Guid</rd:TypeName>
+</Field>
+<Field Name="RPT_Ebene">
+<DataField>RPT_Ebene</DataField>
+<rd:TypeName>System.Int32</rd:TypeName>
+</Field>
+<Field Name="RM_UID">
+<DataField>RM_UID</DataField>
+<rd:TypeName>System.Guid</rd:TypeName>
+</Field>
+<Field Name="RPT_BKP_Sort">
+<DataField>RPT_BKP_Sort</DataField>
+<rd:TypeName>System.String</rd:TypeName>
+</Field>
+<Field Name="AL_UID">
+<DataField>AL_UID</DataField>
+<rd:TypeName>System.Guid</rd:TypeName>
+</Field>
+<Field Name="RPT_IsPlanned">
+<DataField>RPT_IsPlanned</DataField>
+<rd:TypeName>System.Boolean</rd:TypeName>
+</Field>
+<Field Name="RPT_Betriebskosten">
+<DataField>RPT_Betriebskosten</DataField>
+<rd:TypeName>System.String</rd:TypeName>
+</Field>
+<Field Name="RPT_ORT_Lang">
+<DataField>RPT_ORT_Lang</DataField>
+<rd:TypeName>System.String</rd:TypeName>
+</Field>
+<Field Name="RPT_FontColor">
+<DataField>RPT_FontColor</DataField>
+<rd:TypeName>System.String</rd:TypeName>
+</Field>
+</Fields>
+</DataSet>
+
+

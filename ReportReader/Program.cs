@@ -1,9 +1,9 @@
 ﻿
-namespace ReportReader
-{
+namespace ReportReader 
+{ 
 
 
-    class Program
+    class Program 
     {
 
 
@@ -51,7 +51,10 @@ namespace ReportReader
             // report.ToJSON();
 
 
-            System.Collections.Generic.HashSet<string> hs = new System.Collections.Generic.HashSet<string>(System.StringComparer.InvariantCultureIgnoreCase);
+            System.Collections.Generic.HashSet<string> hs = 
+                new System.Collections.Generic.HashSet<string>(
+                    System.StringComparer.InvariantCultureIgnoreCase
+            );
             
             hs.Add("DATA_Report_Translation");
             hs.Add("DATA_Report_Title");
