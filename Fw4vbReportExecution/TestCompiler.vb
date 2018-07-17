@@ -1,7 +1,4 @@
 ﻿
-' Imports Microsoft.VisualBasic
-
-
 Public Class TestCompiler
 
 
@@ -39,7 +36,7 @@ Public Class TestCompiler
 
         Using codeProvider As Microsoft.VisualBasic.VBCodeProvider = New Microsoft.VisualBasic.VBCodeProvider
 
-            'Dim icc As System.CodeDom.Compiler.ICodeCompiler = c.CreateCompiler()
+            'Dim icc As System.CodeDom.Compiler.ICodeCompiler = codeProvider.CreateCompiler()
             Dim cp As System.CodeDom.Compiler.CompilerParameters = New System.CodeDom.Compiler.CompilerParameters
 
             cp.ReferencedAssemblies.Add("System.dll")
@@ -48,7 +45,7 @@ Public Class TestCompiler
             ' cp.ReferencedAssemblies.Add("Microsoft.JScript.dll")
 
             ' Sample code for adding your own referenced assemblies
-            'cp.ReferencedAssemblies.Add("c:\yourProjectDir\bin\YourBaseClass.dll")
+            'cp.ReferencedAssemblies.Add("C:\YourProjectDir\bin\YourBaseClass.dll")
             'cp.ReferencedAssemblies.Add("YourBaseclass.dll")
 
             cp.CompilerOptions = "/t:library"
@@ -68,7 +65,7 @@ Public Class TestCompiler
 
 
         Return retValue
-    End Function
+    End Function ' Eval 
 
 
-End Class
+End Class ' TestCompiler 
