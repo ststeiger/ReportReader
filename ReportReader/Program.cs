@@ -51,6 +51,74 @@ namespace ReportReader
             // report.ToJSON();
 
 
+            foreach (System.Collections.Generic.KeyValuePair < string, Xml2CSharp.ReportParameter> kvp in report.Parameters)
+            {
+                string name = kvp.Key;
+                Xml2CSharp.ReportParameter rp = kvp.Value;
+
+                // rp.Name
+                // rp.Prompt
+
+
+                // rp.DataType // DatenTyp
+                // rp.AllowBlank // Leeren Wert ("") zulassen 
+                // rp.Nullable // NULL-Wert zulassen
+                // rp.MultiValue // Mehrere Werte zulassen
+
+                // rp.Hidden // Ausgeblendet 
+
+                // rp.ValidValues // Verfügbare Werte
+                // Keiner / Werte Angeben / Werte aus Abfrage abrufen 
+                // rp.DefaultValue // Standardwerte
+                // Kein Standrartwert // Werte angeben // Werte aus Abfrage abrufen 
+
+                // Erweitert
+                // Aktualisierungszeitpunkt bestimmen
+                // - Aktualisierungszeitpunkt automatisch bestimmen 
+                // - Immer aktualisieren
+                // - Nie aktualisieren
+
+                // Berichtsteilbenachrichtigungen 
+                // Benachrichtigen, wenn dieser Berichtsteil auf dem Server aktualisiert wird
+
+                // rp.IsHidden
+                // rp.IsTranslated
+
+
+                // rp.PromptGerman
+
+                // rp.UsedInQuery
+                // rp.ValidValues.DataSetReference
+                // rp.ValidValues.DataSetReference.DataSetName
+            }
+
+
+
+
+
+            foreach (System.Collections.Generic.KeyValuePair<string, Xml2CSharp.DataSet> kvp in report.DataSets)
+            {
+                string name = kvp.Key;
+                Xml2CSharp.DataSet ds = kvp.Value;
+
+                foreach (Xml2CSharp.QueryParameter p in ds.Query.QueryParameters.QueryParameter)
+                {
+                    System.Console.WriteLine(p.Name);
+                    System.Console.WriteLine(p.Value);
+                }
+            }
+
+
+
+            foreach (Xml2CSharp.QueryParameter p in report.DataSets["foo"].Query.QueryParameters.QueryParameter)
+            {
+
+            }
+
+            
+
+
+
             System.Collections.Generic.HashSet<string> hs = 
                 new System.Collections.Generic.HashSet<string>(
                     System.StringComparer.InvariantCultureIgnoreCase
