@@ -45,80 +45,75 @@ namespace ReportReader
         {
             // Json2CSharp.Report rep = Json2CSharp.Report.FromJsonFile("newton.json");
             // System.Console.WriteLine(rep);
-
+            
             RdlReader report = new RdlReader().OpenFile(fileName);
             // report.GetDataSets();
             // report.ToJSON();
-
-
-            foreach (System.Collections.Generic.KeyValuePair < string, Xml2CSharp.ReportParameter> kvp in report.Parameters)
+            
+            
+            foreach (System.Collections.Generic.KeyValuePair<string, Xml2CSharp.ReportParameter> kvp in report.Parameters)
             {
                 string name = kvp.Key;
                 Xml2CSharp.ReportParameter rp = kvp.Value;
-
+                
                 // rp.Name
                 // rp.Prompt
-
-
+                
+                
                 // rp.DataType // DatenTyp
                 // rp.AllowBlank // Leeren Wert ("") zulassen 
                 // rp.Nullable // NULL-Wert zulassen
                 // rp.MultiValue // Mehrere Werte zulassen
-
+                
                 // rp.Hidden // Ausgeblendet 
-
+                
                 // rp.ValidValues // Verfügbare Werte
                 // Keiner / Werte Angeben / Werte aus Abfrage abrufen 
                 // rp.DefaultValue // Standardwerte
                 // Kein Standrartwert // Werte angeben // Werte aus Abfrage abrufen 
-
+                
                 // Erweitert
                 // Aktualisierungszeitpunkt bestimmen
                 // - Aktualisierungszeitpunkt automatisch bestimmen 
                 // - Immer aktualisieren
                 // - Nie aktualisieren
-
+                
                 // Berichtsteilbenachrichtigungen 
                 // Benachrichtigen, wenn dieser Berichtsteil auf dem Server aktualisiert wird
 
                 // rp.IsHidden
                 // rp.IsTranslated
-
-
+                
+                
                 // rp.PromptGerman
-
+                
                 // rp.UsedInQuery
                 // rp.ValidValues.DataSetReference
                 // rp.ValidValues.DataSetReference.DataSetName
-            }
-
-
-
-
-
+            } // Next kvp 
+            
+            
             foreach (System.Collections.Generic.KeyValuePair<string, Xml2CSharp.DataSet> kvp in report.DataSets)
             {
                 string name = kvp.Key;
                 Xml2CSharp.DataSet ds = kvp.Value;
-
+                
                 foreach (Xml2CSharp.QueryParameter p in ds.Query.QueryParameters.QueryParameter)
                 {
                     System.Console.WriteLine(p.Name);
                     System.Console.WriteLine(p.Value);
-                }
-            }
-
-
-
+                } // Next p 
+                
+            } // Next kvp 
+            
+            
             foreach (Xml2CSharp.QueryParameter p in report.DataSets["foo"].Query.QueryParameters.QueryParameter)
             {
-
-            }
-
+                
+            } // Next p 
             
-
-
-
+            
+            
             System.Collections.Generic.HashSet<string> hs = 
                 new System.Collections.Generic.HashSet<string>(
                     System.StringComparer.InvariantCultureIgnoreCase
@@ -129,24 +124,21 @@ namespace ReportReader
             hs.Add("SEL_Report_Title");
             hs.Add("LANG_Report_Title");
             
-
             hs.Add("SEL_User");
             hs.Add("SEL_Benutzer");
             
             hs.Add("SEL_Image");
             hs.Add("LANG_DateFormatString");
             hs.Add("LANG_PageFormatString");
-
-
-
-
+            
+            
             sb.AppendLine(report.ReportName);
-
-
+            
+            
             sb.Append("  ");
             sb.Append((char)9672); // https://www.w3schools.com/charsets/ref_utf_geometric.asp
             sb.AppendLine(" Parameter:");
-
+            
             foreach (string key in report.Parameters.Keys)
             {
                 Xml2CSharp.ReportParameter para = report.Parameters[key];
@@ -192,13 +184,13 @@ namespace ReportReader
             foreach (string key in report.DataSets.Keys)
             {
                 Xml2CSharp.DataSet ds = report.DataSets[key];
-
+                
                 if(hs.Contains(ds.Name)) // Default-report objects (LANG_, Translation, title)
                     continue;
-
+                
                 sb.Append("    -- ");
                 sb.Append(ds.Name);
-
+                
                 //if (ds.Query.IsStoredProcedure)
                 if (ds.Query.DbDependencies.Length > 0)
                 {
@@ -207,11 +199,10 @@ namespace ReportReader
                     sb.Append(ds.Query.DbDependencies);
                     sb.Append(")  ");
                 } // End if (ds.Query.DbDependencies.Length > 0) 
-
+                
                 sb.AppendLine();
             } // Next key 
-
-
+            
             sb.AppendLine(System.Environment.NewLine);
             sb.AppendLine(System.Environment.NewLine);
         } // End Sub Main 
