@@ -7,6 +7,7 @@ namespace Fw4csReportExecution
     {
 
 
+
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
@@ -18,6 +19,8 @@ namespace Fw4csReportExecution
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
             System.Windows.Forms.Application.Run(new Form1());
 #endif
+            // PdfIndexer.Start(@"D:\username\Desktop\Books\sammel");
+
             object result = TestCompiler.Eval("Return (1+1).ToString() + \"px\" ");
             System.Console.WriteLine(result);
 
