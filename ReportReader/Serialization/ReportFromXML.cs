@@ -202,9 +202,9 @@ namespace ReportReader.Xml2CSharp
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class Values
     {
-        [XmlElement(ElementName = "Value",
+        [XmlElement(ElementName = "Value", 
             Namespace = Report.DEFAULT_NAMESPACE)]
-        public string Value { get; set; }
+        public List<string> Value { get; set; }
     }
 
     [XmlRoot(ElementName = "DefaultValue",

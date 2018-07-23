@@ -1,302 +1,682 @@
-﻿AL_Anlageblatt
+﻿UPS_Ist_Kosten_Standort
   ◈ Parameter:
-    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+  ◈ DataSets:
+    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_AuswertungIstKosten_MultiEbene)  
+    -- SEL_Anlage
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (Alle)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+
+
+
+
+03 - Memory Usage Summary
+  ◈ Parameter:
+    -- Select Cluster (übersetzt) (Dataset Cluster_ds) 
+    -- Start Date (NICHT übersetzt) (Default: Nichts) 
+    -- End Date (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Select Interval (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+  ◈ DataSets:
+    -- RAM_Summary_ds
+    -- Cluster_ds
+    -- SQLServer_ds
+
+
+
+
+AD_Mitarbeiterliste_ML
+  ◈ Parameter:
+    -- Kostenstelle (übersetzt) (Dataset SEL_Kostenstelle) 
+    -- Organisationseinheit (übersetzt) (Dataset SEL_Organisationseinheit) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Mitarbeiterliste    (sp_RPT_DATA_MitarbeiterDetail)  
+    -- SEL_Kostenstelle    (sp_RPT_SEL_Kostenstellen)  
+    -- SEL_Organisationseinheit    (sp_RPT_SEL_Organisationseinheit)  
+
+
+
+
+alt_AL_Anlageblatt
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Jahr von (NICHT übersetzt) (Dataset SEL_Jahr) 
+    -- Jahr bis (NICHT übersetzt) (Dataset SEL_Jahr) 
     -- Anlage (NICHT übersetzt) (Dataset SEL_Anlage) 
-    -- Anlageteil (NICHT übersetzt) (Dataset SEL_Bauteil) 
-    -- Jahr (NICHT übersetzt) (Default: =System.DateTime.Now.Year) 
-    -- Kostenart (NICHT übersetzt) (Dataset SEL_Kostenart) 
   ◈ DataSets:
     -- DATA_Anlagenblatt    (sp_RPT_DATA_AL_Anlagenblatt)  
-    -- SEL_Anlage    (V_RPT_SEL_AL_Anlage, T_SYS_Anlagerechte)  
-    -- SEL_Standort    (Alle)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll)  
-    -- SEL_Geschoss    (Alle)  
+    -- SEL_Anlage    (V_RPT_SEL_AL_Anlage)  
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
     -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Bauteil    (tfu_RPT_SEL_Anlage)  
-    -- SEL_Kostenart    (tfu_RPT_SEL_UPS_Baukostenplan, tfu_RPT_AL_Anlagenblatt)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
 
 
 
 
-AL_Anlageninventar_ML
+AL_Anlageblatt
   ◈ Parameter:
     -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
     -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
     -- Raum (übersetzt) (Dataset SEL_Raum) 
+    -- Jahr von (übersetzt) (Dataset SEL_Jahr) 
+    -- Jahr bis (übersetzt) (Dataset SEL_Jahr) 
+    -- Anlage (NICHT übersetzt) (Dataset SEL_Anlage) 
+  ◈ DataSets:
+    -- DATA_Anlagenblatt    (sp_RPT_DATA_AL_Anlagenblatt)  
+    -- SEL_Anlage    (V_RPT_SEL_AL_Anlage)  
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+
+
+
+
+AL_Anlagenkosten
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
     -- Anlagenkategorie (NICHT übersetzt) (Dataset SEL_AnlageKategorie) 
-    -- Wartungstyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Stichtag (übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
     -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- DATA_Anlagen    (sp_RPT_DATA_AL_Anlageninventar)  
+    -- DATA_Anlagen    (sp_RPT_DATA_AL_Anlagenkosten)  
     -- SEL_AnlageKategorie    (sp_RPT_SEL_AL_AnlageKategorie)  
     -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
 
 
 
 
-AL_Lebenslauf_Anlage
-  ◈ Parameter:
-    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
-    -- Anlagen (übersetzt) (Dataset SEL_Anlage) 
-    -- Anlageteil (NICHT übersetzt) (Dataset SEL_Bauteil) 
-    -- Kostenart (NICHT übersetzt) (Dataset SEL_Kostenart) 
-    -- Task von (NICHT übersetzt) (Default: Nichts) 
-    -- Task bis (NICHT übersetzt) (Default: Nichts) 
-    -- Stichtag (übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
-  ◈ DataSets:
-    -- SEL_Standort    (Alle)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll)  
-    -- SEL_Geschoss    (Alle)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- DATA_Anlagenlebenslauf    (sp_RPT_DATA_AL_Anlagenlebenslauf)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- SEL_Anlage    (tfu_RPT_SEL_Anlage, T_SYS_Anlagerechte)  
-    -- SEL_Bauteil    (tfu_RPT_SEL_Anlage, T_SYS_Anlagerechte)  
-    -- SEL_Kostenart    (tfu_RPT_SEL_UPS_Baukostenplan, tfu_RPT_AL_Anlagenlebenslauf)  
-
-
-
-
-BL_BelegungproOE
-  ◈ Parameter:
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-  ◈ DataSets:
-    -- DATA_Belegung    (sp_RPT_DATA_BL_BelegungproOE_MultiEbene)  
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-
-
-
-
-BL_BelegungproOE_mitAP
-  ◈ Parameter:
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-  ◈ DataSets:
-    -- DATA_Belegung    (sp_RPT_DATA_BL_BelegungproOE_AP)  
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-
-
-
-
-EXP_Adressliste
-  ◈ Parameter:
-  ◈ DataSets:
-    -- DATA_Vertragsliste    (sp_RPT_DATA_Exp_AV_Adressliste)  
-
-
-
-
-EXP_Anlagenstrategie_SNB
-  ◈ Parameter:
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Wartungstyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-  ◈ DataSets:
-    -- DATA_Anlage    (sp_RPT_DATA_EXP_Anlagenstrategie)  
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-
-
-
-
-EXP_Anlagen_Lebensdauer_SNB
+AL_Anlagenuebersicht
   ◈ Parameter:
     -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
     -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
-    -- Stichtag (NICHT übersetzt) (Default: =DateTime.Now.ToString("dd.MM.yyyy")) 
-    -- Rest Lebensdauer (Jahre) zwischen: (NICHT übersetzt) (Default: 1) 
-    -- Und (Jahre): (NICHT übersetzt) (Default: 10) 
-    -- Wartungstyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Anlagenkategorie (NICHT übersetzt) (Dataset SEL_Anlagenkategorie) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
+    -- SEL_Anlagenkategorie    (V_RPT_SEL_AnlageKategorie)  
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
     -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- DATA_Anlageliste    (sp_RPT_DATA_EXP_Anlagen_Lebensdauer_SNB)  
-    -- SEL_Verantwortlich    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_AP_Anlage)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks, V_RPT_SEL_Alle)  
+    -- DATA_Anlagen    (sp_RPT_DATA_Anlagenuebersicht)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
 
 
 
 
-EXP_Anlagen_SNB
+AL_Kostenuebersicht
   ◈ Parameter:
-    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
-    -- Wartungstyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Bereich (NICHT übersetzt) (Dataset SEL_Bereich) 
+    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Jahr von (NICHT übersetzt) (Dataset SEL_Jahr) 
+    -- Jahr bis (NICHT übersetzt) (Dataset SEL_Jahr) 
+    -- Anlagenkategorie (NICHT übersetzt) (Dataset SEL_Anlagenkategorie) 
   ◈ DataSets:
-    -- DATA_Anlage    (sp_RPT_DATA_EXP_AnlagenDetail)  
+    -- DATA_Kostenuebersicht    (sp_RPT_DATA_AL_Kostenuebersicht)  
+    -- SEL_Anlage    (V_RPT_SEL_AL_Anlage)  
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
     -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Verantwortlich    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_AP_Anlage)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks, V_RPT_SEL_Alle)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+    -- SEL_Anlagenkategorie    (sp_RPT_SEL_AL_AnlageKategorie)  
+    -- SEL_Kostenstelle    (sp_RPT_SEL_RM_Kostenstelle)  
+    -- SEL_Position    (V_RPT_SEL_UPS_BKP)  
+    -- SEL_Bereich    (V_RPT_SEL_UPS_Planungsvariante)  
 
 
 
 
-EXP_APBelegung_SNB
-  ◈ Parameter:
-  ◈ DataSets:
-    -- DATA_APBelegung    (sp_RPT_DATA_EXP_APBelegung_SNB)  
-
-
-
-
-EXP_APohneBelegung_SNB
-  ◈ Parameter:
-  ◈ DataSets:
-    -- DATA_APBelegung    (sp_RPT_DATA_EXP_APohneBelegung_SNB)  
-
-
-
-
-EXP_MAohneAP_SNB
-  ◈ Parameter:
-  ◈ DataSets:
-    -- DATA_MAohneAP    (V_RPT_EXP_MAohneAP_SNB)  
-
-
-
-
-EXP_Moebel
-  ◈ Parameter:
-  ◈ DataSets:
-    -- DATA_Moebel    (sp_RPT_DATA_SL_Export_Moebel)  
-
-
-
-
-EXP_Moebel_Zylinder
-  ◈ Parameter:
-    -- Export Türen (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-  ◈ DataSets:
-    -- DATA_Moebel_Zylinder    (T_ZO_AP_Schluesselgruppe_AP_Zylinder, T_AP_Schluesselgruppe, T_AP_Ref_ZylinderSchliesssystem, T_ZO_AP_Schluesselgruppe_AP_Zylinder, T_AP_Schluesselgruppe, T_ZO_AP_Tuer_Schliessung, T_AP_Ref_Schliessungstyp, T_AP_Mobiliar, T_AP_Ref_MobiliarBibliothek, T_AP_Arbeitsplatz, T_AP_Raum, T_AP_Geschoss, T_AP_Trakt, T_AP_Ref_Geschosstyp, T_AP_Gebaeude, T_AP_Standort, T_AP_Zylinder, T_AP_Ref_ZylinderKategorie, T_AP_Ref_ZylinderTyp, T_AP_Tuer, T_SYS_Standortrechte, T_SYS_Gebaeuderechte, T_SYS_Geschossrechte, T_SYS_Raumrechte, T_SYS_Traktrechte, T_SYS_Arbeitsplatzrechte, T_SYS_Mobiliarrechte, T_SYS_Zylinderrechte)  
-
-
-
-
-EXP_Raumliste_Excel_SNB
+AL_Lebenslauf_Anlage
   ◈ Parameter:
     -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
     -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
-    -- Stichtag (übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
+    -- Raum (übersetzt) (Dataset SEL_Raum) 
+    -- Anlagen (übersetzt) (Dataset SEL_Anlage) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Task von (NICHT übersetzt) (Default: Nichts) 
+    -- Task bis (NICHT übersetzt) (Default: Nichts) 
   ◈ DataSets:
-    -- DATA_Raumliste    (sp_RPT_DATA_EXP_Raumliste_SNB)  
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Anlagenlebenslauf    (sp_RPT_DATA_AL_Anlagenlebenslauf)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Anlage    (V_RPT_SEL_AL_Anlage)  
 
 
 
 
-EXP_Schliessmatrix
+AO_AussenobjektAusbau
   ◈ Parameter:
-    -- Schliesssystem (NICHT übersetzt) (Dataset SEL_Schliesssystem) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Aussenobjektkategorie (NICHT übersetzt) (Dataset SEL_Aussenobjektkategorie) 
+    -- Bodenbelag (NICHT übersetzt) (Dataset SEL_AussenobjektBodenbelag) 
   ◈ DataSets:
-    -- DATA_Schliessmatrix    (sp_RPT_DATA_SL_Schliessmatrix)  
-    -- SEL_Schliesssystem    (tfu_RPT_SEL_Schliesssystem)  
-
-
-
-
-EXP_Schluessel
-  ◈ Parameter:
-    -- Schlüsselstatus (NICHT übersetzt) (Dataset SEL_Status) 
-  ◈ DataSets:
-    -- DATA_Schluessel    (sp_RPT_DATA_SL_Export_Schluessel)  
-    -- SEL_Status    (V_RPT_SEL_SL_Schluesselstatus)  
-
-
-
-
-EXP_Schluesselgruppe
-  ◈ Parameter:
-  ◈ DataSets:
-    -- DATA_Schluesselgruppe    (sp_RPT_DATA_SL_Export_Schluesselgruppe)  
-
-
-
-
-EXP_Tuer
-  ◈ Parameter:
-  ◈ DataSets:
-    -- DATA_Tuer    (sp_RPT_DATA_SL_Export_Tuer)  
-
-
-
-
-EXP_Tueren_Zylinder
-  ◈ Parameter:
-    -- Export Türen (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-  ◈ DataSets:
-    -- DATA_Tueren_Zylinder    (T_ZO_AP_Schluesselgruppe_AP_Zylinder, T_AP_Schluesselgruppe, T_AP_Ref_ZylinderSchliesssystem, T_ZO_AP_Schluesselgruppe_AP_Zylinder, T_AP_Schluesselgruppe, T_ZO_AP_Tuer_Schliessung, T_AP_Ref_Schliessungstyp, T_AP_Tuer, T_AP_Ref_TuerMaterial, T_AP_Ref_TuerTyp, T_AP_Ref_TuerFunktion, T_AP_Zylinder, T_AP_Ref_ZylinderTyp, T_AP_Ref_ZylinderKategorie, T_AP_Raum, T_AP_Geschoss, T_AP_Trakt, T_AP_Ref_Geschosstyp, T_AP_Gebaeude, T_AP_Standort, T_SYS_Standortrechte, T_SYS_Gebaeuderechte, T_SYS_Geschossrechte, T_SYS_Raumrechte, T_SYS_Traktrechte, T_SYS_Zylinderrechte, T_SYS_Tuerrechte)  
-
-
-
-
-EXP_UPS_Budget_AlleKostenstellen
-  ◈ Parameter:
-    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
-    -- Anzahl Vorjahre (NICHT übersetzt) (Default: 1) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
-    -- Sachkonto (NICHT übersetzt) (Dataset SEL_Baukostenplan_Stufe4) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
-  ◈ DataSets:
-    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_BudgetierungUndIstKosten_MultiEbene)  
-    -- SEL_Anlage
+    -- DATA_AussenobjektAusbau    (sp_RPT_DATA_AO_AussenobjektAusbau)  
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll)  
-    -- SEL_Jahr    (T_UPS_BudgetPositionen)  
-    -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-    -- SEL_Verantwortlich    (V_RPT_SEL_UPS_verantwortlich, T_Benutzer_Benutzergruppen, T_Benutzergruppen)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_UPS_BudgetPositionen)  
-    -- SEL_Baukostenplan_Stufe4    (tfu_RPT_SEL_UPS_BaukostenplanStufe4)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_UPS_BudgetPositionen, T_RPT_Translations)  
+    -- SEL_AussenobjektBodenbelag    (T_AP_Ref_AussenobjektBodenbelag, T_AP_Aussenobjekt, T_AP_Standort)  
+    -- SEL_Aussenobjektkategorie    (T_AP_Ref_AussenobjektKategorie, T_AP_Aussenobjekt, T_AP_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
 
 
 
 
-EXP_Vertragsliste
+AO_AussenobjektBodenbelag
   ◈ Parameter:
-    -- Vertragstyp (NICHT übersetzt) (Dataset SEL_Vertragstyp) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Aussenobjektkategorie (NICHT übersetzt) (Dataset SEL_Aussenobjektkategorie) 
+    -- Bodenbelag (NICHT übersetzt) (Dataset SEL_AussenobjektBodenbelag) 
   ◈ DataSets:
-    -- DATA_Vertragsliste    (sp_RPT_DATA_EXP_VM_Vertragsliste)  
-    -- SEL_Vertragstyp    (tfu_RPT_SEL_VM_Vertragstyp, T_VM_Vertraege)  
-    -- SEL_Verantwortlich    (tfu_RPT_SEL_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_VM_Vertraege)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks, V_RPT_SEL_Alle)  
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_AussenobjektBodenbelag    (T_AP_Ref_AussenobjektBodenbelag, T_AP_Aussenobjekt, T_AP_Standort)  
+    -- SEL_Aussenobjektkategorie    (T_AP_Ref_AussenobjektKategorie, T_AP_Aussenobjekt, T_AP_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- DATA_AussenobjektBodenbelag    (sp_RPT_DATA_AO_AussenobjektBodenbelag)  
 
 
 
 
-EXP_Zylinder
+AP_Arbeitsplatzbelegung_ML
+  ◈ Parameter:
+    -- Standort (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (übersetzt) (Dataset SEL_Trakt) 
+    -- Arbeitsplatzkategorie (übersetzt) (Dataset SEL_Arbeitsplatzkategorie) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- SEL_Arbeitsplatzkategorie    (sp_RPT_SEL_AP_Arbeitsplatzkategorie)  
+    -- SEL_Trakt    (sp_RPT_MSEL_Trakt)  
+    -- DATA_Arbeitsplatzdetail    (sp_RPT_DATA_MSEL_Arbeitsplatzbelegungsdetail)  
+
+
+
+
+AP_Arbeitsplatzuebersicht_ML
+  ◈ Parameter:
+    -- in_mandant (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Benutzer (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- in_groups (NICHT übersetzt) (Dataset SEL_User) 
+    -- in_sprache (NICHT übersetzt) (Dataset SEL_User) 
+    -- in_report_name (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Standort (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (übersetzt) (Dataset SEL_Trakt) 
+    -- Arbeitsplatzkategorie (übersetzt) (Dataset SEL_Arbeitsplatzkategorie) 
+    -- Belegung (übersetzt) (Dataset SEL_Arbeitsplatzbelegung) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Titel (NICHT übersetzt) (Dataset DATA_Report_Title) 
+    -- FormatString für Seitennumerierung (NICHT übersetzt) (Dataset LANG_PageFormatString) 
+    -- Datumsformat (NICHT übersetzt) (Dataset LANG_DateFormatString) 
+    -- Logo (NICHT übersetzt) (Dataset SEL_Image) 
+    -- Pad Left (NICHT übersetzt) (Dataset SEL_Image) 
+    -- Pad Right (NICHT übersetzt) (Dataset SEL_Image) 
+    -- Pad Top (NICHT übersetzt) (Dataset SEL_Image) 
+    -- Pad Bottom (NICHT übersetzt) (Dataset SEL_Image) 
+    -- Mime (NICHT übersetzt) (Dataset SEL_Image) 
+    -- Hide Logo (NICHT übersetzt) (Dataset SEL_Image) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- SEL_Arbeitsplatzkategorie    (sp_RPT_SEL_AP_Arbeitsplatzkategorie)  
+    -- SEL_Trakt    (sp_RPT_MSEL_Trakt)  
+    -- DATA_Arbeitsplatzdetail    (sp_RPT_DATA_MSEL_Arbeitsplatzuebersichtsdetail)  
+    -- SEL_Arbeitsplatzbelegung    (sp_RPT_SEL_Arbeitsplatzbelegung)  
+
+
+
+
+Arbeitsplatzstatus
+  ◈ Parameter:
+    -- Standortkategorie (NICHT übersetzt) (Dataset SEL_Standortkategorie) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+  ◈ DataSets:
+    -- SEL_Standort    (V_RPT_SEL_Standort_Raiffeisen)  
+    -- SEL_Gebaeude    (V_RPT_SEL_Gebaeude_Raiffeisen)  
+    -- DATA_BelegungArbeitsplatz    (sp_RPT_DATA_BelegungArbeitsplaetze_Raiffeisen)  
+    -- SEL_Geschoss    (V_RPT_SEL_Geschoss_Raiffeisen)  
+    -- SEL_Standortkategorie    (V_RPT_SEL_Standortkategorie_Raiffeisen)  
+
+
+
+
+ArtList
+  ◈ Parameter:
+    -- BE_ID (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- D (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- T (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- RG (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- LC (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- CTR (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- PR (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- FL (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- RM (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- US (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- AS (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- IR (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Art    (sp_REPORT_AR_ArtList_List_SM)  
+
+
+
+
+Benutzerliste
+  ◈ Parameter:
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Benutzer    (T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_Benutzer, T_Benutzergruppen)  
+
+
+
+
+Benutzerliste_Portal
   ◈ Parameter:
   ◈ DataSets:
-    -- DATA_Zylinder    (sp_RPT_DATA_SL_Export_Zylinder)  
+    -- DATA_Benutzer    (sp_RPT_DATA_USR_PortalBenutzerDetails)  
 
 
 
 
-FM_NutzungsartenDIN_277_SNB_ML
+BL_Belegung
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Nutzungsart (NICHT übersetzt) (Dataset SEL_Nutzungsart) 
+    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstellen) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (V_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_BelegungKostenstelleDetail    (sp_RPT_DATA_BelegungKostenstelleDetail)  
+    -- SEL_Nutzungsart    (V_RPT_SEL_Nutzung)  
+    -- SEL_Kostenstellen    (sp_RPT_SEL_Kostenstellen)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+
+
+
+
+BL_Belegung_ML
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Nutzungsart (NICHT übersetzt) (Dataset SEL_Nutzungsart) 
+    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstellen) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_BelegungKostenstelleDetail    (sp_RPT_DATA_BelegungKostenstelleDetail)  
+    -- SEL_Nutzungsart    (sp_RPT_SEL_Nutzungsart)  
+    -- SEL_Kostenstellen    (sp_RPT_SEL_Kostenstellen)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Title    (sp_RPT_Report_TitleTranslation)  
+
+
+
+
+DEV_Mitarbeiterliste
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DataSet1    (T_AP_Kontakte)  
+
+
+
+
+EmployeePerWorkplace
+  ◈ Parameter:
+    -- Region (NICHT übersetzt) (Dataset SEL_Region) 
+    -- Country (NICHT übersetzt) (Dataset SEL_Country) 
+    -- Location (NICHT übersetzt) (Dataset SEL_Location) 
+    -- Premises (NICHT übersetzt) (Dataset SEL_Premises) 
+    -- Floor (NICHT übersetzt) (Dataset SEL_Floor) 
+    -- Room (NICHT übersetzt) (Dataset SEL_Room) 
+    -- Employee Cost Center (NICHT übersetzt) (Dataset SEL_CostCenter) 
+    -- Global Function (NICHT übersetzt) (Dataset SEL_GlobalFunction) 
+    -- Division (NICHT übersetzt) (Dataset SEL_Division) 
+    -- Department (NICHT übersetzt) (Dataset SEL_Department) 
+    -- Main Flag (NICHT übersetzt) (Dataset SEL_WorkplaceType) 
+  ◈ DataSets:
+    -- SEL_Region    (V_REPORT_SEL_Region, V_REPORT_DATA_WorkplaceEmployee)  
+    -- SEL_Location    (V_REPORT_SEL_Location, V_REPORT_DATA_WorkplaceEmployee)  
+    -- SEL_Premises    (V_REPORT_SEL_Premises, V_REPORT_DATA_WorkplaceEmployee)  
+    -- SEL_Floor    (V_REPORT_SEL_Floor, V_REPORT_DATA_WorkplaceEmployee)  
+    -- SEL_CostCenter    (V_REPORT_SEL_CostcenterEmployee)  
+    -- DATA_Workplace    (V_REPORT_DATA_WorkplaceEmployee)  
+    -- SEL_Room    (V_REPORT_SEL_Room, T_Workplace)  
+    -- SEL_Country    (V_REPORT_SEL_Country, V_REPORT_DATA_WorkplaceEmployee)  
+    -- SEL_Department    (V_REPORT_SEL_WPP_Department, V_REPORT_Ref_WorkplaceDetail)  
+    -- SEL_Division    (V_REPORT_SEL_WPP_Division, V_REPORT_DATA_WCM_ActualEmployeesPerDivision, V_REPORT_Ref_WorkplaceDetail)  
+    -- SEL_WorkplaceType
+    -- SEL_GlobalFunction    (V_REPORT_SEL_GlobalFunction)  
+
+
+
+
+EM_Energiemanagement_ML
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Jahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+  ◈ DataSets:
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- DATA_Energie_Historisch    (sp_RPT_DATA_EnergiepositionsDetail_Historisch)  
+    -- DATA_Energiepositionen_Jahr    (sp_RPT_DATA_EnergiepositionsDetail)  
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+
+
+
+
+ErrorReport
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DATA_FlaecheNachSIAd0165
+
+
+
+
+EXPORT_Belegung_Gueltigkeit_JB
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DATA_Benutzer    (V_RPT_EXPORT_HR_JB_Belegung_Check_Dat)  
+
+
+
+
+Export_HOPLA_All_2
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DataSet1
+
+
+
+
+EXPORT_MehrfachAP_JB
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DATA_Benutzer    (V_RPT_EXPORT_HR_JB_Belegung_Check_HAP_B)  
+
+
+
+
+EXP_Exportdaten_JuliusBaer
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DATA_Importdaten    (V_EXPORT_HR_JB_Belegung, T_Benutzer, T_Benutzer)  
+
+
+
+
+EXP_Importdaten_JuliusBaer
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DATA_Importdaten    (V_RPT_hrtrans_dbo_vtrns#aperture_person)  
+
+
+
+
+EXP_Kontrollbericht
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Kontrollbericht    (sp_RPT_DATA_EXP_Kontrollbericht)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Haus    (tfu_RPT_SEL_Haus, T_AP_Raum, T_AP_Geschoss, T_AP_Gebaeude, T_AP_Standort)  
+
+
+
+
+EXP_Kontrollbericht1
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Kontrollbericht    (sp_RPT_DATA_EXP_Kontrollbericht)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Haus    (tfu_RPT_SEL_Haus, T_AP_Raum, T_AP_Geschoss, T_AP_Gebaeude, T_AP_Standort)  
+
+
+
+
+EXP_TerminatedWorkplaces
+  ◈ Parameter:
+    -- Region (NICHT übersetzt) (Dataset SEL_Region) 
+    -- Country (NICHT übersetzt) (Dataset SEL_Country) 
+    -- Location (NICHT übersetzt) (Dataset SEL_Location) 
+    -- Premises (NICHT übersetzt) (Dataset SEL_Premises) 
+    -- Floor (NICHT übersetzt) (Dataset SEL_Floor) 
+    -- ZO WPEM DateFrom >= (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- ZO WPEM DateTo less than (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Region    (V_REPORT_SEL_WPP_Region)  
+    -- SEL_Country    (V_REPORT_SEL_WPP_Country)  
+    -- SEL_Location    (V_REPORT_SEL_WPP_Location, T_Ref_Country, T_Ref_Region)  
+    -- SEL_Premises    (V_REPORT_SEL_Premises)  
+    -- DATA_TerminatedWorkplaces    (sp_REPORT_EXE_TerminatedWorkplaces)  
+    -- SEL_Floor    (V_REPORT_SEL_Floor)  
+
+
+
+
+Fehlende_Uebersetzungen_Basic
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DATA_T_SYS_Language_Forms    (T_SYS_Language_Forms)  
+
+
+
+
+Fehlende_Uebersetzungen_Portal
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DATA_T_FMS_Translations    (T_FMS_Translation)  
+
+
+
+
+FM_BelegungNachMieter_Wincasa_ML
   ◈ Parameter:
     -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
-    -- Stichtag (übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
+    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
+    -- Haus (übersetzt) (Dataset SEL_Haus) 
+    -- Mieter (übersetzt) (Dataset SEL_Mieter) 
+    -- Mindestertrag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_FlaecheNachMieter    (sp_RPT_DATA_FM_FlaecheNachMieterDetail_Wincasa)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Mieter    (sp_RPT_SEL_Mieter)  
+    -- SEL_Haus    (tfu_RPT_SEL_Haus, T_AP_Raum, T_AP_Geschoss, T_AP_Gebaeude, T_AP_Standort)  
+
+
+
+
+FM_Bodenbelag
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Bodenbelag (NICHT übersetzt) (Dataset SEL_Bodenbelag) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (V_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (V_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (V_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (V_RPT_SEL_Raum)  
+    -- DATA_FlaecheNachBodenbelag    (sp_RPT_DATA_FlaecheNachBodenbelag)  
+    -- SEL_Trakt
+    -- SEL_Bodenbelag    (V_RPT_SEL_Bodenbelag)  
+
+
+
+
+FM_FlaecheNachBodenbelag
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Bodenbelag (NICHT übersetzt) (Dataset SEL_Bodenbelag) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_FlaecheNachBodenbelag    (sp_RPT_DATA_FlaecheNachBodenbelag)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Bodenbelag    (V_RPT_SEL_Bodenbelag)  
+
+
+
+
+FM_FlaecheNachEnergiebezug
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_FlaecheNachEBA    (sp_RPT_DATA_FlaecheNachEBA)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Nutzungsart    (V_RPT_SEL_Nutzung)  
+    -- SEL_Haus    (tfu_RPT_SEL_Haus, T_AP_Raum, T_AP_Geschoss, T_AP_Gebaeude, T_AP_Standort)  
+
+
+
+
+FM_FlaecheNachNutzungsart
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Nutzungsart (NICHT übersetzt) (Dataset SEL_Nutzungsart) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_FlaecheNachNutzungsart    (sp_RPT_DATA_FlaecheNachNutzungsart)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Nutzungsart    (V_RPT_SEL_Nutzung)  
+    -- SEL_Haus    (tfu_RPT_SEL_Haus, T_AP_Raum, T_AP_Geschoss, T_AP_Gebaeude, T_AP_Standort)  
+
+
+
+
+FM_FlaecheNachSIA_ML
+  ◈ Parameter:
+    -- Standortkategorie (NICHT übersetzt) (Dataset SEL_StandortKategorie) 
+    -- Standort (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (übersetzt) (Dataset SEL_Raum) 
+    -- SIA (NICHT übersetzt) (Dataset SEL_SIA) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort_MitKategorie)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_FlaecheNachSIA    (sp_RPT_DATA_FlaecheNachSIA)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_SIA    (V_RPT_SEL_SIA)  
+    -- SEL_StandortKategorie    (tfu_RPT_SEL_Standortkategorie)  
+
+
+
+
+FM_Flaechenverrechnung_BKB
+  ◈ Parameter:
+    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Stichtag  (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (tfu_RPT_SEL_Raum_BKB)  
+    -- DATA_Flaechenverrechnung    (sp_RPT_DATA_FM_Flaechenverrechnung_BKB)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+
+
+
+
+FM_NutzungsartenDIN_277_Wincasa_ML
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
@@ -305,38 +685,76 @@ FM_NutzungsartenDIN_277_SNB_ML
 
 
 
-GB_Belegung_SNB_ML
+FM_NutzungsartenSIA_ML
   ◈ Parameter:
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Stichtag (NICHT übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
+    -- Standortkategorie (übersetzt) (Dataset SEL_StandortKategorie) 
+    -- Standort (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Standort    (tfu_RPT_SEL_Standort_MitKategorie)  
+    -- DATA_FlaecheNachSIAd0165    (sp_RPT_DATA_FM_FlaecheNachSIA416)  
+    -- SEL_StandortKategorie    (tfu_RPT_SEL_Standortkategorie)  
+
+
+
+
+FM_Polygonflaeche_Wincasa_ML
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll)  
-    -- DATA_Gebauede_Belegung_GS    (sp_RPT_DATA_GebaeudeBelegung_GS_SNB)  
-    -- DATA_Gebaeude_Belegung_KST    (sp_RPT_DATA_GebaeudeBelegung_KST_SNB)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- DATA_Polygonflaeche    (sp_RPT_DATA_FM_Polygonflaeche_Wincasa)  
+
+
+
+
+FM_TraktGeschossuebersicht
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Nutzungsartgruppe (NICHT übersetzt) (Dataset SEL_Nutzungsartgruppe) 
+    -- Nutzungsart (NICHT übersetzt) (Dataset SEL_Nutzungsart) 
+    -- Bodenbelag (NICHT übersetzt) (Dataset SEL_Bodenbelag) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (V_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (V_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (sp_RPT_MSEL_Geschoss)  
+    -- DATA_FlaecheNachTrakt    (sp_RPT_DATA_MSEL_FM_TraktGeschossuebersich)  
+    -- SEL_Trakt    (sp_RPT_MSEL_Trakt)  
+    -- SEL_Nutzungsart    (sp_RPT_MSEL_Ref_Nutzungsart)  
+    -- SEL_Nutzungsartgruppe    (sp_RPT_SEL_Ref_Nutzungsartgruppe)  
+    -- SEL_Bodenbelag    (sp_RPT_SEL_Ref_Bodenbelag)  
 
 
 
 
 GM_Gebaeudebasisdaten_ML
   ◈ Parameter:
-    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Standort (übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
-    -- Stichtag (übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- DATA_Gebauedebasisdaten    (sp_RPT_DATA_GebauedeDetail)  
+    -- DATRA_Report_Title    (sp_RPT_Report_TitleTranslation)  
 
 
 
 
-GM_Gebaeudestammdaten_ML
+GM_Gebaeudestammdaten_Wincasa_ML
   ◈ Parameter:
     -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
-    -- Stichtag (übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- DATA_Gebauedestammdaten    (sp_RPT_DATA_GM_GebauedestammdatenDetail)  
@@ -346,412 +764,404 @@ GM_Gebaeudestammdaten_ML
 
 
 
-KU_Beschriftungsliste
+GroupList
   ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
-    -- Berichtstitel (NICHT übersetzt) (Default: Beschriftungsliste) 
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Parkplatzliste    (T_Benutzergruppen)  
+
+
+
+
+Hopla_Struktur
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DataSet1
+
+
+
+
+InterfaceImportProtocol
+  ◈ Parameter:
+    -- Show from (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Import Type (NICHT übersetzt) (Dataset SEL_ImportType) 
+    -- Protocol category (NICHT übersetzt) (Dataset SEL_ProtocolCategory) 
+    -- Protocol type (NICHT übersetzt) (Dataset SEL_ProtocolType) 
+  ◈ DataSets:
+    -- DATA_ImportProtocol    (sp_REPORT_getImportProtocolData)  
+    -- SEL_ImportType    (V_REPORT_SEL_IFC_ImportType)  
+    -- SEL_ProtocolCategory    (V_REPORT_SEL_IFC_ProtocolCategory)  
+    -- SEL_ProtocolType    (V_REPORT_SEL_IFC_ProtocolType)  
+
+
+
+
+Kopie von 'TestReport3'
+  ◈ Parameter:
+    -- Sprache (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Umzugsuid (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Umzugsheader    (V_UM_Planung_Uebersicht, T_AP_Kontakte)  
+    -- DATA_Umzugsmitteilung    (T_AP_Ref_Mandant, T_ZO_AP_Kontakte_AP_Ref_Kostenstelle, T_AP_Ref_Kostenstelle, V_UM_Umzug_Formular)  
+
+
+
+
+MO_Moebeluebersicht
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Möbelkategorie (NICHT übersetzt) (Dataset SEL_Moebelkategorie) 
+    -- Möbeltyp (NICHT übersetzt) (Dataset SEL_Moebeltyp) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (V_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (V_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (V_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- SEL_Moebelkategorie    (V_RPT_SEL_Moebelkategorie)  
+    -- SEL_Moebeltyp    (V_RPT_SEL_MoebelBibliothek)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- DATA_Moebeldetail    (sp_RPT_DATA_Moebeldaten)  
+
+
+
+
+Offerte_kwe
+  ◈ Parameter:
+    -- Mandant (übersetzt) (Dataset SEL_Mandant) 
+    -- WE (NICHT übersetzt) (Dataset SEL_WE) 
+    -- Offerte (übersetzt) (Dataset SEL_Offerte) 
+  ◈ DataSets:
+    -- SEL_WE    (V_REPORT_SEL_WE_Offerte_KWE)  
+    -- SEL_Mandant    (V_REPORT_SEL_Mandant)  
+    -- DATA_Offerte
+    -- SEL_Sprache
+    -- DATA_Sprache    (T_REPORT_Language)  
+    -- SEL_Offerte
+
+
+
+
+Offerte_RM
+  ◈ Parameter:
+    -- Mandant (übersetzt) (Dataset SEL_Mandant) 
+    -- WE (NICHT übersetzt) (Dataset SEL_WE) 
+    -- Offerte (übersetzt) (Dataset SEL_Offerte) 
+  ◈ DataSets:
+    -- SEL_WE    (V_REPORT_SEL_WE_Offerte_RM)  
+    -- SEL_Mandant    (V_REPORT_SEL_Mandant)  
+    -- DATA_Offerte
+    -- SEL_Sprache
+    -- DATA_Sprache    (T_REPORT_Language)  
+    -- SEL_Offerte
+
+
+
+
+Offerte_WE
+  ◈ Parameter:
+    -- Mandant (übersetzt) (Dataset SEL_Mandant) 
+    -- WE (NICHT übersetzt) (Dataset SEL_WE) 
+    -- Offerte (übersetzt) (Dataset SEL_Offerte) 
+  ◈ DataSets:
+    -- SEL_WE    (V_REPORT_SEL_WE_Offerte_WE)  
+    -- SEL_Mandant    (V_REPORT_SEL_Mandant)  
+    -- SEL_Sprache
+    -- DATA_Sprache    (T_REPORT_Language)  
+    -- SEL_Offerte
+    -- DATA_WE_SLA
+
+
+
+
+Planinfo_Post
+  ◈ Parameter:
+    -- Sprache (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Aperture DWG Name (without .dwg) (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Stylizer (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Planinfo    (T_AP_Standort, T_AP_Ref_Freigabetyp, T_AP_Gebaeude, T_AP_Geschoss, T_AP_Ref_Geschosstyp, T_ZO_AP_Standort_DWG, T_ZO_AP_Gebaeude_DWG, T_AP_Grundstueck, T_AP_Aussenobjekt, T_ZO_AP_Geschoss_DWG, T_ZO_AP_Geschoss_Flaeche, T_ZO_AP_Aussenobjekt_DWG, T_ZO_AP_Grundstueck_DWG)  
+
+
+
+
+Planinfo_StadtZuerich
+  ◈ Parameter:
+    -- Sprache (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Aperture DWG Name (without .dwg) (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Stylizer (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Planinfo    (T_Standort, T_GebaeudeIMMO, T_Geschoss, T_Geschoss, T_Ref_Geschosstyp, T_ZO_AP_SHOW_Geschoss_Reinigungsplanung, T_ZO_REM_AP_Standort_Planung)  
+
+
+
+
+PlanungsdetailmitZeit
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Strasse (NICHT übersetzt) (Dataset SEL_Strasse) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Bodenbelag (NICHT übersetzt) (Dataset SEL_Bodenbelag) 
+    -- Kehr (NICHT übersetzt) (Dataset SEL_Kehr) 
+    -- Raum-Nr. (IST) (NICHT übersetzt) (Dataset SEL_RaumNr) 
+  ◈ DataSets:
+    -- SEL_Gebaeude
+    -- SEL_Standort    (V_AP_BERICHT_SEL_SOGSS, T_ZO_REM_AP_Standort_Planung)  
+    -- SEL_Strasse    (V_AP_BERICHT_SEL_GBI_mitGSS)  
+    -- SEL_Portfolio1    (sp_RPT_SEL_Portofolio_Raum)  
+    -- SEL_SubPortfolio1    (sp_RPT_SEL_Subportofolio_Raum)  
+    -- Data_Raum    (sp_RPT_DATA_REM_PlanungsDetail)  
+    -- SEL_Geschoss    (V_AP_BERICHT_SEL_GSS)  
+    -- SEL_Bodenbelag    (V_AP_BERICHT_SEL_REM_Bodenbelag)  
+    -- SEL_Kehr    (V_AP_BERICHT_SEL_REM_Kehr)  
+    -- SEL_RaumNr    (V_AP_BERICHT_SEL_REM_RaumNrIst)  
+
+
+
+
+PP_Parkplatzliste
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Parkplatzkategorie (NICHT übersetzt) (Dataset SEL_ParkplatzKategorie) 
+    -- Belegung (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+    -- Buchbarkeit (NICHT übersetzt) (Dataset SEL_Buchbarkeit) 
+    -- Parkplatzart (NICHT übersetzt) (Dataset SEL_Parkplatzart_ML) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (V_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (V_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (V_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Parkplatzliste    (sp_RPT_DATA_PP_ParkplatzDetail)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Mieter    (V_RPT_SEL_Mieter)  
+    -- SEL_ParkplatzKategorie    (V_RPT_SEL_Alle, V_RPT_SEL_PP_ParkplatzKategorie, T_AP_Parkplatz)  
+    -- SEL_Buchbarkeit    (V_RPT_SEL_PP_Buchbarkeit)  
+    -- SEL_Parkplatzart_ML    (sp_RPT_PP_SEL_Parkplatzart_ML)  
+    -- SEL_Haus    (tfu_RPT_SEL_Haus, T_AP_Raum, T_AP_Geschoss, T_AP_Gebaeude, T_AP_Standort)  
+
+
+
+
+PP_Parkplatzliste_MitSchild_SRG
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (übersetzt) (Dataset SEL_Raum) 
+    -- Parkplatzkategorie (NICHT übersetzt) (Dataset SEL_ParkplatzKategorie) 
+    -- Belegung (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+    -- Buchbarkeit (NICHT übersetzt) (Dataset SEL_Buchbarkeit) 
+    -- Parkplatzart (NICHT übersetzt) (Dataset SEL_Parkplatzart_ML) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Parkplatzliste    (sp_RPT_DATA_PP_ParkplatzDetail)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Mieter    (V_RPT_SEL_Mieter)  
+    -- SEL_ParkplatzKategorie    (V_RPT_SEL_Alle, V_RPT_SEL_PP_ParkplatzKategorie, T_AP_Parkplatz)  
+    -- SEL_Buchbarkeit    (V_RPT_SEL_PP_Buchbarkeit)  
+    -- SEL_Parkplatzart_ML    (sp_RPT_PP_SEL_Parkplatzart_ML)  
+    -- SEL_Haus    (tfu_RPT_SEL_Haus, T_AP_Raum, T_AP_Geschoss, T_AP_Gebaeude, T_AP_Standort)  
+
+
+
+
+PP_Parkplatzliste_Wincasa_ML
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
+    -- Haus (übersetzt) (Dataset SEL_Haus) 
+    -- Parkplatzkategorie (übersetzt) (Dataset SEL_ParkplatzKategorie) 
+    -- Belegung (übersetzt) (Dataset SEL_Belegung) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Parkplatzliste    (sp_RPT_DATA_PP_ParkplatzDetail)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_Mieter    (V_RPT_SEL_Mieter)  
+    -- SEL_ParkplatzKategorie    (sp_RPT_SEL_PP_ParkplatzKategorie)  
+    -- SEL_Buchbarkeit    (sp_RPT_SEL_PP_Buchbarkeit)  
+    -- SEL_Haus    (tfu_RPT_SEL_Haus, T_AP_Raum, T_AP_Geschoss, T_AP_Gebaeude, T_AP_Standort)  
+    -- SEL_Belegung    (sp_RPT_SEL_PP_Belegung)  
+    -- SEL_Parkplatzart_ML    (sp_RPT_PP_SEL_Parkplatzart_ML)  
+
+
+
+
+Raumbelegung_8plus1x117
+  ◈ Parameter:
+    -- Standortkategorie (NICHT übersetzt) (Dataset SEL_Standortkategorie) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
     -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
     -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
-    -- Lage (NICHT übersetzt) (Default: Nichts) 
-    -- Autoren (NICHT übersetzt) (Dataset SEL_Kuenstler) 
-    -- Titel (NICHT übersetzt) (Default: Nichts) 
-    -- Gattung (NICHT übersetzt) (Dataset SEL_Kunstkategorie) 
-    -- Werktyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Erwerbsart (NICHT übersetzt) (Dataset SEL_Erwerbsart) 
-    -- Ankaufsjahr (übersetzt) (Default: Nichts) 
-    -- Provenienz (NICHT übersetzt) (Dataset SEL_Provenienz) 
-    -- Rahmung (NICHT übersetzt) (Dataset SEL_Rahmung) 
-    -- Aussenmasse (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- Masse Sockel (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- UV-Schutz (NICHT übersetzt) (Dataset SEL_UVSchutz) 
-    -- Status Inventar (NICHT übersetzt) (Dataset SEL_Status) 
-    -- Verkaufspreis (NICHT übersetzt) (Default: Nichts) 
-    -- Kategorie (Werte) (NICHT übersetzt) (Dataset SEL_WerteKategorie) 
-    -- Sortierung nach (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstliste    (sp_RPT_DATA_KU_Beschriftungsschild)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Kunstkategorie    (V_RPT_SEL_Kunstkategorie)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Rahmung    (V_RPT_SEL_KunstRahmung)  
-    -- SEL_UVSchutz    (V_RPT_SEL_KunstUVSchutz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_WerteKategorie    (V_RPT_SEL_KunstWerteKategorie)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
+    -- SEL_Standort    (V_RPT_SEL_Standort_Raiffeisen)  
+    -- SEL_Gebaeude    (V_RPT_SEL_Gebaeude_Raiffeisen)  
+    -- SEL_Geschoss    (V_RPT_SEL_Geschoss_Raiffeisen)  
+    -- DATA_Raumbelegung    (sp_RPT_DATA_RM_Raumbelegung_Raiffeisen)  
+    -- SEL_Standortkategorie    (V_RPT_SEL_Standortkategorie_Raiffeisen)  
+    -- SEL_Raum    (V_RPT_SEL_Raum_Raiffeisen)  
 
 
 
 
-KU_Etikette
+Raumbelegung_8plus1x12
   ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Standortkategorie (NICHT übersetzt) (Dataset SEL_Standortkategorie) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
     -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
     -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
-    -- Lage (NICHT übersetzt) (Default: Nichts) 
-    -- Autoren (NICHT übersetzt) (Dataset SEL_Kuenstler) 
-    -- Titel (NICHT übersetzt) (Default: Nichts) 
-    -- Gattung (NICHT übersetzt) (Dataset SEL_Kunstkategorie) 
-    -- Werktyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Erwerbsart (NICHT übersetzt) (Dataset SEL_Erwerbsart) 
-    -- Ankaufsjahr (übersetzt) (Default: Nichts) 
-    -- Provenienz (NICHT übersetzt) (Dataset SEL_Provenienz) 
-    -- Rahmung (NICHT übersetzt) (Dataset SEL_Rahmung) 
-    -- Aussenmasse (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- Masse Sockel (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- UV-Schutz (NICHT übersetzt) (Dataset SEL_UVSchutz) 
-    -- Status Inventar (NICHT übersetzt) (Dataset SEL_Status) 
-    -- Verkaufspreis (NICHT übersetzt) (Default: Nichts) 
-    -- Kategorie (Werte) (NICHT übersetzt) (Dataset SEL_WerteKategorie) 
-    -- Sortierung nach (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstliste    (sp_RPT_DATA_KU_Beschriftungsschild)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Kunstkategorie    (V_RPT_SEL_Kunstkategorie)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Rahmung    (V_RPT_SEL_KunstRahmung)  
-    -- SEL_UVSchutz    (V_RPT_SEL_KunstUVSchutz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_WerteKategorie    (V_RPT_SEL_KunstWerteKategorie)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
+    -- SEL_Standort    (V_RPT_SEL_Standort_Raiffeisen)  
+    -- SEL_Gebaeude    (V_RPT_SEL_Gebaeude_Raiffeisen)  
+    -- SEL_Geschoss    (V_RPT_SEL_Geschoss_Raiffeisen)  
+    -- DATA_Raumbelegung    (sp_RPT_DATA_RM_Raumbelegung_Raiffeisen)  
+    -- SEL_Standortkategorie    (V_RPT_SEL_Standortkategorie_Raiffeisen)  
+    -- SEL_Raum    (V_RPT_SEL_Raum_Raiffeisen)  
 
 
 
 
-KU_Kunstblatt
+Referenzuebersetzungen_Berichte
   ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
   ◈ DataSets:
-    -- DATA_Kunstdatenblatt    (sp_RPT_DATA_KU_Kunstdatenblatt)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
+    -- DATA_T_RPT_Translations    (T_RPT_Translations)  
 
 
 
 
-KU_Kunstliste
+Reinigungsraumliste
   ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
-    -- Berichtstitel (NICHT übersetzt) (Default: Kunstinventar) 
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Portofolio Raum (NICHT übersetzt) (Dataset SEL_Portfolio1) 
+    -- Subportofolio Raum (NICHT übersetzt) (Dataset SEL_SubPortfolio1) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Strasse (NICHT übersetzt) (Dataset SEL_Strasse) 
     -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
-    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
-    -- Lage (NICHT übersetzt) (Default: Nichts) 
-    -- Autoren (NICHT übersetzt) (Dataset SEL_Kuenstler) 
-    -- Titel (NICHT übersetzt) (Default: Nichts) 
-    -- Gattung (NICHT übersetzt) (Dataset SEL_Kunstkategorie) 
-    -- Werktyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Erwerbsart (NICHT übersetzt) (Dataset SEL_Erwerbsart) 
-    -- Ankaufsjahr (übersetzt) (Default: Nichts) 
-    -- Provenienz (NICHT übersetzt) (Dataset SEL_Provenienz) 
-    -- Rahmung (NICHT übersetzt) (Dataset SEL_Rahmung) 
-    -- Aussenmasse (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- Masse Sockel (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- UV-Schutz (NICHT übersetzt) (Dataset SEL_UVSchutz) 
-    -- Status Inventar (NICHT übersetzt) (Dataset SEL_Status) 
-    -- Verkaufspreis (NICHT übersetzt) (Default: Nichts) 
-    -- Kategorie (Werte) (NICHT übersetzt) (Dataset SEL_WerteKategorie) 
-    -- Sortierung nach (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+  ◈ DataSets:
+    -- SEL_Gebaeude    (V_AP_BERICHT_SEL_GBI_mitGSS)  
+    -- SEL_Standort
+    -- SEL_Strasse
+    -- SEL_Portfolio1    (sp_RPT_SEL_Portofolio_Raum)  
+    -- SEL_SubPortfolio1    (sp_RPT_SEL_Subportofolio_Raum)  
+    -- Data_Raum    (sp_RPT_DATA_REM_Raumliste)  
+    -- SEL_Geschoss
+
+
+
+
+REM_Raumliste_Reinigung_ML
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- DATA_Raumliste_Reinigung    (sp_RPT_DATA_REM_Raumliste_Reinigung)  
+
+
+
+
+REM_Raumliste_Reinigung_SortByRG_ML
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- DATA_Raumliste_Reinigung    (sp_RPT_DATA_REM_Raumliste_Reinigung)  
+
+
+
+
+Report1
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DataSet1    (T_Benutzer)  
+
+
+
+
+Report2
+  ◈ Parameter:
+    -- LY UID (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DataSet1    (sp_RPT_Report_LegendColumns)  
+
+
+
+
+RM_Nutzungsart_ML
+  ◈ Parameter:
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (übersetzt) (Dataset SEL_Trakt) 
+    -- Nutzungsart (übersetzt) (Dataset SEL_Nutzungsart) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- SEL_Nutzungsart    (sp_RPT_SEL_Nutzungsart)  
+    -- DATA_Raumdetail    (sp_RPT_DATA_Raumdaten)  
     -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstliste    (sp_RPT_DATA_KU_KunstlisteDetail)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Kunstkategorie    (V_RPT_SEL_Kunstkategorie)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Rahmung    (V_RPT_SEL_KunstRahmung)  
-    -- SEL_UVSchutz    (V_RPT_SEL_KunstUVSchutz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_WerteKategorie    (V_RPT_SEL_KunstWerteKategorie)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
 
 
 
 
-KU_Kunstliste_InHouse
+Roomlist_ProperLogo
   ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
-    -- Berichtstitel (NICHT übersetzt) (Default: Ausleihbare Kunstwerke (nach Rücksprache)) 
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
-    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
-    -- Status Inventar (NICHT übersetzt) (Dataset SEL_Status) 
-    -- Ausleihbarkeit (NICHT übersetzt) (Dataset SEL_Ausleihbarkeit) 
-    -- Sortierung nach (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+    -- Region (NICHT übersetzt) (Dataset SEL_Region) 
+    -- Country (NICHT übersetzt) (Dataset SEL_Country) 
+    -- Location (NICHT übersetzt) (Dataset SEL_Location) 
+    -- Premises (NICHT übersetzt) (Dataset SEL_Premises) 
+    -- Floor (NICHT übersetzt) (Dataset SEL_Floor) 
+    -- Premise status (NICHT übersetzt) (Dataset SEL_PremiseStatus) 
+    -- Operated by (NICHT übersetzt) (Dataset SEL_Operator) 
   ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstliste    (sp_RPT_DATA_KU_KunstlisteDetail_InHouse)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Kunstkategorie    (V_RPT_SEL_Kunstkategorie)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Rahmung    (V_RPT_SEL_KunstRahmung)  
-    -- SEL_UVSchutz    (V_RPT_SEL_KunstUVSchutz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_WerteKategorie    (V_RPT_SEL_KunstWerteKategorie)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
-    -- SEL_Ausleihbarkeit
-    -- SEL_Freitext
+    -- SEL_Location    (V_REPORT_SEL_Location, V_REPORT_SEL_Location, V_REPORT_DATA_Roomlist)  
+    -- SEL_Premises    (V_REPORT_SEL_Premises, V_REPORT_SEL_Premises, V_REPORT_DATA_Roomlist)  
+    -- SEL_Floor    (V_REPORT_SEL_Floor, V_REPORT_SEL_Floor, V_REPORT_DATA_Roomlist)  
+    -- DATA_Roomlist    (V_REPORT_DATA_Roomlist)  
+    -- SEL_Region    (V_REPORT_SEL_Region, V_REPORT_SEL_Region, V_REPORT_DATA_Roomlist)  
+    -- SEL_Country    (V_REPORT_SEL_Country, V_REPORT_SEL_Country, V_REPORT_DATA_Roomlist)  
+    -- SEL_UsageStatus    (V_REPORT_SEL_UsageStatus, V_REPORT_DATA_Roomlist)  
+    -- SEL_Usage_Default    (V_REPORT_SEL_UsageStatus)  
+    -- SEL_PremiseStatus    (V_REPORT_SEL_UsageStatus, V_REPORT_DATA_Roomlist)  
+    -- SEL_Operator    (V_REPORT_SEL_OperatedBy, V_REPORT_DATA_Roomlist)  
 
 
 
 
-KU_Kunstliste_nachKuenstler
-  ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
-    -- Berichtstitel (NICHT übersetzt) (Default: Kunstinventar (nach Künstler)) 
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
-    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
-    -- Lage (NICHT übersetzt) (Default: Nichts) 
-    -- Autoren (NICHT übersetzt) (Dataset SEL_Kuenstler) 
-    -- Titel (NICHT übersetzt) (Default: Nichts) 
-    -- Gattung (NICHT übersetzt) (Dataset SEL_Kunstkategorie) 
-    -- Werktyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Erwerbsart (NICHT übersetzt) (Dataset SEL_Erwerbsart) 
-    -- Ankaufsjahr (übersetzt) (Default: Nichts) 
-    -- Provenienz (NICHT übersetzt) (Dataset SEL_Provenienz) 
-    -- Rahmung (NICHT übersetzt) (Dataset SEL_Rahmung) 
-    -- Aussenmasse (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- Masse Sockel (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- UV-Schutz (NICHT übersetzt) (Dataset SEL_UVSchutz) 
-    -- Status Inventar (NICHT übersetzt) (Dataset SEL_Status) 
-    -- Verkaufspreis (NICHT übersetzt) (Default: Nichts) 
-    -- Kategorie (Werte) (NICHT übersetzt) (Dataset SEL_WerteKategorie) 
-    -- Sortierung nach (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-  ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstliste    (sp_RPT_DATA_KU_KunstlisteDetail)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Kunstkategorie    (V_RPT_SEL_Kunstkategorie)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Rahmung    (V_RPT_SEL_KunstRahmung)  
-    -- SEL_UVSchutz    (V_RPT_SEL_KunstUVSchutz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_WerteKategorie    (V_RPT_SEL_KunstWerteKategorie)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
-
-
-
-
-KU_Kunstliste_Taetigkeit
-  ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
-    -- Berichtstitel (NICHT übersetzt) (Default: Ankäufe der Kunstkomission 2015) 
-    -- Ankaufsjahr (übersetzt) (Default: =System.DateTime.Now.Year) 
-  ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstliste    (sp_RPT_DATA_KU_KunstlisteDetail_Taetigkeit)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Kunstkategorie    (V_RPT_SEL_Kunstkategorie)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Rahmung    (V_RPT_SEL_KunstRahmung)  
-    -- SEL_UVSchutz    (V_RPT_SEL_KunstUVSchutz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_WerteKategorie    (V_RPT_SEL_KunstWerteKategorie)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
-
-
-
-
-KU_Kunstliste_Werte
-  ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
-    -- angezeigter Wertetyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Alternativer Berichtstitel (NICHT übersetzt) (Default: Nichts) 
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
-    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
-    -- Lage (NICHT übersetzt) (Default: Nichts) 
-    -- Autoren (NICHT übersetzt) (Dataset SEL_Kuenstler) 
-    -- Titel (NICHT übersetzt) (Default: Nichts) 
-    -- Gattung (NICHT übersetzt) (Dataset SEL_Kunstkategorie) 
-    -- Werktyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Erwerbsart (NICHT übersetzt) (Dataset SEL_Erwerbsart) 
-    -- Ankaufsjahr (übersetzt) (Default: Nichts) 
-    -- Provenienz (NICHT übersetzt) (Dataset SEL_Provenienz) 
-    -- Rahmung (NICHT übersetzt) (Dataset SEL_Rahmung) 
-    -- Aussenmasse (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- Masse Sockel (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- UV-Schutz (NICHT übersetzt) (Dataset SEL_UVSchutz) 
-    -- Status Inventar (NICHT übersetzt) (Dataset SEL_Status) 
-    -- Verkaufspreis (NICHT übersetzt) (Default: Nichts) 
-    -- Kategorie (Werte) (NICHT übersetzt) (Dataset SEL_WerteKategorie) 
-    -- Sortierung nach (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-  ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstliste    (sp_RPT_DATA_KU_KunstlisteDetail)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Kunstkategorie    (V_RPT_SEL_Kunstkategorie)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Rahmung    (V_RPT_SEL_KunstRahmung)  
-    -- SEL_UVSchutz    (V_RPT_SEL_KunstUVSchutz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_WerteKategorie    (V_RPT_SEL_KunstWerteKategorie)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
-    -- SEL_Titel
-
-
-
-
-KU_Kunstliste_Zusatzinfo
-  ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierliste) 
-    -- Berichtstitel (NICHT übersetzt) (Default: Liste mit Zusatzinfo) 
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
-    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
-    -- Lage (NICHT übersetzt) (Default: Nichts) 
-    -- Autoren (NICHT übersetzt) (Dataset SEL_Kuenstler) 
-    -- Titel (NICHT übersetzt) (Default: Nichts) 
-    -- Gattung (NICHT übersetzt) (Dataset SEL_Kunstkategorie) 
-    -- Werktyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Erwerbsart (NICHT übersetzt) (Dataset SEL_Erwerbsart) 
-    -- Ankaufsjahr (übersetzt) (Default: Nichts) 
-    -- Provenienz (NICHT übersetzt) (Dataset SEL_Provenienz) 
-    -- Rahmung (NICHT übersetzt) (Dataset SEL_Rahmung) 
-    -- Aussenmasse (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- Masse Sockel (NICHT übersetzt) (Default: HxBxT-HxBxT) 
-    -- UV-Schutz (NICHT übersetzt) (Dataset SEL_UVSchutz) 
-    -- Status Inventar (NICHT übersetzt) (Dataset SEL_Status) 
-    -- Verkaufspreis (NICHT übersetzt) (Default: Nichts) 
-    -- Kategorie (Werte) (NICHT übersetzt) (Dataset SEL_WerteKategorie) 
-    -- Sortierung nach (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-  ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstliste    (sp_RPT_DATA_KU_KunstlisteDetail)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Kunstkategorie    (V_RPT_SEL_Kunstkategorie)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Rahmung    (V_RPT_SEL_KunstRahmung)  
-    -- SEL_UVSchutz    (V_RPT_SEL_KunstUVSchutz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_WerteKategorie    (V_RPT_SEL_KunstWerteKategorie)  
-    -- SEL_Markierliste    (T_OM_Ref_List, T_Benutzer)  
-
-
-
-
-KU_Werkpraesentation
-  ◈ Parameter:
-    -- Vorauswahl (NICHT übersetzt) (Dataset SEL_Markierungsliste) 
-    -- Berichtstitel (NICHT übersetzt) (Default: Werk-Präsentation) 
-  ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- DATA_Kunstdatenblatt    (sp_RPT_DATA_KU_Kunstdatenblatt)  
-    -- SEL_Kuenstler    (V_RPT_SEL_Kuenstler)  
-    -- SEL_Erwerbsart    (V_RPT_SEL_KunstErwerbsart)  
-    -- SEL_Provenienz    (V_RPT_SEL_KunstProvenienz)  
-    -- SEL_Status    (V_RPT_SEL_KunstStatus)  
-    -- SEL_Markierungsliste    (T_OM_Ref_List, T_Benutzer)  
-
-
-
-
-RM_Belegung_SNB_ML
-  ◈ Parameter:
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
-    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
-    -- Stichtag (NICHT übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
-  ◈ DataSets:
-    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- DATA_Gebauede_Belegung_GS    (sp_RPT_DATA_GebaeudeBelegung_RM_SNB)  
-    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
-    -- SEL_Raum    (sp_RPT_SEL_Raum)  
-
-
-
-
-SL_SchliessungHistorie
-  ◈ Parameter:
-    -- Objekttyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- geändert von (NICHT übersetzt) (Dataset SEL_geaendertvon) 
-  ◈ DataSets:
-    -- DATA_Historie    (sp_RPT_DATA_SL_SchliessungHistorie)  
-    -- SEL_geaendertvon    (V_RPT_SL_SchliessungHistorie)  
-
-
-
-
-SL_Schluesselbestand
-  ◈ Parameter:
-    -- Inhabertyp (NICHT übersetzt) (Dataset Eingebettete Parameter) 
-    -- Inhaber (NICHT übersetzt) (Dataset SEL_Inhaber) 
-  ◈ DataSets:
-    -- SEL_Inhaber    (tfu_RPT_SEL_Schluesselinhaber)  
-    -- DATA_Schluessel    (sp_RPT_DATA_SL_Schluesselbestand)  
-
-
-
-
-SL_Schluesselbundquittung_Abgabe
+SimpleTest
   ◈ Parameter:
   ◈ DataSets:
-    -- DATA_Schluesselquittung    (sp_RPT_DATA_SL_SchluesselbundquittungsDetail)  
-    -- SEL_Schluesselbund    (T_AP_Schluesselbund, T_SYS_Schluesselbundrechte)  
-
-
-
-
-SL_Schluesselbundquittung_Ruecknahme
-  ◈ Parameter:
-  ◈ DataSets:
-    -- DATA_Schluesselquittung    (sp_RPT_DATA_SL_Schluesselbundquittung_Rueckgabe_Detail)  
-    -- SEL_Schluesselbund    (T_AP_Schluesselbund, T_AP_Schluessel, T_AP_Kontakte, T_AV_Adressen, T_AP_Mobiliar, T_SYS_Schluesselbundrechte)  
+    -- DATA_Columns
 
 
 
@@ -761,7 +1171,7 @@ SL_Schluesselquittung_Abgabe
     -- Schlüssel (NICHT übersetzt) (Dataset SEL_Schluessel) 
   ◈ DataSets:
     -- DATA_Schluesselquittung    (sp_RPT_DATA_SL_SchluesselquittungsDetail)  
-    -- SEL_Schluessel    (tfu_RPT_SEL_Schluessel)  
+    -- SEL_Schluessel    (V_RPT_SEL_SL_Schluessel)  
 
 
 
@@ -776,287 +1186,517 @@ SL_Schluesselquittung_Ruecknahme
 
 
 
-SL_Schluesselquittung_Ruecknahme_manuell
+Sprachen_Basic
   ◈ Parameter:
-    -- Schlüssel (NICHT übersetzt) (Dataset SEL_Schluessel) 
   ◈ DataSets:
-    -- DATA_Schluesselquittung    (sp_RPT_DATA_SL_SchluesselquittungsDetail_manuell)  
-    -- SEL_Schluessel    (tfu_RPT_SEL_SchluesselRuecknahme)  
+    -- DATA_SYS_Language_Forms    (T_SYS_Language_Forms)  
 
 
 
 
-TM_Aufgabenplanungsuebersicht_SNB_ML
+Sprachen_Portal
   ◈ Parameter:
-    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
-    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
-    -- Trakt (übersetzt) (Dataset SEL_Trakt) 
-    -- Raum (übersetzt) (Dataset SEL_Raum) 
-    -- Objekt (übersetzt) (Dataset SEL_Objekt) 
-    -- Auftragsart (übersetzt) (Dataset SEL_Auftragsart) 
-    -- IKS (übersetzt) (Dataset SEL_IKS) 
-    -- Termin von (übersetzt) (Default: =new DateTime(Year(Today), Month(Today), 1).toString("dd.MM.yyyy")) 
-    -- Termin bis (übersetzt) (Default: =DateAdd("M", 1, new DateTime(Year(Today), Month(Today), 1)).toString("dd.MM.yyyy")) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (übersetzt) (Dataset SEL_Verantwortlich) 
+  ◈ DataSets:
+    -- DATA_FMS_Translation    (T_FMS_Translation)  
+
+
+
+
+Sprachen_Reports
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DATA_RPT_Translations    (T_RPT_Translations)  
+
+
+
+
+Standortrechte_Numerisch_perGruppe
+  ◈ Parameter:
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Standortrechte    (T_AP_Standort, T_SYS_Standortrechte, T_Benutzergruppen)  
+
+
+
+
+Standortrechte_Numerisch_perStao
+  ◈ Parameter:
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Standortrechte    (T_AP_Standort, T_SYS_Standortrechte, T_Benutzergruppen)  
+
+
+
+
+Standortrechte_perGruppe
+  ◈ Parameter:
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Standortrechte    (T_AP_Standort, T_SYS_Standortrechte, T_Benutzergruppen)  
+
+
+
+
+Standortrechte_perStao
+  ◈ Parameter:
+    -- Stichtag (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Standortrechte    (T_AP_Standort, T_SYS_Standortrechte, T_Benutzergruppen)  
+
+
+
+
+TestReport
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DataSet1    (T_Benutzer)  
+
+
+
+
+TestReport3
+  ◈ Parameter:
+    -- Sprache (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Umzugsuid (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Umzugsheader    (V_UM_Planung_Uebersicht, T_AP_Kontakte)  
+    -- DATA_Umzugsmitteilung    (T_AP_Ref_Mandant, T_ZO_AP_Kontakte_AP_Ref_Kostenstelle, T_AP_Ref_Kostenstelle, V_UM_Umzug_Formular)  
+
+
+
+
+TestReport3_Working
+  ◈ Parameter:
+    -- Sprache (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Umzugsuid (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Umzugsheader    (V_UM_Planung_Uebersicht, T_AP_Kontakte)  
+    -- DATA_Umzugsmitteilung    (T_AP_Ref_Mandant, T_ZO_AP_Kontakte_AP_Ref_Kostenstelle, T_AP_Ref_Kostenstelle, V_UM_Umzug_Formular)  
+
+
+
+
+TM_Aufgabenplanungsuebersicht_ML
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Objekt (NICHT übersetzt) (Dataset SEL_Objekt) 
+    -- Auftragsart (NICHT übersetzt) (Dataset SEL_Auftragsart) 
+    -- Termin von: (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Termin bis: (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
   ◈ DataSets:
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
     -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- DATA_AufgabenPlanung    (sp_RPT_DATA_TM_TaskPlanungsuebersicht_SNB)  
+    -- DATA_AufgabenPlanung    (sp_RPT_DATA_TM_Aufgabenplanungsuebersicht)  
     -- SEL_Objekt    (sp_RPT_SEL_OV_ObjektTyp)  
     -- SEL_Auftragsart    (sp_RPT_SEL_TM_TaskArt)  
-    -- SEL_Verantwortlich    (tfu_RPT_SEL_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks_Planung)  
+    -- SEL_Verantwortlich    (sp_RPT_SEL_Benutzer)  
     -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- SEL_Lieferant    (T_AV_Adressen, T_ZO_AV_Adresse_AV_Ref_AdresseRollen, T_AV_Ref_AdresseRollen, T_TM_Tasks_Planung)  
-    -- SEL_IKS    (V_RPT_SEL_Alle)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks_Planung, V_RPT_SEL_Alle)  
+
+
+
+
+TM_Aufgabenuebersicht_LUKB_ML
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Taskkategorie (NICHT übersetzt) (Dataset SEL_TaskKategorie) 
+    -- Objekt (NICHT übersetzt) (Dataset SEL_Objekt) 
+    -- Priorität (NICHT übersetzt) (Dataset SEL_Prioritaet) 
+    -- Auftragsart (NICHT übersetzt) (Dataset SEL_Auftragsart) 
+    -- Status (NICHT übersetzt) (Dataset SEL_Status) 
+    -- Termin von: (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Termin bis: (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Aufgaben    (sp_RPT_DATA_TM_Aufgabenuebersicht)  
+    -- SEL_Objekt    (sp_RPT_SEL_OV_ObjektTyp)  
+    -- SEL_Prioritaet    (sp_RPT_SEL_TM_TaskPrio)  
+    -- SEL_Auftragsart    (sp_RPT_SEL_TM_TaskArt)  
+    -- SEL_Status    (sp_RPT_SEL_TM_TaskStatus)  
+    -- SEL_Verantwortlich    (sp_RPT_SEL_Benutzer)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
+    -- SEL_TaskKategorie    (sp_RPT_SEL_TM_TaskKategorie)  
+
+
+
+
+TM_Aufgabenuebersicht_ML
+  ◈ Parameter:
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebaeude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (NICHT übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (NICHT übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (NICHT übersetzt) (Dataset SEL_Raum) 
+    -- Objekt (NICHT übersetzt) (Dataset SEL_Objekt) 
+    -- Priorität (NICHT übersetzt) (Dataset SEL_Prioritaet) 
+    -- Auftragsart (NICHT übersetzt) (Dataset SEL_Auftragsart) 
+    -- Status (NICHT übersetzt) (Dataset SEL_Status) 
+    -- Termin von: (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Termin bis: (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Aufgaben    (sp_RPT_DATA_TM_Aufgabenuebersicht)  
+    -- SEL_Objekt    (sp_RPT_SEL_OV_ObjektTyp)  
+    -- SEL_Prioritaet    (sp_RPT_SEL_TM_TaskPrio)  
+    -- SEL_Auftragsart    (sp_RPT_SEL_TM_TaskArt)  
+    -- SEL_Status    (sp_RPT_SEL_TM_TaskStatus)  
+    -- SEL_Verantwortlich    (sp_RPT_SEL_Benutzer)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
 
 
 
 
 TM_Aufgabenuebersicht_SNB_ML
   ◈ Parameter:
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
     -- Verantwortlich (übersetzt) (Dataset SEL_Verantwortlich) 
     -- Aufgabentyp (übersetzt) (Dataset SEL_TaskAuswahl) 
-    -- Status (übersetzt) (Dataset SEL_Status) 
-    -- Termin von (übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
-    -- Termin bis (übersetzt) (Default: =System.DateTime.Now.AddDays(7).ToString("dd.MM.yyyy")) 
-    -- IKS (übersetzt) (Dataset SEL_IKS) 
+    -- Termin von (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Termin bis (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
     -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- DATA_Aufgaben    (sp_RPT_DATA_TM_Taskuebersicht_SNB)  
+    -- DATA_Aufgaben    (sp_RPT_DATA_TM_Aufgabenuebersicht)  
     -- SEL_Objekt    (sp_RPT_SEL_OV_ObjektTyp)  
     -- SEL_Prioritaet    (sp_RPT_SEL_TM_TaskPrio)  
     -- SEL_Auftragsart    (sp_RPT_SEL_TM_TaskArt)  
     -- SEL_Status    (sp_RPT_SEL_TM_TaskStatus)  
-    -- SEL_Verantwortlich    (tfu_RPT_SEL_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks)  
+    -- SEL_Verantwortlich    (sp_RPT_SEL_Benutzer)  
     -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
     -- SEL_TaskAuswahl
-    -- SEL_IKS    (V_RPT_SEL_Alle)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks, V_RPT_SEL_Alle)  
 
 
 
 
-UPS_AuswertungProlemo_SNB_ML
+TM_Reinigungsuebersicht_ML
   ◈ Parameter:
-    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Budgetjahr (NICHT übersetzt) (Default: =year(today)) 
+    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
+    -- Geschoss (übersetzt) (Dataset SEL_Geschoss) 
+    -- Trakt (übersetzt) (Dataset SEL_Trakt) 
+    -- Raum (übersetzt) (Dataset SEL_Raum) 
+    -- Stichtag (übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
   ◈ DataSets:
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
-    -- DATA_Auswertung_Prolemo    (sp_RPT_DATA_UPS_Auswertung_Prolemo)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Reinigung    (sp_RPT_DATA_ReinigungsDetail)  
+    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
 
 
 
 
-UPS_BudgetuebersichtNachKategorie_ML
+UB_UserList
   ◈ Parameter:
-    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Budgetjahr) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
-    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebauede) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich intern (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
-    -- Aufwandskonto (NICHT übersetzt) (Dataset SEL_Baukostenplan) 
+    -- Gruppen-ID (NICHT übersetzt) (Default: Nichts) 
   ◈ DataSets:
-    -- DATA_UPS_BudgetuebersichtNachKategorie    (sp_RPT_DATA_TSK_BudgetuebersichtKategorie)  
-    -- SEL_Baukostenplan    (tfu_RPT_SEL_UPS_Baukostenplan, T_UPS_BudgetPositionen)  
-    -- SEL_Verantwortlich    (tfu_RPT_SEL_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_UPS_BudgetPositionen)  
-    -- SEL_Budgetposition    (tfu_RPT_SEL_UPS_Budgetposition, T_TM_Tasks)  
-    -- SEL_Gebauede    (tfu_RPT_SEL_Gebaeude_AllOnAll_MSEL)  
-    -- SEL_Standort    (tfu_RPT_MSEL_Standort)  
-    -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-    -- SEL_Budgetjahr    (T_UPS_BudgetPositionen)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_UPS_BudgetPositionen, T_RPT_Translations)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_UPS_BudgetPositionen)  
+    -- DATA_UserListe    (T_Benutzer, T_Benutzer_Benutzergruppen)  
 
 
 
 
-UPS_Budgetuebersicht_ML2
+UM_Umzugsmitteilung
+  ◈ Parameter:
+    -- Sprache (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Umzug (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Umzugsmitteilung    (T_AP_Ref_Mandant, T_ZO_AP_Kontakte_AP_Ref_Kostenstelle, T_AP_Ref_Kostenstelle, V_UM_Umzug_Formular)  
+    -- DATA_Umzugsheader    (V_UM_Planung_Uebersicht, T_AP_Kontakte)  
+
+
+
+
+UM_Umzugsmitteilung2
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DataSet1    (T_Benutzer)  
+
+
+
+
+UPS_Budgetierung_Anlage
   ◈ Parameter:
     -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
+  ◈ DataSets:
+    -- DATA_UPS_Budgetierung_Anlagen    (sp_RPT_DATA_UPS_BudgetierungAnlage)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+
+
+
+
+UPS_Budgetierung_Gebaeude
+  ◈ Parameter:
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+  ◈ DataSets:
+    -- DATA_UPS_Budgetierung_Gebaeude    (sp_RPT_DATA_UPS_BudgetierungGebaeude)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+
+
+
+
+UPS_Budgetierung_Standort
+  ◈ Parameter:
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+  ◈ DataSets:
+    -- DATA_UPS_Budgetierung_Gebaeude    (sp_RPT_DATA_UPS_BudgetierungStandort)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+
+
+
+
+UPS_Budgetuebersicht_ML
+  ◈ Parameter:
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
     -- Konto (NICHT übersetzt) (Dataset SEL_UPS_Konto) 
     -- BKP (NICHT übersetzt) (Dataset SEL_BKP) 
   ◈ DataSets:
     -- SEL_BKP    (sp_RPT_SEL_UPS_BKP)  
     -- SEL_UPS_Konto    (sp_RPT_SEL_UPS_Konto)  
     -- DATA_UPS_Budgetuebersicht    (sp_RPT_DATA_UPS_BudgetuebersichtDetail)  
-    -- SEL_Jahr    (T_UPS_BudgetPositionen)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_UPS_BudgetPositionen)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
 
 
 
 
 UPS_BudgetUndIst_Kosten_Anlage
   ◈ Parameter:
-    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
-    -- Anzahl Vorjahre (NICHT übersetzt) (Default: 1) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
-    -- Sachkonto (NICHT übersetzt) (Dataset SEL_Baukostenplan_Stufe4) 
     -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
     -- Anlage (NICHT übersetzt) (Dataset SEL_Anlage) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
   ◈ DataSets:
     -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_BudgetierungUndIstKosten_MultiEbene)  
     -- SEL_Anlage    (V_RPT_SEL_AL_Anlage)  
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll, tfu_RPT_SEL_Standort)  
-    -- SEL_Jahr    (T_UPS_BudgetPositionen)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
     -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-    -- SEL_Verantwortlich    (V_RPT_SEL_UPS_verantwortlich, T_Benutzer_Benutzergruppen, T_Benutzergruppen)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_UPS_BudgetPositionen, T_RPT_Translations)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_UPS_BudgetPositionen)  
-    -- SEL_Baukostenplan_Stufe4    (tfu_RPT_SEL_UPS_BaukostenplanStufe4)  
 
 
 
 
 UPS_BudgetUndIst_Kosten_Anlagenportofolio
   ◈ Parameter:
-    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
-    -- Anzahl Vorjahre (NICHT übersetzt) (Default: 1) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
-    -- Sachkonto (NICHT übersetzt) (Dataset SEL_Baukostenplan_Stufe4) 
     -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
   ◈ DataSets:
     -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_BudgetierungUndIstKosten_Anlagenportofolio)  
+    -- SEL_Anlage
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll)  
-    -- SEL_Jahr    (T_UPS_BudgetPositionen)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll, tfu_RPT_SEL_Standort)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
     -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-    -- SEL_Verantwortlich    (V_RPT_SEL_UPS_verantwortlich, T_Benutzer_Benutzergruppen, T_Benutzergruppen)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_UPS_BudgetPositionen, T_RPT_Translations)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_UPS_BudgetPositionen)  
-    -- SEL_Baukostenplan_Stufe4    (tfu_RPT_SEL_UPS_BaukostenplanStufe4)  
 
 
 
 
 UPS_BudgetUndIst_Kosten_Gebaeude
   ◈ Parameter:
-    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
-    -- Anzahl Vorjahre (NICHT übersetzt) (Default: 1) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
-    -- Sachkonto (NICHT übersetzt) (Dataset SEL_Baukostenplan_Stufe4) 
     -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
   ◈ DataSets:
     -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_BudgetierungUndIstKosten_MultiEbene)  
     -- SEL_Anlage
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
-    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll, tfu_RPT_SEL_Standort)  
-    -- SEL_Jahr    (T_UPS_BudgetPositionen)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
     -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-    -- SEL_Verantwortlich    (V_RPT_SEL_UPS_verantwortlich, T_Benutzer_Benutzergruppen, T_Benutzergruppen)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_UPS_BudgetPositionen, T_RPT_Translations)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_UPS_BudgetPositionen)  
-    -- SEL_Baukostenplan_Stufe4    (tfu_RPT_SEL_UPS_BaukostenplanStufe4)  
+
+
+
+
+UPS_BudgetUndIst_Kosten_NurGebaeude
+  ◈ Parameter:
+    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+  ◈ DataSets:
+    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_BudgetierungUndIstKosten_NurGebaeude)  
+    -- SEL_Anlage
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+    -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
+
+
+
+
+UPS_BudgetUndIst_Kosten_NurStandort
+  ◈ Parameter:
+    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+  ◈ DataSets:
+    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_BudgetierungUndIstKosten_NurStandort)  
+    -- SEL_Anlage
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (Alle)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+    -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
 
 
 
 
 UPS_BudgetUndIst_Kosten_Standort
   ◈ Parameter:
-    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
-    -- Anzahl Vorjahre (NICHT übersetzt) (Default: 1) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
-    -- Sachkonto (NICHT übersetzt) (Dataset SEL_Baukostenplan_Stufe4) 
     -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
   ◈ DataSets:
     -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_BudgetierungUndIstKosten_MultiEbene)  
     -- SEL_Anlage
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (Alle)  
-    -- SEL_Jahr    (T_UPS_BudgetPositionen)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
     -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-    -- SEL_Verantwortlich    (V_RPT_SEL_UPS_verantwortlich, T_Benutzer_Benutzergruppen, T_Benutzergruppen)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_UPS_BudgetPositionen, T_RPT_Translations)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_UPS_BudgetPositionen)  
-    -- SEL_Baukostenplan_Stufe4    (tfu_RPT_SEL_UPS_BaukostenplanStufe4)  
 
 
 
 
-UPS_Budget_AlleGebaeude
+UPS_Ist_Kosten_Anlage
   ◈ Parameter:
-    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
     -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
     -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
-    -- Sachkonto (NICHT übersetzt) (Dataset SEL_Baukostenplan_Stufe4) 
-    -- Verantwortlich (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Anlage (NICHT übersetzt) (Dataset SEL_Anlage) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
   ◈ DataSets:
-    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_BudgetierungUndIstKosten_MultiEbene)  
+    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_AuswertungIstKosten_MultiEbene)  
+    -- SEL_Anlage    (V_RPT_SEL_AL_Anlage)  
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll, tfu_RPT_SEL_Standort)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+
+
+
+
+UPS_Ist_Kosten_Anlagenportofolio
+  ◈ Parameter:
+    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+  ◈ DataSets:
+    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_AuswertungIstKosten_Anlage)  
+    -- SEL_Anlage
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll, tfu_RPT_SEL_Standort)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
+
+
+
+
+UPS_Ist_Kosten_Gebaeude
+  ◈ Parameter:
+    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+  ◈ DataSets:
+    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_AuswertungIstKosten_MultiEbene)  
     -- SEL_Anlage
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude_AllOnAll)  
-    -- SEL_Jahr    (T_UPS_BudgetPositionen)  
-    -- SEL_DefaultYear    (sp_RPT_SEL_UPS_DefaultYear)  
-    -- SEL_Verantwortlich    (V_RPT_SEL_UPS_verantwortlich)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_UPS_BudgetPositionen)  
-    -- SEL_Baukostenplan_Stufe4    (tfu_RPT_SEL_UPS_BaukostenplanStufe4)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
 
 
 
 
-UPS_Rechnungsuebersicht_SNB_ML
+UPS_Ist_Kosten_Standort
   ◈ Parameter:
-    -- Rechnungen von (NICHT übersetzt) (Default: =new System.DateTime(System.DateTime.Now.Year, 1, 1).ToString("dd.MM.yyyy")) 
-    -- Rechnungen bis (NICHT übersetzt) (Default: =new System.DateTime(System.DateTime.Now.Year, 12, 31).ToString("dd.MM.yyyy")) 
-    -- Kostenstelle (NICHT übersetzt) (Dataset SEL_Kostenstelle) 
-    -- Aufwandskonto (NICHT übersetzt) (Dataset SEL_Baukostenplan) 
-    -- Rechnungsstatus (NICHT übersetzt) (Dataset SEL_Taskstatus) 
-    -- Firma (NICHT übersetzt) (Dataset SEL_Adressen) 
-    -- Benutzergruppe (NICHT übersetzt) (Dataset SEL_FilterGruppen) 
-    -- Verantwortlich intern (NICHT übersetzt) (Dataset SEL_Verantwortlich) 
+    -- Liegenschaft (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Budgetjahr (NICHT übersetzt) (Dataset SEL_Jahr) 
   ◈ DataSets:
-    -- DATA_UPS_Rechnungsuebersicht    (sp_RPT_DATA_TSK_Rechnungsuebersicht)  
-    -- SEL_Baukostenplan    (tfu_RPT_SEL_UPS_Baukostenplan, T_TM_Tasks, T_UPS_BudgetPositionen)  
-    -- SEL_Adressen    (tfu_RPT_SEL_AV_Adressen, T_TM_Tasks)  
-    -- SEL_Taskstatus    (tfu_RPT_SEL_TM_TaskStatus, T_TM_Tasks)  
-    -- SEL_Verantwortlich    (tfu_RPT_SEL_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks)  
-    -- SEL_Budgetposition    (tfu_RPT_SEL_UPS_Budgetposition, T_TM_Tasks)  
-    -- SEL_FilterGruppen    (T_Benutzer, T_Benutzer_Benutzergruppen, T_Benutzergruppen, T_TM_Tasks, V_RPT_SEL_Alle)  
-    -- SEL_Kostenstelle    (tfu_RPT_SEL_UPS_Kostenstellen, T_TM_Tasks, T_UPS_BudgetPositionen, T_AP_Ref_Kostenstelle)  
+    -- DATA_AuswertungIstKosten    (sp_RPT_DATA_UPS_AuswertungIstKosten_MultiEbene)  
+    -- SEL_Anlage
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (Alle)  
+    -- SEL_Jahr    (sp_CreateYearInterval)  
 
 
 
 
-VM_VertraegeNachGebaeude
+Verr_Raumflaechen_EAP_SWL - Sicherung
   ◈ Parameter:
-    -- Liegenschaft (übersetzt) (Dataset SEL_Standort) 
-    -- Gebäude (übersetzt) (Dataset SEL_Gebaeude) 
-    -- Vertragstyp (NICHT übersetzt) (Dataset SEL_Vertragstyp) 
-    -- Vertragspartner (NICHT übersetzt) (Dataset SEL_Vertragspartner) 
-    -- Stichtag (übersetzt) (Default: =System.DateTime.Now.ToString("dd.MM.yyyy")) 
+    -- Jahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+    -- Quartal (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Tochtergesellschaft (NICHT übersetzt) (Dataset SEL_Tochtergesellschaft) 
+    -- Gelöschte Mitarbeiter (NICHT übersetzt) (Dataset Eingebettete Parameter) 
   ◈ DataSets:
     -- SEL_Standort    (tfu_RPT_SEL_Standort)  
     -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
     -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
     -- SEL_Raum    (sp_RPT_SEL_Raum)  
-    -- DATA_Vertraege    (sp_RPT_DATA_VM_VertraegeNachGebaeudeDetail)  
-    -- SEL_Trakt    (sp_RPT_SEL_Trakt)  
-    -- SEL_Vertragstyp    (T_VM_Ref_Vertragstyp)  
-    -- SEL_Vertragspartner    (T_AV_Adressen, T_VM_Vertraege, T_ZO_AV_Adresse_AV_Ref_AdresseRollen, T_SYS_AdresseRollenrechte)  
+    -- DATA_Raumbuch_SWL    (tfu_RPT_DATA_Raumbuch_SWL, tfu_RPT_DATA_Raumbuch_SWL, tfu_RPT_DATA_Raumbuch_SWL)  
+    -- SEL_Trakt    (tfu_RPT_SEL_GebauedeTrakt)  
+    -- SEL_Jahr    (tfu_RPT_All_CreateYearInterval)  
+    -- SEL_Tochtergesellschaft    (sp_RPT_SEL_Tochtergesellschaft_SWL)  
+
+
+
+
+Verr_Raumflaechen_EAP_SWL
+  ◈ Parameter:
+    -- Jahr (NICHT übersetzt) (Dataset SEL_Jahr) 
+    -- Quartal (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+    -- Standort (NICHT übersetzt) (Dataset SEL_Standort) 
+    -- Gebäude (NICHT übersetzt) (Dataset SEL_Gebaeude) 
+    -- Tochtergesellschaft (NICHT übersetzt) (Dataset SEL_Tochtergesellschaft) 
+    -- Gelöschte Mitarbeiter (NICHT übersetzt) (Dataset Eingebettete Parameter) 
+  ◈ DataSets:
+    -- SEL_Standort    (tfu_RPT_SEL_Standort)  
+    -- SEL_Gebaeude    (tfu_RPT_SEL_Gebaeude)  
+    -- SEL_Geschoss    (tfu_RPT_SEL_Geschoss)  
+    -- SEL_Raum    (sp_RPT_SEL_Raum)  
+    -- DATA_Raumbuch_SWL    (tfu_RPT_DATA_Raumbuch_SWL, tfu_RPT_DATA_Raumbuch_SWL, tfu_RPT_DATA_Raumbuch_SWL)  
+    -- SEL_Trakt    (tfu_RPT_SEL_GebauedeTrakt)  
+    -- SEL_Jahr    (tfu_RPT_All_CreateYearInterval)  
+    -- SEL_Tochtergesellschaft    (sp_RPT_SEL_Tochtergesellschaft_SWL)  
+
+
+
+
+XmlGroupText
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DataSet1    (T_UW_Ref_Position, T_UW_Ref_Position)  
+
+
+
+
+XmlTest
+  ◈ Parameter:
+  ◈ DataSets:
+    -- DataSet1    (T_UW_Ref_Position, T_UW_Ref_Position)  
+
+
+
+
+_old_UM_Umzugsmitteilung
+  ◈ Parameter:
+    -- Sprache (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+    -- Umzug (NICHT übersetzt) (Default: System.Collections.Generic.List`1[System.String]) 
+  ◈ DataSets:
+    -- DATA_Umzugsmitteilung    (T_AP_Ref_Mandant, T_ZO_AP_Kontakte_AP_Ref_Kostenstelle, T_AP_Ref_Kostenstelle, V_UM_Umzug_Formular)  
+    -- DATA_Umzugsheader    (V_UM_Planung_Uebersicht, T_AP_Kontakte)  
 
 
 
