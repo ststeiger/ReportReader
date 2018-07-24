@@ -6,9 +6,10 @@ namespace ReportReader
     {
         //public System.Collections.Generic.Dictionary<string, string> Dependencies;
         public System.Collections.Generic.List<string> Dependencies;
-
-
+        public int Index;
+        public string Name;
     }
+
 
     public class ReportData
     {
@@ -26,8 +27,11 @@ namespace ReportReader
             //ReportData x = new ReportData();
             //foreach (string dep in x.Parameters[""].Dependencies)
             //{
-                
+
             //}
+
+            string aqn = typeof(System.Xml.XmlDocument).AssemblyQualifiedName;
+            System.Console.WriteLine(aqn);
 
 
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
@@ -239,9 +243,7 @@ namespace ReportReader
                     } // Next para 
 
                 } // End if (ds.Query.QueryParameters != null) 
-
                 
-
             } // Next kvp 
 
 
@@ -257,8 +259,6 @@ namespace ReportReader
             {
                 System.Console.WriteLine(ex.Message);
             }
-
-            
             
 
 
