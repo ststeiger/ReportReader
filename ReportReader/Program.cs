@@ -1,12 +1,7 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using DB.Topology;
-
 namespace ReportReader 
 {
+
 
     public class ReportDetails
     {
@@ -22,7 +17,12 @@ namespace ReportReader
         public System.Collections.Generic.Dictionary<string, ReportDetails> Parameters;
     }
 
-    
+
+    // Datentyp: Text, Boolesch, Datum/Uhrzeit, Ganze Zahl, Gleitkommawert
+    // Leeren Wert ("") zulassen
+    // NULL-Wert zulassen 
+    // Mehrere Werte zulassen 
+
     // Read parameter names, types (textbox, dropdown), type
     // {
     //     parameters: [{ name: in_standort, displayType: dropdown, dataType:string 
@@ -31,8 +31,8 @@ namespace ReportReader
     //     ]
     //     values: { proc: [], in_standort: [], in_gebaeude: [], in_stichtag: []}
     // }
-    
-    
+
+
     class Program 
     {
 
@@ -54,6 +54,7 @@ namespace ReportReader
 
         static void Main(string[] args)
         {
+
             //ReportData x = new ReportData();
             //foreach (string dep in x.Parameters[""].Dependencies)
             //{
@@ -144,9 +145,11 @@ namespace ReportReader
                 return;
             }
 
-            
-            // report.GetDataSets();
-            
+
+            string code = report.Code;
+            System.Console.WriteLine(code);
+
+
 
             foreach (System.Collections.Generic.KeyValuePair<string, Xml2CSharp.ReportParameter> kvp in report.Parameters)
             {
@@ -201,11 +204,12 @@ namespace ReportReader
                 // rp.Prompt 
 
 
-                // rp.DataType // DatenTyp
+                // rp.DataType // DatenTyp (Text, Boolesch, Datum/Uhrzeit, Ganze Zahl, Gleitkommawert)
                 // rp.AllowBlank // Leeren Wert ("") zulassen 
                 // rp.Nullable // NULL-Wert zulassen
                 // rp.MultiValue // Mehrere Werte zulassen
 
+                // Visible, Hidden, Internal:
                 // rp.Hidden // Ausgeblendet 
 
                 // rp.ValidValues // Verfügbare Werte
@@ -213,14 +217,16 @@ namespace ReportReader
                 // rp.DefaultValue // Standardwerte
                 // Kein Standrartwert // Werte angeben // Werte aus Abfrage abrufen 
 
+                
+                // https://stackoverflow.com/questions/47715101/ssrs-b-parameter-change-to-default-after-change-in-a-parameter
                 // Erweitert
-                // Aktualisierungszeitpunkt bestimmen
-                // - Aktualisierungszeitpunkt automatisch bestimmen 
-                // - Immer aktualisieren
-                // - Nie aktualisieren
+                // Aktualisierungszeitpunkt bestimmen // Refresh data when the parameter changes: 
+                // - Aktualisierungszeitpunkt automatisch bestimmen  // Automatically determine when to refresh 
+                // - Immer aktualisieren // Always refresh 
+                // - Nie aktualisieren // Never refresh 
 
                 // Berichtsteilbenachrichtigungen 
-                // Benachrichtigen, wenn dieser Berichtsteil auf dem Server aktualisiert wird
+                // Benachrichtigen, wenn dieser Berichtsteil auf dem Server aktualisiert wird // Notify me when this report part is updated on the server 
 
                 // rp.IsHidden
                 // rp.IsTranslated

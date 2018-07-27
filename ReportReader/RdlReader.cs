@@ -20,10 +20,34 @@ namespace ReportReader
         public System.Collections.Generic.Dictionary<string, Xml2CSharp.ReportParameter> Parameters;
         public System.Collections.Generic.Dictionary<string, Xml2CSharp.DataSet> DataSets;
 
+        public Xml2CSharp.Report Report;
 
+
+        //public Xml2CSharp.DataSource
+        // this.m_report.DataSources.DataSource.Name
+        // this.m_report.DataSources.DataSource.SecurityType
+
+        public string Code
+        {
+            get
+            {
+                return this.m_report.Code;
+            }
+        }
+
+        public string Language
+        {
+            get
+            {
+
+                return this.m_report.Language;
+            }
+        }
 
         public RdlReader()
         {
+            
+
             this.Parameters = new System.Collections.Generic.Dictionary<string, Xml2CSharp.ReportParameter>(
                 System.StringComparer.OrdinalIgnoreCase
             );
