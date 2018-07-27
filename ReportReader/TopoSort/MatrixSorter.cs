@@ -1,11 +1,7 @@
 
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using NpgsqlTypes;
-
-namespace DB.Topology
+namespace SortAlgorithms.Topological 
 {
-
+    
 
     public class TopologicObject
     {
@@ -23,9 +19,7 @@ namespace DB.Topology
         
         public TopologicObject()
             : this(null)
-        {
-            
-        } // End Constructor TopologicObject 
+        { } // End Constructor TopologicObject 
         
         
         public TopologicObject DependsOn(params string[] dependencies)
@@ -33,16 +27,16 @@ namespace DB.Topology
             for (int i = 0; i < dependencies.Length; ++i)
             {
                 this.Dependencies.Add(new TopologicObject(dependencies[i]));
-            }
+            } // Next i 
 
             return this;
-        }
-        
-        
+        } // End Function DependsOn 
+
+
     } // End Class TopologicObject 
     
     
-    public class TopologicalSorter
+    public class MatrixSorter
     {
         private readonly int[] _vertices; // list of vertices
         private readonly int[,] _matrix; // adjacency matrix
@@ -50,7 +44,7 @@ namespace DB.Topology
         private readonly int[] _sortedArray;
 
 
-        public TopologicalSorter(int size)
+        public MatrixSorter(int size)
         {
             _vertices = new int[size];
             _matrix = new int[size, size];
@@ -83,7 +77,7 @@ namespace DB.Topology
                 int currentVertex = noSuccessors();
                 if (currentVertex == -1) // must be a cycle  
                 {
-                    throw new System.Exception("Graph has cycles");
+                    throw new System.IO.InvalidDataException("Graph has cycles...");
                 }
                 // insert vertex label in sorted array (start at end)
                 _sortedArray[_numVerts - 1] = _vertices[currentVertex];
@@ -149,7 +143,7 @@ namespace DB.Topology
         }
 
 
-    }
+    } // End Class TopologicalSorter 
 
 
-}
+} // End Namespace DB.Topology 
