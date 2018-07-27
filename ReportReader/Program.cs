@@ -1,4 +1,10 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using DB.Topology;
+
 namespace ReportReader 
 {
 
@@ -17,13 +23,177 @@ namespace ReportReader
     }
 
 
+    class mygraph
+    {
 
+        public class wrap
+        {
+            protected  string m_x;
+            protected  mygraph m_graph;
+            
+            public wrap(mygraph graph, string x)
+            {
+                this.m_graph = graph;
+                this.m_x = x;
+            }
+
+            public wrap und(string b)
+            {
+                //m_graph.
+                return this;
+            }
+            
+
+            public wrap HängtAbVon(string b)
+            {
+                //m_graph.
+                return this;
+            }
+        }
+
+        public wrap Entity(string a)
+        {
+            return new wrap(this, a);
+        }
+
+        
+    }
+    
+    
+    // Read parameter names, types (textbox, dropdown), type
+    // {
+    //     parameters: [{ name: in_standort, displayType: dropdown, dataType:string 
+    //                    multi: false/true , index: 1
+    //                  }
+    //     ]
+    //     values: { proc: [], in_standort: [], in_gebaeude: [], in_stichtag: []}
+    // }
+    
+    
     class Program 
     {
 
+        public static void simpleex()
+        {
+            var sorter = new DB.Topology.TopologicalSorter(5);
+            sorter.AddVertex(0);
+            sorter.AddVertex(1);
+            sorter.AddVertex(2);
+            sorter.AddVertex(3);
+            sorter.AddVertex(4);
+            
+            
+            // tabellen, views, funktionen
+            // graph.object("taskunion").hängtAbVon("gb,so");
+            
+            sorter.AddEdge(2, 3); // 3 hängt von 2 ab
+            sorter.AddEdge(0, 1); // 1 hängt von 0 ab
+            
+            int[] res = sorter.Sort();
+            // res = res.Reverse().ToArray();
+            System.Console.WriteLine(res);
+        }
 
         static void Main(string[] args)
         {
+            // tabellen, views, funktionen
+            // graph.object("taskunion").hängtAbVon("gb,so");
+            
+            // mygraph graph = new mygraph();
+            // graph.Entity("union").HängtAbVon("tabelle1").und("tabelle2").und("tabelle3");
+            
+            
+            System.Collections.Generic.Dictionary<string, int> dict = 
+                new System.Collections.Generic.Dictionary<string, int>(
+                System.StringComparer.InvariantCultureIgnoreCase
+            );
+            
+            var ls = new System.Collections.Generic.List<DB.Topology.TopologicObject>();
+            
+            ls.Add(new TopologicObject("bar"));
+            ls.Add(new TopologicObject("foo"));
+            
+            ls.Add(new DB.Topology.TopologicObject("foobar")
+                    .DependsOn("foo").DependsOn("bar")
+            );
+            
+            ls.Add(new TopologicObject("omg").DependsOn("foo"));
+
+            
+            for (int i = 0; i < ls.Count; ++i)
+            {
+                ls[i].Index = i;
+                dict.Add(ls[i].Name, i);
+            }
+            
+            
+            for (int i = 0; i < ls.Count; ++i)
+            {
+                for (int j = 0; j < ls[i].Dependencies.Count; ++j)
+                {
+                    int key = dict[ls[i].Dependencies[j].Name];
+                    ls[i].Dependencies[j].Index = key;
+                } // Next j 
+            } // Next i 
+
+
+
+            var hsAllObjects = new HashSet<int>();
+            var hsDependence = new HashSet<Tuple<int, int>>();
+            
+            // new HashSet<Tuple<int, int>>(Tuple.Create(7, 11),
+            
+            var sorter = new DB.Topology.TopologicalSorter(ls.Count);
+            
+            
+            for (int i = 0; i < ls.Count; ++i)
+            {
+                hsAllObjects.Add(i);
+                sorter.AddVertex(i);
+            }
+            
+            for (int i = 0; i < ls.Count; ++i)
+            {
+                for (int j = 0; j < ls[i].Dependencies.Count; ++j)
+                {
+                    sorter.AddEdge(ls[i].Dependencies[j].Index, i); // i depends on Dependency[j] 
+                    // sorter.AddEdge(i, ls[i].Dependencies[j].Index); // i depends on Dependency[j] 
+                    
+                    hsDependence.Add(Tuple.Create(ls[i].Dependencies[j].Index, i));
+                } // Next j 
+                
+                // if (ls[i].Dependencies.Count == 0) sorter.AddEdge(i, i);
+            } // Next i 
+            
+            System.Diagnostics.Stopwatch sw= new Stopwatch();
+            sw.Start();
+            var ret = SortAlgorithms.Topological.Kahn.Sort(hsAllObjects,hsDependence);
+            sw.Stop();
+            long durKahn = sw.ElapsedMilliseconds;
+            
+            string[] sret = new string[ret.Count];
+            
+            sw.Reset();
+            sw.Start();
+            int[] res = sorter.Sort();
+            sw.Stop();
+            long durMat = sw.ElapsedMilliseconds;
+            
+            string[] sres = new string[res.Length];
+            for (int i = 0; i < sres.Length; ++i)
+            {
+                sres[i] = ls[res[i]].Name;
+                sret[i] = ls[ret[i]].Name;
+            }
+            
+            // res = res.Reverse().ToArray();
+            // And the winner is: NOT KAHN !
+            System.Console.WriteLine("{0}, {1}", durKahn, durMat);
+            System.Console.WriteLine(sres);
+            System.Console.WriteLine(sret);
+            
+            
+            
             //ReportData x = new ReportData();
             //foreach (string dep in x.Parameters[""].Dependencies)
             //{
@@ -304,7 +474,7 @@ namespace ReportReader
                         sb.Append("Nichts");
                     else
                         sb.Append(para.DefaultValue.Values.Value);
-
+                    
                     sb.Append(") ");
                 }
 
