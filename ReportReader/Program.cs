@@ -9,7 +9,7 @@ namespace ReportReader
         public System.Collections.Generic.List<string> Dependencies;
         public int Index;
         public string Name;
-    }
+    } // End Class ReportDetails
 
 
     public class ReportData
@@ -32,9 +32,10 @@ namespace ReportReader
     //     values: { proc: [], in_standort: [], in_gebaeude: [], in_stichtag: []}
     // }
 
-
+    
     class Program 
     {
+
 
         static void TopoSortBenchmark()
         {
@@ -54,13 +55,14 @@ namespace ReportReader
 
         static void Main(string[] args)
         {
+            // dd.Test();
 
             //ReportData x = new ReportData();
             //foreach (string dep in x.Parameters[""].Dependencies)
             //{
-            
+
             //}
-            
+
             string aqn = typeof(System.Xml.XmlDocument).AssemblyQualifiedName;
             System.Console.WriteLine(aqn);
 

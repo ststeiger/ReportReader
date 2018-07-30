@@ -19,5 +19,6 @@
     <PackageReference Include="Npgsql" Version="4.0.2" />
     <PackageReference Include="System.Data.Common" Version="4.3.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.5.1" />
+    <PackageReference Include="System.Management" Version="4.5.0" />
   </ItemGroup>
 </Project>
