@@ -46,11 +46,11 @@ namespace ReportReader
             {
                 SortAlgorithms.Topological.Test.MatrixTests.MatrixSorterTest();
                 SortAlgorithms.Topological.Test.KahnTests.TestMe();
-            }
+            } // Next i 
 
             System.Console.WriteLine();
             return;
-        }
+        } // End Sub TopoSortBenchmark 
 
 
         static void Main(string[] args)
@@ -116,8 +116,7 @@ namespace ReportReader
             hs.Add("DATA_Report_Title");
             hs.Add("SEL_Report_Title");
             hs.Add("LANG_Report_Title");
-
-
+            
             hs.Add("SEL_User");
             hs.Add("SEL_Benutzer");
 
@@ -136,15 +135,12 @@ namespace ReportReader
 
             RdlReader report = null;
 
-
             try
             {
                 report = new RdlReader().OpenFile(fileName);
 
                 string json = Newtonsoft.Json.JsonConvert.SerializeObject(report, Newtonsoft.Json.Formatting.Indented);
                 System.Console.WriteLine(json);
-
-
             }
             catch (System.Exception ex)
             {
@@ -155,8 +151,6 @@ namespace ReportReader
 
             string code = report.Code;
             System.Console.WriteLine(code);
-
-
 
             foreach (System.Collections.Generic.KeyValuePair<string, Xml2CSharp.ReportParameter> kvp in report.Parameters)
             {
@@ -194,7 +188,7 @@ namespace ReportReader
                     System.Console.WriteLine(rp.ValidValues.DataSetReference.LabelField);
                     System.Console.Write("Value:     ");
                     System.Console.WriteLine(rp.ValidValues.DataSetReference.ValueField);
-                }
+                } // End if (rp.ValidValues != null && rp.ValidValues.DataSetReference != null) 
 
 
                 if (rp.DefaultValue != null && rp.DefaultValue.DataSetReference != null)
@@ -203,13 +197,11 @@ namespace ReportReader
                     // System.Console.WriteLine(rp.DefaultValue.DataSetReference.LabelField); // LabelField: Always NULL 
                     System.Console.Write("Value:     ");
                     System.Console.WriteLine(rp.DefaultValue.DataSetReference.ValueField);
-                }
-
+                } // End if (rp.DefaultValue != null && rp.DefaultValue.DataSetReference != null) 
 
 
                 // rp.Name 
                 // rp.Prompt 
-
 
                 // rp.DataType // DatenTyp (Text, Boolesch, Datum/Uhrzeit, Ganze Zahl, Gleitkommawert)
                 // rp.AllowBlank // Leeren Wert ("") zulassen 
@@ -224,7 +216,7 @@ namespace ReportReader
                 // rp.DefaultValue // Standardwerte
                 // Kein Standrartwert // Werte angeben // Werte aus Abfrage abrufen 
 
-                
+
                 // https://stackoverflow.com/questions/47715101/ssrs-b-parameter-change-to-default-after-change-in-a-parameter
                 // Erweitert
                 // Aktualisierungszeitpunkt bestimmen // Refresh data when the parameter changes: 
@@ -237,7 +229,6 @@ namespace ReportReader
 
                 // rp.IsHidden
                 // rp.IsTranslated
-
 
                 // rp.PromptGerman
 
@@ -263,7 +254,7 @@ namespace ReportReader
                     System.Console.WriteLine(thisField.Name);
                     System.Console.WriteLine(thisField.DataField);
                     System.Console.WriteLine(thisField.TypeName);
-                }
+                } // Next thisField 
 
 
                 System.Console.WriteLine(ds.Query.CommandType); // StoredProcedure OR null 
