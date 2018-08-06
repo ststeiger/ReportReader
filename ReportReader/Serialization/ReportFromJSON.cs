@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-
-using System.Globalization;
+﻿
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 
 namespace ReportReader.Json2CSharp
@@ -50,7 +45,7 @@ namespace ReportReader.Json2CSharp
     public partial class DataSets
     {
         [JsonProperty("DataSet")]
-        public List<DataSet> DataSet { get; set; }
+        public System.Collections.Generic.List<DataSet> DataSet { get; set; }
     }
 
     public partial class DataSet
@@ -68,7 +63,7 @@ namespace ReportReader.Json2CSharp
     public partial class Fields
     {
         [JsonProperty("Field")]
-        public List<Field> Field { get; set; }
+        public System.Collections.Generic.List<Field> Field { get; set; }
     }
 
     public partial class Field
@@ -107,7 +102,7 @@ namespace ReportReader.Json2CSharp
     public partial class QueryParameters
     {
         [JsonProperty("QueryParameter")]
-        public List<QueryParameter> QueryParameter { get; set; }
+        public System.Collections.Generic.List<QueryParameter> QueryParameter { get; set; }
     }
 
     public partial class QueryParameter
@@ -143,7 +138,7 @@ namespace ReportReader.Json2CSharp
     public partial class ReportParameters
     {
         [JsonProperty("ReportParameter")]
-        public List<ReportParameter> ReportParameter { get; set; }
+        public System.Collections.Generic.List<ReportParameter> ReportParameter { get; set; }
     }
 
     public partial class ReportParameter
@@ -220,7 +215,7 @@ namespace ReportReader.Json2CSharp
     public partial class ParameterValues
     {
         [JsonProperty("ParameterValue")]
-        public List<ParameterValue> ParameterValue { get; set; }
+        public System.Collections.Generic.List<ParameterValue> ParameterValue { get; set; }
     }
 
     public partial class ValidValues
@@ -259,9 +254,9 @@ namespace ReportReader.Json2CSharp
             MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
             DateParseHandling = DateParseHandling.None,
             Converters = {
-                new IsoDateTimeConverter()
+                new Newtonsoft.Json.Converters.IsoDateTimeConverter()
                 {
-                    DateTimeStyles = DateTimeStyles.AssumeUniversal,
+                    DateTimeStyles = System.Globalization.DateTimeStyles.AssumeUniversal,
                 },
             },
         };

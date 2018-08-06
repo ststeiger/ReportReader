@@ -1,7 +1,4 @@
 ﻿
-using System.Collections.Generic;
-
-
 namespace ReportReader.Xml2Json2CSharp
 {
 
@@ -83,7 +80,7 @@ namespace ReportReader.Xml2Json2CSharp
 
     public class Fields
     {
-        public List<Field> Field { get; set; }
+        public System.Collections.Generic.List<Field> Field { get; set; }
     }
 
     public class DataSet
@@ -100,7 +97,7 @@ namespace ReportReader.Xml2Json2CSharp
 
     public class DataSets
     {
-        public List<DataSet> DataSet { get; set; }
+        public System.Collections.Generic.List<DataSet> DataSet { get; set; }
     }
 
     public class Parameter
@@ -116,7 +113,7 @@ namespace ReportReader.Xml2Json2CSharp
 
     public class Parameters
     {
-        public List<Parameter> Parameter { get; set; }
+        public System.Collections.Generic.List<Parameter> Parameter { get; set; }
     }
 
     public class Drillthrough
@@ -200,7 +197,7 @@ namespace ReportReader.Xml2Json2CSharp
 
     public class ReportParameters
     {
-        public List<ReportParameter> ReportParameter { get; set; }
+        public System.Collections.Generic.List<ReportParameter> ReportParameter { get; set; }
     }
 
     public class CellDefinition
@@ -212,7 +209,7 @@ namespace ReportReader.Xml2Json2CSharp
 
     public class CellDefinitions
     {
-        public List<CellDefinition> CellDefinition { get; set; }
+        public System.Collections.Generic.List<CellDefinition> CellDefinition { get; set; }
     }
 
     public class GridLayoutDefinition

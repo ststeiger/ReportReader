@@ -1,75 +1,71 @@
 ﻿
-using System.Xml.Serialization;
-using System.Collections.Generic;
-
-
 namespace ReportReader.Xml2CSharp
 {
 
 
-    [XmlRoot(ElementName = "DataSource",
+    [System.Xml.Serialization.XmlRoot(ElementName = "DataSource",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class DataSource
     {
-        [XmlElement(ElementName = "DataSourceReference",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSourceReference",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string DataSourceReference { get; set; }
 
-        [XmlElement(ElementName = "SecurityType",
+        [System.Xml.Serialization.XmlElement(ElementName = "SecurityType",
             Namespace = Report.DESIGNER_NAMESPACE)]
         public string SecurityType { get; set; }
 
-        [XmlElement(ElementName = "DataSourceID",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSourceID",
             Namespace = Report.DESIGNER_NAMESPACE)]
         public string DataSourceID { get; set; }
 
-        [XmlAttribute(AttributeName = "Name")]
+        [System.Xml.Serialization.XmlAttribute(AttributeName = "Name")]
         public string Name { get; set; }
     }
 
-    [XmlRoot(ElementName = "DataSources",
+    [System.Xml.Serialization.XmlRoot(ElementName = "DataSources",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class DataSources
     {
-        [XmlElement(ElementName = "DataSource",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSource",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public DataSource DataSource { get; set; }
     }
 
-    [XmlRoot(ElementName = "QueryParameter",
+    [System.Xml.Serialization.XmlRoot(ElementName = "QueryParameter",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class QueryParameter
     {
-        [XmlElement(ElementName = "Value",
+        [System.Xml.Serialization.XmlElement(ElementName = "Value",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string Value { get; set; }
 
-        [XmlAttribute(AttributeName = "Name")]
+        [System.Xml.Serialization.XmlAttribute(AttributeName = "Name")]
         public string Name { get; set; }
     }
 
-    [XmlRoot(ElementName = "QueryParameters",
+    [System.Xml.Serialization.XmlRoot(ElementName = "QueryParameters",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class QueryParameters
     {
-        [XmlElement(ElementName = "QueryParameter",
+        [System.Xml.Serialization.XmlElement(ElementName = "QueryParameter",
             Namespace = Report.DEFAULT_NAMESPACE)]
-        public List<QueryParameter> QueryParameter { get; set; }
+        public System.Collections.Generic.List<QueryParameter> QueryParameter { get; set; }
     }
 
-    [XmlRoot(ElementName = "Query",
+    [System.Xml.Serialization.XmlRoot(ElementName = "Query",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class Query
     {
-        [XmlElement(ElementName = "DataSourceName",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSourceName",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string DataSourceName { get; set; }
 
-        [XmlElement(ElementName = "QueryParameters",
+        [System.Xml.Serialization.XmlElement(ElementName = "QueryParameters",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public QueryParameters QueryParameters { get; set; }
 
-        [XmlElement(ElementName = "CommandType",
+        [System.Xml.Serialization.XmlElement(ElementName = "CommandType",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string CommandType { get; set; }
 
@@ -94,7 +90,8 @@ namespace ReportReader.Xml2CSharp
 
                 bool hasAll = false;
 
-                List<string> ls = new List<string>();
+                System.Collections.Generic.List<string> ls = 
+                    new System.Collections.Generic.List<string>();
 
                 if (tokens.Length == 1)
                     ls.Add(cmd);
@@ -125,114 +122,115 @@ namespace ReportReader.Xml2CSharp
                             }
                         } // End if FROM, JOIN, APPLY
                     } // Next i 
-                }
+                } // End else of if (tokens.Length == 1) 
 
                 if (ls.Count == 0 && hasAll)
                     ls.Add("Alle");
 
                 return string.Join(", ", ls.ToArray());
-            }
-        }
+            } // End Get 
+
+        } // End Property DbDependencies 
 
 
-        [XmlElement(ElementName = "CommandText",
+        [System.Xml.Serialization.XmlElement(ElementName = "CommandText",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string CommandText { get; set; }
 
-        [XmlElement(ElementName = "Timeout",
+        [System.Xml.Serialization.XmlElement(ElementName = "Timeout",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public int Timeout { get; set; }
 
-        [XmlElement(ElementName = "UseGenericDesigner",
+        [System.Xml.Serialization.XmlElement(ElementName = "UseGenericDesigner",
             Namespace = Report.DESIGNER_NAMESPACE)]
         public string UseGenericDesigner { get; set; }
     }
 
-    [XmlRoot(ElementName = "Field",
+    [System.Xml.Serialization.XmlRoot(ElementName = "Field",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class Field
     {
-        [XmlElement(ElementName = "DataField",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataField",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string DataField { get; set; }
 
-        [XmlElement(ElementName = "TypeName",
+        [System.Xml.Serialization.XmlElement(ElementName = "TypeName",
             Namespace = Report.DESIGNER_NAMESPACE)]
         public string TypeName { get; set; }
 
-        [XmlAttribute(AttributeName = "Name")]
+        [System.Xml.Serialization.XmlAttribute(AttributeName = "Name")]
         public string Name { get; set; }
     }
 
-    [XmlRoot(ElementName = "Fields",
+    [System.Xml.Serialization.XmlRoot(ElementName = "Fields",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class Fields
     {
-        [XmlElement(ElementName = "Field",
+        [System.Xml.Serialization.XmlElement(ElementName = "Field",
             Namespace = Report.DEFAULT_NAMESPACE)]
-        public List<Field> Field { get; set; }
+        public System.Collections.Generic.List<Field> Field { get; set; }
     }
 
-    [XmlRoot(ElementName = "DataSet",
+    [System.Xml.Serialization.XmlRoot(ElementName = "DataSet",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class DataSet
     {
-        [XmlElement(ElementName = "Query",
+        [System.Xml.Serialization.XmlElement(ElementName = "Query",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public Query Query { get; set; }
 
-        [XmlElement(ElementName = "Fields",
+        [System.Xml.Serialization.XmlElement(ElementName = "Fields",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public Fields Fields { get; set; }
 
-        [XmlAttribute(AttributeName = "Name")]
+        [System.Xml.Serialization.XmlAttribute(AttributeName = "Name")]
         public string Name { get; set; }
     }
 
-    [XmlRoot(ElementName = "DataSets",
+    [System.Xml.Serialization.XmlRoot(ElementName = "DataSets",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class DataSets
     {
-        [XmlElement(ElementName = "DataSet",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSet",
             Namespace = Report.DEFAULT_NAMESPACE)]
-        public List<DataSet> DataSet { get; set; }
+        public System.Collections.Generic.List<DataSet> DataSet { get; set; }
     }
 
-    [XmlRoot(ElementName = "Values",
+    [System.Xml.Serialization.XmlRoot(ElementName = "Values",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class Values
     {
-        [XmlElement(ElementName = "Value", 
+        [System.Xml.Serialization.XmlElement(ElementName = "Value", 
             Namespace = Report.DEFAULT_NAMESPACE)]
-        public List<string> Value { get; set; }
+        public System.Collections.Generic.List<string> Value { get; set; }
     }
 
-    [XmlRoot(ElementName = "DefaultValue",
+    [System.Xml.Serialization.XmlRoot(ElementName = "DefaultValue",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class DefaultValue
     {
-        [XmlElement(ElementName = "DataSetReference",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSetReference",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public DataSetReference DataSetReference { get; set; }
 
-        [XmlElement(ElementName = "Values",
+        [System.Xml.Serialization.XmlElement(ElementName = "Values",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public Values Values { get; set; }
     }
 
-    [XmlRoot(ElementName = "ReportParameter",
+    [System.Xml.Serialization.XmlRoot(ElementName = "ReportParameter",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class ReportParameter
     {
-        [XmlElement(ElementName = "DataType",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataType",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string DataType { get; set; }
 
-        [XmlElement(ElementName = "DefaultValue",
+        [System.Xml.Serialization.XmlElement(ElementName = "DefaultValue",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public DefaultValue DefaultValue { get; set; }
 
-        [XmlElement(ElementName = "Prompt",
+        [System.Xml.Serialization.XmlElement(ElementName = "Prompt",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string Prompt { get; set; }
 
@@ -246,24 +244,132 @@ namespace ReportReader.Xml2CSharp
         }
 
 
-        public string PromptGerman
+        protected string[] m_prompts;
+
+        public string[] Prompts
         {
             get
             {
+                if (this.m_prompts != null)
+                    return this.m_prompts;
+
                 if (!this.IsTranslated)
-                    return this.Prompt;
+                    return this.m_prompts;
 
-                string[] prompts = this.Prompt.Split('/');
-                if (prompts[0] != null)
-                    prompts[0] = prompts[0].Trim();
+                this.m_prompts = this.Prompt.Split('/');
 
-                return prompts[0];
+                for (int i = 0; i < this.m_prompts.Length; ++i)
+                {
+                    if (this.m_prompts[i] != null)
+                        this.m_prompts[i] = this.m_prompts[i].Trim();
+                } // Next i 
+
+                return this.m_prompts;
+            } // End Get 
+
+        } // End Property Prompts 
+
+
+        protected string m_prompt_DE;
+
+        public string Prompt_DE
+        {
+            get
+            {
+                if(this.m_prompt_DE != null)
+                    return this.m_prompt_DE;
+
+                if (this.Prompts != null && this.Prompts.Length> 0)
+                    this.m_prompt_DE = this.Prompts[0];
+                else
+                    this.m_prompt_DE = this.Prompt;
+
+                return this.m_prompt_DE;
             }
         }
 
 
+        protected string m_prompt_FR;
 
-        [XmlElement(ElementName = "Hidden",
+        public string Prompt_FR
+        {
+            get
+            {
+                if (this.m_prompt_FR != null)
+                    return this.m_prompt_FR;
+
+                if (this.Prompts != null && this.Prompts.Length > 1)
+                    this.m_prompt_FR = this.Prompts[1];
+                else this.m_prompt_FR = this.Prompt;
+
+                return this.m_prompt_FR;
+            }
+        }
+
+
+        protected string m_prompt_IT;
+
+        public string Prompt_IT
+        {
+            get
+            {
+                if (this.m_prompt_IT != null)
+                    return this.m_prompt_IT;
+
+                if (this.Prompts != null && this.Prompts.Length > 2)
+                    this.m_prompt_IT = this.Prompts[2];
+                else
+                    this.m_prompt_IT = this.Prompt;
+
+                return this.m_prompt_IT;
+            }
+        }
+
+
+        protected string m_prompt_EN;
+
+        public string Prompt_EN
+        {
+            get
+            {
+                if (this.m_prompt_EN != null)
+                    return this.m_prompt_EN;
+
+                if (this.Prompts != null && this.Prompts.Length > 3)
+                    this.m_prompt_EN = this.Prompts[3];
+                else
+                    this.m_prompt_EN = this.Prompt;
+
+                return this.m_prompt_EN;
+            }
+        }
+
+
+        
+        protected System.Collections.Generic.Dictionary<string, string> m_promptDict;
+
+        [System.Xml.Serialization.XmlIgnore()]
+        public System.Collections.Generic.Dictionary<string, string> PromptDictionary
+        {
+            get
+            {
+                if (this.m_promptDict != null)
+                    return this.m_promptDict;
+
+                this.m_promptDict = new System.Collections.Generic.Dictionary<string, string>(
+                    System.StringComparer.InvariantCultureIgnoreCase);
+
+                this.m_promptDict["DE"] = this.Prompt_DE;
+                this.m_promptDict["FR"] = this.Prompt_FR;
+                this.m_promptDict["IT"] = this.Prompt_IT;
+                this.m_promptDict["EN"] = this.Prompt_EN;
+
+                return this.m_promptDict;
+            }
+        }
+        
+
+        [System.Xml.Serialization.XmlElement(ElementName = "Hidden",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string Hidden { get; set; }
         
@@ -277,86 +383,86 @@ namespace ReportReader.Xml2CSharp
         
 
 
-        [XmlAttribute(AttributeName = "Name")]
+        [System.Xml.Serialization.XmlAttribute(AttributeName = "Name")]
         public string Name { get; set; }
 
 
-        [XmlElement(ElementName = "UsedInQuery", Namespace = Report.DEFAULT_NAMESPACE)]
+        [System.Xml.Serialization.XmlElement(ElementName = "UsedInQuery", Namespace = Report.DEFAULT_NAMESPACE)]
         public string UsedInQuery { get; set; }
 
-        [XmlElement(ElementName = "ValidValues",
+        [System.Xml.Serialization.XmlElement(ElementName = "ValidValues",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public ValidValues ValidValues { get; set; }
 
-        [XmlElement(ElementName = "MultiValue", Namespace = Report.DEFAULT_NAMESPACE)]
+        [System.Xml.Serialization.XmlElement(ElementName = "MultiValue", Namespace = Report.DEFAULT_NAMESPACE)]
         public string MultiValue { get; set; }
 
-        [XmlElement(ElementName = "Nullable", Namespace = Report.DEFAULT_NAMESPACE)]
+        [System.Xml.Serialization.XmlElement(ElementName = "Nullable", Namespace = Report.DEFAULT_NAMESPACE)]
         public string Nullable { get; set; }
 
-        [XmlElement(ElementName = "AllowBlank", Namespace = Report.DEFAULT_NAMESPACE)]
+        [System.Xml.Serialization.XmlElement(ElementName = "AllowBlank", Namespace = Report.DEFAULT_NAMESPACE)]
         public string AllowBlank { get; set; }
     }
 
-    [XmlRoot(ElementName = "DataSetReference",
+    [System.Xml.Serialization.XmlRoot(ElementName = "DataSetReference",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class DataSetReference
     {
-        [XmlElement(ElementName = "DataSetName",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSetName",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string DataSetName { get; set; }
 
-        [XmlElement(ElementName = "ValueField",
+        [System.Xml.Serialization.XmlElement(ElementName = "ValueField",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string ValueField { get; set; }
 
-        [XmlElement(ElementName = "LabelField",
+        [System.Xml.Serialization.XmlElement(ElementName = "LabelField",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string LabelField { get; set; }
     }
 
 
-    [XmlRoot(ElementName = "ParameterValue", Namespace = Report.DEFAULT_NAMESPACE)]
+    [System.Xml.Serialization.XmlRoot(ElementName = "ParameterValue", Namespace = Report.DEFAULT_NAMESPACE)]
     public class ParameterValue
     {
-        [XmlElement(ElementName = "Value", Namespace = Report.DEFAULT_NAMESPACE)]
+        [System.Xml.Serialization.XmlElement(ElementName = "Value", Namespace = Report.DEFAULT_NAMESPACE)]
         public string Value { get; set; }
-        [XmlElement(ElementName = "Label", Namespace = Report.DEFAULT_NAMESPACE)]
+        [System.Xml.Serialization.XmlElement(ElementName = "Label", Namespace = Report.DEFAULT_NAMESPACE)]
         public string Label { get; set; }
     }
 
 
-    [XmlRoot(ElementName = "ParameterValues", Namespace = Report.DEFAULT_NAMESPACE)]
+    [System.Xml.Serialization.XmlRoot(ElementName = "ParameterValues", Namespace = Report.DEFAULT_NAMESPACE)]
     public class ParameterValues
     {
-        [XmlElement(ElementName = "ParameterValue", Namespace = Report.DEFAULT_NAMESPACE)]
-        public List<ParameterValue> ParameterValue { get; set; }
+        [System.Xml.Serialization.XmlElement(ElementName = "ParameterValue", Namespace = Report.DEFAULT_NAMESPACE)]
+        public System.Collections.Generic.List<ParameterValue> ParameterValue { get; set; }
     }
 
 
-    [XmlRoot(ElementName = "ValidValues",
+    [System.Xml.Serialization.XmlRoot(ElementName = "ValidValues",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class ValidValues
     {
-        [XmlElement(ElementName = "DataSetReference",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSetReference",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public DataSetReference DataSetReference { get; set; }
 
 
-        [XmlElement(ElementName = "ParameterValues", Namespace = Report.DEFAULT_NAMESPACE)]
+        [System.Xml.Serialization.XmlElement(ElementName = "ParameterValues", Namespace = Report.DEFAULT_NAMESPACE)]
         public ParameterValues ParameterValues { get; set; }
     }
 
-    [XmlRoot(ElementName = "ReportParameters",
+    [System.Xml.Serialization.XmlRoot(ElementName = "ReportParameters",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public class ReportParameters
     {
-        [XmlElement(ElementName = "ReportParameter",
+        [System.Xml.Serialization.XmlElement(ElementName = "ReportParameter",
             Namespace = Report.DEFAULT_NAMESPACE)]
-        public List<ReportParameter> ReportParameter { get; set; }
+        public System.Collections.Generic.List<ReportParameter> ReportParameter { get; set; }
     }
 
-    [XmlRoot(ElementName = "Report",
+    [System.Xml.Serialization.XmlRoot(ElementName = "Report",
         Namespace = Report.DEFAULT_NAMESPACE)]
     public partial class Report
     {
@@ -364,46 +470,46 @@ namespace ReportReader.Xml2CSharp
         public const string DESIGNER_NAMESPACE = "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner";
 
 
-        [XmlElement(ElementName = "AutoRefresh",
+        [System.Xml.Serialization.XmlElement(ElementName = "AutoRefresh",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string AutoRefresh { get; set; }
 
-        [XmlElement(ElementName = "DataSources",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSources",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public DataSources DataSources { get; set; }
 
-        [XmlElement(ElementName = "DataSets",
+        [System.Xml.Serialization.XmlElement(ElementName = "DataSets",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public DataSets DataSets { get; set; }
 
-        [XmlElement(ElementName = "ReportParameters",
+        [System.Xml.Serialization.XmlElement(ElementName = "ReportParameters",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public ReportParameters ReportParameters { get; set; }
 
-        [XmlElement(ElementName = "Code",
+        [System.Xml.Serialization.XmlElement(ElementName = "Code",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string Code { get; set; }
 
-        [XmlElement(ElementName = "Language",
+        [System.Xml.Serialization.XmlElement(ElementName = "Language",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string Language { get; set; }
 
-        [XmlElement(ElementName = "ConsumeContainerWhitespace",
+        [System.Xml.Serialization.XmlElement(ElementName = "ConsumeContainerWhitespace",
             Namespace = Report.DEFAULT_NAMESPACE)]
         public string ConsumeContainerWhitespace { get; set; }
 
-        [XmlElement(ElementName = "ReportUnitType",
+        [System.Xml.Serialization.XmlElement(ElementName = "ReportUnitType",
             Namespace = Report.DESIGNER_NAMESPACE)]
         public string ReportUnitType { get; set; }
 
-        [XmlElement(ElementName = "ReportID",
+        [System.Xml.Serialization.XmlElement(ElementName = "ReportID",
             Namespace = Report.DESIGNER_NAMESPACE)]
         public string ReportID { get; set; }
 
-        [XmlAttribute(AttributeName = "xmlns")]
+        [System.Xml.Serialization.XmlAttribute(AttributeName = "xmlns")]
         public string Xmlns { get; set; }
 
-        [XmlAttribute(AttributeName = "rd", Namespace = "http://www.w3.org/2000/xmlns/")]
+        [System.Xml.Serialization.XmlAttribute(AttributeName = "rd", Namespace = "http://www.w3.org/2000/xmlns/")]
         public string Rd { get; set; }
     }
 

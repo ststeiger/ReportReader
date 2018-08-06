@@ -140,6 +140,11 @@ namespace ReportReader
             try
             {
                 report = new RdlReader().OpenFile(fileName);
+
+                string json = Newtonsoft.Json.JsonConvert.SerializeObject(report, Newtonsoft.Json.Formatting.Indented);
+                System.Console.WriteLine(json);
+
+
             }
             catch (System.Exception ex)
             {
@@ -319,7 +324,8 @@ namespace ReportReader
                     continue;
 
                 sb.Append("    -- ");
-                sb.Append(para.PromptGerman);
+                sb.Append(para.Prompt_DE);
+                
 
                 if (para.IsTranslated)
                     sb.Append(" (übersetzt)");
