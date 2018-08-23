@@ -56,29 +56,29 @@ namespace ReportReader
         static void Main(string[] args)
         {
             // dd.Test();
-
+            
             //ReportData x = new ReportData();
             //foreach (string dep in x.Parameters[""].Dependencies)
             //{
-
+            
             //}
-
+            
             string aqn = typeof(System.Xml.XmlDocument).AssemblyQualifiedName;
             System.Console.WriteLine(aqn);
-
-
+            
+            
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
-
+            
             string fn = "/var/opt/mssql/backup/SNB/SNB_Berichte/SNB_Berichte/";
             if (System.Environment.OSVersion.Platform != System.PlatformID.Unix)
                 // fn = @"D:\username\Documents\Visual Studio 2017\TFS\SQLReporting_VS2008\SNB_Berichte\SNB_Berichte\";
                 fn = @"D:\username\Documents\Visual Studio 2017\TFS\SQLReporting_VS2008\Test\BeriProj1\BeriProj1\";
-
+            
             string rep = System.IO.Path.Combine(fn, "UPS_Ist_Kosten_Standort.rdl");
-
+            
             ProcessReport(sb, rep);
-
-
+            
+            
             string[] reports = System.IO.Directory.GetFiles(fn, "*.rdl", System.IO.SearchOption.TopDirectoryOnly);
 
             foreach (string report in reports)
@@ -98,7 +98,7 @@ namespace ReportReader
 
             string content = sb.ToString();
             System.IO.File.WriteAllText("docu.txt", content, System.Text.Encoding.UTF8);
-
+            
             System.Console.WriteLine(" --- Press any key to continue --- ");
             while (!System.Console.KeyAvailable)
                 System.Threading.Thread.Sleep(500);
@@ -111,7 +111,7 @@ namespace ReportReader
                 new System.Collections.Generic.HashSet<string>(
                     System.StringComparer.InvariantCultureIgnoreCase
             );
-
+            
             hs.Add("DATA_Report_Translation");
             hs.Add("DATA_Report_Title");
             hs.Add("SEL_Report_Title");
@@ -119,15 +119,15 @@ namespace ReportReader
             
             hs.Add("SEL_User");
             hs.Add("SEL_Benutzer");
-
+            
             hs.Add("SEL_Image");
             hs.Add("LANG_DateFormatString");
             hs.Add("LANG_PageFormatString");
-
+            
             return hs;
         } // End Function GetDefaultReportObjects 
-
-
+        
+        
         static void ProcessReport(System.Text.StringBuilder sb, string fileName)
         {
             // Json2CSharp.Report rep = Json2CSharp.Report.FromJsonFile("newton.json");
@@ -279,8 +279,8 @@ namespace ReportReader
                 } // End if (ds.Query.QueryParameters != null) 
                 
             } // Next kvp 
-
-
+            
+            
             try
             {
                 foreach (Xml2CSharp.QueryParameter p in report.DataSets["foo"].Query.QueryParameters.QueryParameter)
@@ -294,19 +294,18 @@ namespace ReportReader
                 System.Console.WriteLine(ex.Message);
             }
             
-
-
+            
             System.Collections.Generic.HashSet<string> hs = GetDefaultReportObjects();
-
+            
             sb.AppendLine(report.ReportName);
-
-
+            
+            
             sb.Append("  ");
             // https://www.quackit.com/html/html_special_characters.cfm
             // &#9672;   WHITE DIAMOND CONTAINING BLACK SMALL DIAMOND
             sb.Append((char)9672); // https://www.w3schools.com/charsets/ref_utf_geometric.asp
             sb.AppendLine(" Parameter:");
-
+            
             foreach (string key in report.Parameters.Keys)
             {
                 Xml2CSharp.ReportParameter para = report.Parameters[key];

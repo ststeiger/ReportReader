@@ -25,6 +25,11 @@ Module Program
     Sub Main(args As String())
         Console.WriteLine(Xmlify(New String() {"abc", Nothing, "def", "ghi", "jkl", "mno"}))
 
+        
+        Dim opts As New System.CodeDom.Compiler.CompilerParameters()
+        opts.CoreAssemblyFileName
+        
+        
         System.Console.WriteLine(System.Environment.NewLine)
         System.Console.WriteLine(" --- Press any key to continue --- ")
         System.Console.ReadKey()
