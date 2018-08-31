@@ -16,7 +16,7 @@ Benutzerliste
 
 
 
-D:\Stefan.Steiger\Documents\Visual Studio 2017\TFS\SQLReporting_VS2008\
+D:\username\Documents\Visual Studio 2017\TFS\SQLReporting_VS2008\
 StringBuilder
 tfu_RPT_MSEL_Trakt_Fast
 
