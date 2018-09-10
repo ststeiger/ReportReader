@@ -55,14 +55,16 @@ namespace ReportReader
 
         static void Main(string[] args)
         {
+            MatrixMultiply.Test();
+
             // dd.Test();
-            
+
             //ReportData x = new ReportData();
             //foreach (string dep in x.Parameters[""].Dependencies)
             //{
-            
+
             //}
-            
+
             string aqn = typeof(System.Xml.XmlDocument).AssemblyQualifiedName;
             System.Console.WriteLine(aqn);
             
@@ -140,7 +142,7 @@ namespace ReportReader
                 report = new RdlReader().OpenFile(fileName);
 
                 string json = Newtonsoft.Json.JsonConvert.SerializeObject(report, Newtonsoft.Json.Formatting.Indented);
-                System.Console.WriteLine(json);
+                 System.Console.WriteLine(json);
             }
             catch (System.Exception ex)
             {
