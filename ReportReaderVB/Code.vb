@@ -2,7 +2,30 @@
 Public Class RsCode
 
 
-    Function ToDateString(dateStringObject As Object) As String
+    Function ToDateString(dateStringObject As Object) As System.DateTime?
+        Dim dateString As String = System.Convert.ToString(dateStringObject, System.Globalization.CultureInfo.InvariantCulture)
+
+        If dateStringObject Is System.DBNull.Value Then
+            Return Nothing
+        End If
+
+
+        If String.IsNullOrEmpty(dateString) Then
+            Return Nothing
+        End If
+
+        Dim x As System.DateTime
+        If System.DateTime.TryParseExact(dateString, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture, Globalization.DateTimeStyles.None, x) Then
+            Return x
+        End If
+
+        ' Return Nothing
+        ' Return dateString
+        Return CDate(dateString) ' #VALUE!
+    End Function
+
+
+    Function ToDateString1(dateStringObject As Object) As String
         Dim dateString As String = System.Convert.ToString(dateStringObject, System.Globalization.CultureInfo.InvariantCulture)
 
         If String.IsNullOrEmpty(dateString) Then
