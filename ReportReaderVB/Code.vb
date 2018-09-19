@@ -2,7 +2,7 @@
 Public Class RsCode
 
 
-    Function ToDateString(dateStringObject As Object) As System.DateTime?
+    Function ToDateString(dateStringObject As Object) As System.Nullable(Of System.DateTime)
         Dim dateString As String = System.Convert.ToString(dateStringObject, System.Globalization.CultureInfo.InvariantCulture)
 
         If dateStringObject Is System.DBNull.Value Then
