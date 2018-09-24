@@ -55,7 +55,7 @@ namespace ReportReader
 
         static void Main(string[] args)
         {
-            MatrixMultiply.Test();
+            MatrixMultiplyTests.Test();
 
             // dd.Test();
 
