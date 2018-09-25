@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportReader", "ReportReade
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fw4csReportExecution", "Fw4csReportExecution\Fw4csReportExecution.csproj", "{0B33BA4B-37EC-4C60-9F99-80CC03BD732A}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ReportReaderVB", "ReportReaderVB\ReportReaderVB.vbproj", "{2DB36796-EABA-45A1-B838-7E2339CC728F}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "ReportReaderVB", "ReportReaderVB\ReportReaderVB.vbproj", "{2DB36796-EABA-45A1-B838-7E2339CC728F}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Fw4vbReportExecution", "Fw4vbReportExecution\Fw4vbReportExecution.vbproj", "{8750CF2A-6395-4A07-8249-2CE5DBA5ACAD}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "vbNetStandardLib", "vbNetStandardLib\vbNetStandardLib.vbproj", "{031C03FC-321C-4220-9EE6-3230E5D87DBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8750CF2A-6395-4A07-8249-2CE5DBA5ACAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8750CF2A-6395-4A07-8249-2CE5DBA5ACAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8750CF2A-6395-4A07-8249-2CE5DBA5ACAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031C03FC-321C-4220-9EE6-3230E5D87DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031C03FC-321C-4220-9EE6-3230E5D87DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031C03FC-321C-4220-9EE6-3230E5D87DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031C03FC-321C-4220-9EE6-3230E5D87DBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
