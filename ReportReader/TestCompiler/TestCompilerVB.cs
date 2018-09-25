@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Linq;
 
 
@@ -21,35 +22,86 @@ namespace ReportReader
     
     public static class TestCompilerVB
     {
-
+        
+        // TestCompilerVB.Test2();
         private static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.MetadataReference> GetAssemblyReferences()
         {
-            var references = new Microsoft.CodeAnalysis.MetadataReference[]
+            System.Reflection.Assembly asm = System.Reflection.Assembly.LoadFile(
+                "/root/RiderProjects/ReportReader/vbNetStandardLib/Libs/AspNetCore.ReportingServices.dll"
+             );
+
+            
+            Microsoft.CodeAnalysis.MetadataReference[] references = 
+                new Microsoft.CodeAnalysis.MetadataReference[]
             {
-                Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(typeof(object).Assembly.Location)
+                
+                Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    asm.Location
+                )
+                ,
+                Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    typeof(System.MarshalByRefObject).Assembly.Location 
+                )
+                ,
+                
+                Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    typeof(object).Assembly.Location
+                 )
                 // A bit hacky, if you need it
                 //MetadataReference.CreateFromFile(Path.Combine(typeof(object).GetTypeInfo().Assembly.Location, "..", "mscorlib.dll")),
             };
+            
             return references;
         }
 
 
-        private static void CreateCompilation2(string _generatedCode)
+        private static void CreateCompilation2(string code)
         {
-
-
-            Microsoft.CodeAnalysis.SyntaxTree syntaxTree = Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxTree.ParseText(_generatedCode);
+            Microsoft.CodeAnalysis.SyntaxTree syntaxTree = 
+                Microsoft.CodeAnalysis.VisualBasic.VisualBasicSyntaxTree.ParseText(code);
+            
             string assemblyName = System.Guid.NewGuid().ToString();
             var references = GetAssemblyReferences();
+            
+            
+            Microsoft.CodeAnalysis.VisualBasic.VisualBasicCompilationOptions co = 
+                new Microsoft.CodeAnalysis.VisualBasic.VisualBasicCompilationOptions
+            (
+                Microsoft.CodeAnalysis.OutputKind.DynamicallyLinkedLibrary
+            );
+            
+            co.WithOptionStrict(Microsoft.CodeAnalysis.VisualBasic.OptionStrict.Off);
+            co.WithOptionExplicit(false);
+            co.WithOptionInfer(true);
 
-
+            
             Microsoft.CodeAnalysis.Compilation compilation = Microsoft.CodeAnalysis.VisualBasic.VisualBasicCompilation.Create(
                assemblyName,
                new[] { syntaxTree },
                references,
-               new Microsoft.CodeAnalysis.VisualBasic.VisualBasicCompilationOptions(Microsoft.CodeAnalysis.OutputKind.DynamicallyLinkedLibrary)
+               co
             );
+            
+            
+            byte[] compilationResult = compilation.EmitToArray();
+            
+            // Load the resulting assembly into the domain. 
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.Load(compilationResult);
+            
+            /*
+            // get the type Program from the assembly
+            System.Type programType = assembly.GetType("Program");
+            
+            // Get the static Main() method info from the type
+            System.Reflection.MethodInfo method = programType.GetMethod("Main");
+            
+            // invoke Program.Main() static method
+            method.Invoke(null, null);
+            */
 
+            
+            
+            
             using (var ms = new System.IO.MemoryStream())
             {
                 Microsoft.CodeAnalysis.Emit.EmitResult result = compilation.Emit(ms);
@@ -57,18 +109,20 @@ namespace ReportReader
                 ms.Seek(0, System.IO.SeekOrigin.Begin);
 
 
-                System.Reflection.Assembly assembly = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromStream(ms);
+                System.Reflection.Assembly assembly2 = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromStream(ms);
 #if NET46
                 // Different in full .Net framework
-                var assembly = Assembly.Load(ms.ToArray());
+                var assembly3 = Assembly.Load(ms.ToArray());
 #endif
             }
         }
 
 
-        private static void CreateCompilation(string _generatedCode)
+        private static void CreateCsCompilation(string code)
         {
-            Microsoft.CodeAnalysis.SyntaxTree syntaxTree = Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.ParseText(_generatedCode);
+            Microsoft.CodeAnalysis.SyntaxTree syntaxTree = 
+                Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.ParseText(code);
+            
             string assemblyName = System.Guid.NewGuid().ToString();
             var references = GetAssemblyReferences();
 
@@ -76,8 +130,13 @@ namespace ReportReader
                 assemblyName,
                 new[] { syntaxTree },
                 references,
-                new Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions(Microsoft.CodeAnalysis.OutputKind.DynamicallyLinkedLibrary));
+                new Microsoft.CodeAnalysis.CSharp.CSharpCompilationOptions(
+                    Microsoft.CodeAnalysis.OutputKind.DynamicallyLinkedLibrary)
+            );
 
+            // byte[] compilationResult = compilation.EmitToArray();
+            // System.Reflection.Assembly.Load(compilationResult);
+            
             using (var ms = new System.IO.MemoryStream())
             {
                 Microsoft.CodeAnalysis.Emit.EmitResult result = compilation.Emit(ms);
@@ -85,10 +144,10 @@ namespace ReportReader
                 ms.Seek(0, System.IO.SeekOrigin.Begin);
 
 
-                System.Reflection.Assembly assembly = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromStream(ms);
+                System.Reflection.Assembly assembly2 = System.Runtime.Loader.AssemblyLoadContext.Default.LoadFromStream(ms);
 #if NET46
                 // Different in full .Net framework
-                var assembly = Assembly.Load(ms.ToArray());
+                var assembly3 = Assembly.Load(ms.ToArray());
 #endif
             }
 
@@ -100,9 +159,7 @@ namespace ReportReader
         public static void CreateAssemblyDefinition(string code)
         {
             Microsoft.CodeAnalysis.SyntaxTree syntaxTree = Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.ParseText(code);
-
-
-
+            
             System.Collections.Generic.IReadOnlyCollection<
                   Microsoft.CodeAnalysis.MetadataReference> _references = new[] {
                   Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(typeof(System.Reflection.Binder).Assembly.Location),
@@ -132,7 +189,8 @@ namespace ReportReader
                 // System.Reflection.Metadata.AssemblyDefinition assembly = System.Reflection.Metadata.AssemblyDefinition.ReadAssembly(stream);
             }
         }
-
+        
+        
         // http://www.tugberkugurlu.com/archive/compiling-c-sharp-code-into-memory-and-executing-it-with-roslyn
         public static void Execute(System.Reflection.Assembly asm)
         {
@@ -168,36 +226,16 @@ namespace ReportReader
         }
 
 
-        public static void test2()
+        public static void Test2()
         {
             string inputFile = @"D:\username\Documents\Visual Studio 2017\Projects\ReportReader\vbNetStandardLib\Class1.vb";
+            
+            if(System.Environment.OSVersion.Platform == PlatformID.Unix)
+                inputFile = @"/root/RiderProjects/ReportReader/vbNetStandardLib/Class1.vb";
+            
             inputFile = System.IO.File.ReadAllText(inputFile);
-
-
-
-            var co = new Microsoft.CodeAnalysis.VisualBasic.VisualBasicCompilationOptions
-               (
-                   Microsoft.CodeAnalysis.OutputKind.DynamicallyLinkedLibrary
-               );
-
-            co.WithOptionStrict(Microsoft.CodeAnalysis.VisualBasic.OptionStrict.Off);
-            co.WithOptionExplicit(false);
-            co.WithOptionInfer(true);
-
-
-            // create Roslyn compilation for class A
-            Microsoft.CodeAnalysis.VisualBasic.VisualBasicCompilation compilationA =
-                CreateCompilationWithMscorlib
-                (
-                    "ExpressionHost",
-                    inputFile,
-                    compilerOptions: co
-                );
-
-            // emit the compilation result to a byte array 
-            // corresponding to A.netmodule byte code
-            byte[] compilationAResult = compilationA.EmitToArray();
-
+            
+            CreateCompilation2(inputFile);
         }
 
 
