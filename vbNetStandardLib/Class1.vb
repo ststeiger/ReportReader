@@ -444,7 +444,7 @@ Namespace ExpressionHost
                         Get
                             
                             #ExternalSource("Expr28end",0)
-                            Return "Zürich, " & System.DateTime.Now.ToString("dd.MM.yyyy")
+                            Return "Zï¿½rich, " & System.DateTime.Now.ToString("dd.MM.yyyy")
                             
                             #End ExternalSource
                         End Get
