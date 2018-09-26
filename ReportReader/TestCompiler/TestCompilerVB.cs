@@ -16,26 +16,109 @@ using System.Linq;
 // https://github.com/dotnet/roslyn/issues/27899
 
 
+using System.CodeDom;
+using System.CodeDom.Compiler;
+
+
 namespace ReportReader
 {
+
+    public class RoslynVisualBasicCompiler 
+        : System.CodeDom.Compiler.ICodeCompiler
+    {
+
+        public CompilerResults CompileAssemblyFromDom(CompilerParameters options
+            , CodeCompileUnit compilationUnit)
+        {
+            
+            // options.CompilerOptions
+
+            
+            throw new System.NotImplementedException();
+        }
+        
+        
+        public CompilerResults CompileAssemblyFromDomBatch(CompilerParameters options
+            , CodeCompileUnit[] compilationUnits)
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        
+        public CompilerResults CompileAssemblyFromFile(CompilerParameters options, string fileName)
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        
+        public CompilerResults CompileAssemblyFromFileBatch(CompilerParameters options
+            , string[] fileNames)
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        
+        public CompilerResults CompileAssemblyFromSource(CompilerParameters options, string source)
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        
+        public CompilerResults CompileAssemblyFromSourceBatch(CompilerParameters options
+            , string[] sources)
+        {
+            throw new System.NotImplementedException();
+        }
+        
+        
+    }
+    
+    
+    
+    public class RoslynCompiler : CodeDomProvider
+    {
+        public override ICodeCompiler CreateCompiler()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override ICodeGenerator CreateGenerator()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /*
+        public VBCodeProvider();
+        
+        public VBCodeProvider(IDictionary<string, string> providerOptions);
+
+        public override string FileExtension { get; }
+        public override LanguageOptions LanguageOptions { get; }
+
+        [Obsolete("Callers should not use the ICodeCompiler interface and should instead use the methods directly on the CodeDomProvider class.")]
+        public override ICodeCompiler CreateCompiler();
+        [Obsolete("Callers should not use the ICodeGenerator interface and should instead use the methods directly on the CodeDomProvider class.")]
+        public override ICodeGenerator CreateGenerator();
+        public override void GenerateCodeFromMember(CodeTypeMember member, TextWriter writer, CodeGeneratorOptions options);
+        public override TypeConverter GetConverter(Type type);
+        */
+
+    }
+
+    
+    
     
     
     public static class TestCompilerVB
     {
-        
-        // TestCompilerVB.Test2();
-        private static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.MetadataReference> GetAssemblyReferences()
+
+
+        public static System.Reflection.Assembly GetNetStdAssembly()
         {
-            string rss = @"C:\Users\Administrator\Documents\Visual Studio 2017\Projects\ReportReader\vbNetStandardLib\Libs\AspNetCore.ReportingServices.dll";
-            if (System.Environment.OSVersion.Platform == PlatformID.Unix)
-                rss = "/root/RiderProjects/ReportReader/vbNetStandardLib/Libs/AspNetCore.ReportingServices.dll";
-
-
-            System.Reflection.Assembly rsAssembly = System.Reflection.Assembly.LoadFile(rss);
-
-
-            System.Reflection.AssemblyName[] asms = typeof(Microsoft.VisualBasic.Constants).Assembly.GetReferencedAssemblies();
             System.Reflection.Assembly nsAssembly = null;
+            
+            System.Reflection.AssemblyName[] asms = typeof(Microsoft.VisualBasic.Constants).Assembly.GetReferencedAssemblies();
+            
 
             foreach (System.Reflection.AssemblyName asm in asms)
             {
@@ -46,60 +129,74 @@ namespace ReportReader
                 }
             }
 
-
-
-
+            return nsAssembly;
+            
+            
             //System.Reflection.Assembly[] asms = System.AppDomain.CurrentDomain.GetAssemblies();
-            //string netStdAssembly = null;
-
+            //
             //foreach (System.Reflection.Assembly asm in asms)
             //{
             //    if (asm.FullName.StartsWith("netstandard,", StringComparison.OrdinalIgnoreCase))
             //    {
-            //        netStdAssembly = asm.Location;
+            //        nsAssembly = asm;
+            //        break;
             //    }
             //}
+            
+            // return nsAssembly;
+        }
 
+
+
+        // TestCompilerVB.Test2();
+        private static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.MetadataReference> GetAssemblyReferences()
+        {
+            string rss = @"C:\Users\Administrator\Documents\Visual Studio 2017\Projects\ReportReader\vbNetStandardLib\Libs\AspNetCore.ReportingServices.dll";
+            if (System.Environment.OSVersion.Platform == PlatformID.Unix)
+                rss = "/root/RiderProjects/ReportReader/vbNetStandardLib/Libs/AspNetCore.ReportingServices.dll";
+            
+            System.Reflection.Assembly rsAssembly = System.Reflection.Assembly.LoadFile(rss);
+            System.Reflection.Assembly nsAssembly = GetNetStdAssembly();
+            
+            
             Microsoft.CodeAnalysis.MetadataReference[] references = 
                 new Microsoft.CodeAnalysis.MetadataReference[]
             {
                 
-                Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
-                    rsAssembly.Location
-                )
-                , // C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.0.9\System.Private.CoreLib.dll
-                Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(nsAssembly.Location)
+                 Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(rsAssembly.Location)
+                ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(nsAssembly.Location)
 
                 
-                , // C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.0.9\System.Private.CoreLib.dll
+                , // System.Private.CoreLib.dll
                 Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
                     typeof(System.MarshalByRefObject).Assembly.Location 
                 )
-                , // C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.0.9\System.Runtime.dll
+                
+                , // System.Runtime.dll
                 Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
                     typeof(System.IO.FileAttributes).Assembly.Location
-                 )
+                )
                  
-                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
-                    typeof(System.Uri).Assembly.Location
-                 )
+                //,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    //   typeof(System.Uri).Assembly.Location
+                    //)
 
-                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
-                    typeof(System.Drawing.RectangleF).Assembly.Location
-                 )
+                //,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    //   typeof(System.Drawing.RectangleF).Assembly.Location
+                    //)
                  
                  //,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
                  //   typeof(System.Drawing.Graphics).Assembly.Location
                  //)
-                 /*
-                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
-                    typeof(System.Data.Common.DbCommand).Assembly.Location
-                 )
+                 
+                 //,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                 //   typeof(System.Data.Common.DbCommand).Assembly.Location
+                 //)
 
-                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
-                    typeof(System.Data.SqlClient.SqlCommand).Assembly.Location
-                 )
-                 */
+                 //,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                 //   typeof(System.Data.SqlClient.SqlCommand).Assembly.Location
+                 //)
+                 
                  ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
                     typeof(Microsoft.VisualBasic.Constants).Assembly.Location
                  )
@@ -212,8 +309,8 @@ namespace ReportReader
 
             // _compilation = compilation;
         }
-
-
+        
+        
         public static void CreateAssemblyDefinition(string code)
         {
             Microsoft.CodeAnalysis.SyntaxTree syntaxTree = Microsoft.CodeAnalysis.CSharp.CSharpSyntaxTree.ParseText(code);
@@ -282,13 +379,13 @@ namespace ReportReader
                 }
             }
         }
-
-
+        
+        
         public static void Test2()
         {
             string inputFile = @"D:\username\Documents\Visual Studio 2017\Projects\ReportReader\vbNetStandardLib\Class1.vb";
             inputFile = @"C:\Users\Administrator\Documents\Visual Studio 2017\Projects\ReportReader\vbNetStandardLib\Class1.vb";
-
+            
             if(System.Environment.OSVersion.Platform == PlatformID.Unix)
                 inputFile = @"/root/RiderProjects/ReportReader/vbNetStandardLib/Class1.vb";
             
@@ -296,10 +393,9 @@ namespace ReportReader
             
             CreateCompilation2(inputFile);
         }
-
-
-
-
+        
+        
+        
         public static void Test()
         {
             
