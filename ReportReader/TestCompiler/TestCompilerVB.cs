@@ -26,27 +26,85 @@ namespace ReportReader
         // TestCompilerVB.Test2();
         private static System.Collections.Generic.IEnumerable<Microsoft.CodeAnalysis.MetadataReference> GetAssemblyReferences()
         {
-            System.Reflection.Assembly asm = System.Reflection.Assembly.LoadFile(
-                "/root/RiderProjects/ReportReader/vbNetStandardLib/Libs/AspNetCore.ReportingServices.dll"
-             );
+            string rss = @"C:\Users\Administrator\Documents\Visual Studio 2017\Projects\ReportReader\vbNetStandardLib\Libs\AspNetCore.ReportingServices.dll";
+            if (System.Environment.OSVersion.Platform == PlatformID.Unix)
+                rss = "/root/RiderProjects/ReportReader/vbNetStandardLib/Libs/AspNetCore.ReportingServices.dll";
 
-            
+
+            System.Reflection.Assembly rsAssembly = System.Reflection.Assembly.LoadFile(rss);
+
+
+            System.Reflection.AssemblyName[] asms = typeof(Microsoft.VisualBasic.Constants).Assembly.GetReferencedAssemblies();
+            System.Reflection.Assembly nsAssembly = null;
+
+            foreach (System.Reflection.AssemblyName asm in asms)
+            {
+                if (asm.FullName.StartsWith("netstandard,", StringComparison.OrdinalIgnoreCase))
+                {
+                    nsAssembly = System.Reflection.Assembly.Load(asm.FullName);
+                    break;
+                }
+            }
+
+
+
+
+            //System.Reflection.Assembly[] asms = System.AppDomain.CurrentDomain.GetAssemblies();
+            //string netStdAssembly = null;
+
+            //foreach (System.Reflection.Assembly asm in asms)
+            //{
+            //    if (asm.FullName.StartsWith("netstandard,", StringComparison.OrdinalIgnoreCase))
+            //    {
+            //        netStdAssembly = asm.Location;
+            //    }
+            //}
+
             Microsoft.CodeAnalysis.MetadataReference[] references = 
                 new Microsoft.CodeAnalysis.MetadataReference[]
             {
                 
                 Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
-                    asm.Location
+                    rsAssembly.Location
                 )
-                ,
+                , // C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.0.9\System.Private.CoreLib.dll
+                Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(nsAssembly.Location)
+
+                
+                , // C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.0.9\System.Private.CoreLib.dll
                 Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
                     typeof(System.MarshalByRefObject).Assembly.Location 
                 )
-                ,
-                
+                , // C:\Program Files\dotnet\shared\Microsoft.NETCore.App\2.0.9\System.Runtime.dll
                 Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
-                    typeof(object).Assembly.Location
+                    typeof(System.IO.FileAttributes).Assembly.Location
                  )
+                 
+                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    typeof(System.Uri).Assembly.Location
+                 )
+
+                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    typeof(System.Drawing.RectangleF).Assembly.Location
+                 )
+                 
+                 //,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                 //   typeof(System.Drawing.Graphics).Assembly.Location
+                 //)
+                 /*
+                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    typeof(System.Data.Common.DbCommand).Assembly.Location
+                 )
+
+                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    typeof(System.Data.SqlClient.SqlCommand).Assembly.Location
+                 )
+                 */
+                 ,Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(
+                    typeof(Microsoft.VisualBasic.Constants).Assembly.Location
+                 )
+                 
+
                 // A bit hacky, if you need it
                 //MetadataReference.CreateFromFile(Path.Combine(typeof(object).GetTypeInfo().Assembly.Location, "..", "mscorlib.dll")),
             };
@@ -229,7 +287,8 @@ namespace ReportReader
         public static void Test2()
         {
             string inputFile = @"D:\username\Documents\Visual Studio 2017\Projects\ReportReader\vbNetStandardLib\Class1.vb";
-            
+            inputFile = @"C:\Users\Administrator\Documents\Visual Studio 2017\Projects\ReportReader\vbNetStandardLib\Class1.vb";
+
             if(System.Environment.OSVersion.Platform == PlatformID.Unix)
                 inputFile = @"/root/RiderProjects/ReportReader/vbNetStandardLib/Class1.vb";
             
