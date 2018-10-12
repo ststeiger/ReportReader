@@ -5,6 +5,10 @@ Module Program
     Sub Main(args As String())
         Dim Code As New RsCode()
 
+
+        System.Console.WriteLine(Code.GetFirstLine("hello
+there"))
+
         ' Dim strXml As String = Code.Xmlify("a", "b", "c")
         ' System.Console.WriteLine(Code.Xmlify(New String() {"abc", Nothing, "def", "ghi", "jkl", "mno"}))
 

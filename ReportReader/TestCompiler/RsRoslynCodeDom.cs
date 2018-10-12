@@ -286,11 +286,12 @@ namespace ReportReader.TestCompiler
             );
 
 
-            byte[] compilationResult = compilation.EmitToArray();
+            // WTF !!!
+            // byte[] compilationResult = compilation.EmitToArray();
 
 
             // Load the resulting assembly into the domain. 
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.Load(compilationResult);
+            // System.Reflection.Assembly assembly = System.Reflection.Assembly.Load(compilationResult);
 
             /*
             // get the type Program from the assembly

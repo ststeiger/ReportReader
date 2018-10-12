@@ -2,6 +2,28 @@
 Public Class RsCode
 
 
+    Function GetFirstLine(obj As Object) As String
+        Dim str As String = System.Convert.ToString(obj)
+        If (String.IsNullOrEmpty(str) OrElse str.Trim() = String.Empty) Then
+            Return ""
+        End If
+
+        ' Dim lineArray As String() = str.Split(System.Environment.NewLine, StringSplitOptions.RemoveEmptyEntries)
+        Dim lineArray As String() = str.Split(New String() {System.Environment.NewLine}, System.StringSplitOptions.RemoveEmptyEntries)
+        If lineArray IsNot Nothing AndAlso lineArray.Length > 0 Then
+            Return lineArray(0)
+        End If
+
+        Return ""
+    End Function
+
+
+    Sub test(ag As String)
+        'Microsoft.VisualBasic.Strings.Replace(ag, vbLf, System.Environment.NewLine)
+        Microsoft.VisualBasic.Strings.AscW(ag)
+    End Sub
+
+
     Function ToDateString(dateStringObject As Object) As System.Nullable(Of System.DateTime)
         Dim dateString As String = System.Convert.ToString(dateStringObject, System.Globalization.CultureInfo.InvariantCulture)
 
