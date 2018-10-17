@@ -2,6 +2,37 @@
 Public Class RsCode
 
 
+    Public Function CalcRatio(ByVal Numerator As Object, ByVal Denominator As Object, ByVal DivZeroDefault As Object) As Object
+
+        If Denominator <> 0 Then
+            Return Numerator * 100 / Denominator
+        Else
+            If Numerator = 0 Then
+                Return 0
+            Else
+                Return "∞" 'DivZeroDefault 
+            End If
+        End If
+    End Function
+
+
+    Public Function Ratio(ByVal Numerator As Object, ByVal Denominator As Object) As System.Nullable(Of Double)
+        If Numerator Is Nothing Then
+            Return Nothing
+        End If
+
+        If Denominator <> 0 Then
+            Return CDbl(Numerator) / CDbl(Denominator)
+        Else
+            If Numerator = 0 Then
+                Return 0.0
+            Else
+                Return Double.PositiveInfinity
+            End If
+        End If
+    End Function
+
+
     Function GetFirstLine(obj As Object) As String
         Dim str As String = System.Convert.ToString(obj)
         If (String.IsNullOrEmpty(str) OrElse str.Trim() = String.Empty) Then
