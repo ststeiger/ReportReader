@@ -2,6 +2,184 @@
 Public Class RsCode
 
 
+    Public Shared Function BuildIntegerListInserts(ByVal paramValues As Object()) As String
+        Dim strRetValue As String = Nothing
+        Dim insertStatements As New System.Text.StringBuilder()
+
+
+        insertStatements.AppendLine("DECLARE @tblWorkaround TABLE ")
+        insertStatements.AppendLine("( ")
+        insertStatements.AppendLine("MultiSelectParameter integer ")
+        insertStatements.AppendLine("); ")
+
+        For Each paramValue As Object In paramValues
+            insertStatements.Append("INSERT INTO @tblWorkaround(MultiSelectParameter) VALUES ( ")
+            If paramValue Is Nothing Then
+                insertStatements.Append("NULL")
+            Else
+                insertStatements.Append(paramValue)
+            End If
+
+            insertStatements.AppendLine("); ")
+        Next paramValue
+
+        insertStatements.AppendLine("SELECT * FROM @tblWorkaround")
+
+        strRetValue = insertStatements.ToString()
+        insertStatements.Length = 0
+        insertStatements = Nothing
+
+        Return strRetValue
+    End Function ' BuildIntegerListInserts
+
+
+    Public Shared Function BuildUidListInserts(ByVal paramValues As Object()) As String
+        Dim strRetValue As String = Nothing
+        Dim insertStatements As New System.Text.StringBuilder()
+
+        insertStatements.AppendLine("DECLARE @tblWorkaround TABLE ")
+        insertStatements.AppendLine("( ")
+        insertStatements.AppendLine("MultiSelectParameter uniqueidentifier ")
+        insertStatements.AppendLine("); ")
+
+        For Each paramValue As Object In paramValues
+
+            insertStatements.Append("INSERT INTO @tblWorkaround(MultiSelectParameter) VALUES ( ")
+            If paramValue Is Nothing Then
+                insertStatements.Append("NULL")
+            Else
+                insertStatements.Append("'")
+                insertStatements.Append(paramValue)
+                insertStatements.Append("'")
+            End If
+
+            insertStatements.AppendLine("); ")
+
+        Next paramValue
+
+        insertStatements.AppendLine("SELECT * FROM @tblWorkaround")
+
+        strRetValue = insertStatements.ToString()
+        insertStatements.Length = 0
+        insertStatements = Nothing
+
+        Return strRetValue
+    End Function ' BuildUidListInserts
+
+
+
+    Public Shared Function BuildGsIdentifierListInserts(ByVal paramValues As Object()) As String
+        Dim strRetValue As String = Nothing
+        Dim insertStatements As New System.Text.StringBuilder()
+
+        insertStatements.AppendLine("DECLARE @tblWorkaround TABLE ")
+        insertStatements.AppendLine("( ")
+        insertStatements.AppendLine("MultiSelectParameter varchar(76) ")
+        insertStatements.AppendLine("); ")
+
+        For Each paramValue As Object In paramValues
+
+            insertStatements.Append("INSERT INTO @tblWorkaround(MultiSelectParameter) VALUES ( ")
+            If paramValue Is Nothing Then
+                insertStatements.Append("NULL")
+            Else
+                insertStatements.Append("'")
+                insertStatements.Append(paramValue)
+                insertStatements.Append("'")
+            End If
+
+            insertStatements.AppendLine("); ")
+
+        Next paramValue
+
+        insertStatements.AppendLine("SELECT * FROM @tblWorkaround")
+
+        strRetValue = insertStatements.ToString()
+        insertStatements.Length = 0
+        insertStatements = Nothing
+
+        Return strRetValue
+    End Function ' BuildGsIdentifierListInserts
+
+
+
+
+
+
+    Public Function GetPageEnumeration(strFormatString As String, iPageNumber As Integer, iTotalNumberOfPages As Integer) As String
+        ' Dim strFormatString As String = "Seite {0} von {1}"
+        Return String.Format(strFormatString, iPageNumber, iTotalNumberOfPages)
+    End Function
+
+
+    Public Function GetDateForCulture(iDay As Integer, iMonth As Integer, iYear As Integer, strFormat As String, strReportLanguage As String) As String
+        If String.IsNullOrEmpty(strReportLanguage) Then
+            strReportLanguage = "DE"
+        End If
+
+        If String.IsNullOrEmpty(strFormat) Then
+            strFormat = "d. MMMM yyy"
+        End If
+
+        Dim strCultureString As String = ""
+        Select Case strReportLanguage.ToLower()
+            Case "de"
+                strCultureString = "de-ch"
+                Exit Select
+            Case "fr"
+                strCultureString = "fr-ch"
+                Exit Select
+            Case "it"
+                strCultureString = "it-ch"
+                Exit Select
+            Case "en"
+                strCultureString = "en-us"
+                Exit Select
+            Case Else
+                strCultureString = strReportLanguage
+                Exit Select
+        End Select
+        ' End Switch strReportLanguage
+        Dim ci As New System.Globalization.CultureInfo(strCultureString)
+        Dim dt As New DateTime(iYear, iMonth, iDay)
+
+        Dim strDateAsString As String = dt.ToString(strFormat, ci)
+        strDateAsString = ci.TextInfo.ToTitleCase(strDateAsString)
+
+        Return strDateAsString
+    End Function ' GetDateForCulture
+
+
+
+
+
+    Function Concat(x As String, y As String, z As String) As String
+        If String.IsNullOrEmpty(x) Then
+            If String.IsNullOrEmpty(y) Then
+                Return ""
+            Else
+                Return y
+            End If
+        Else
+            If String.IsNullOrEmpty(y) Then
+                Return x
+            Else
+                Return x + z + y
+            End If
+        End If
+
+        Return ""
+    End Function
+
+
+
+
+
+
+
+
+    ' ------------------------------------------------------------
+
     Public Function CalcRatio(ByVal Numerator As Object, ByVal Denominator As Object, ByVal DivZeroDefault As Object) As Object
 
         If Denominator <> 0 Then
