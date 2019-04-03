@@ -293,4 +293,140 @@ Public Class RsCode
     End Function
 
 
+
+    Public Function SetDefaultZero(ByVal obj As Object) As Object
+        If obj Is Nothing OrElse obj Is System.DBNull.Value Then
+            Return 0.0
+        End If
+
+        Return obj
+    End Function
+
+
+    Public Function SetDefault(ByVal obj As Object) As Object
+        Return SetDefaultZero(obj)
+    End Function
+
+
+
+
+    Public Function CalcRatio(ByVal Numerator As Object, ByVal Denominator As Object, ByVal DivZeroDefault As Object) As Object
+        If Denominator <> 0 Then
+            Return Numerator * 100 / Denominator
+        Else
+            If Numerator = 0 Then
+                Return 0
+            Else
+                Return "∞" 'DivZeroDefault 
+            End If
+        End If
+    End Function
+
+
+
+    Public Function GetPageEnumeration(strFormatString As String, iPageNumber As Integer, iTotalNumberOfPages As Integer) As String
+        ' Dim strFormatString As String = "Seite {0} von {1}"
+        Return String.Format(strFormatString, iPageNumber, iTotalNumberOfPages)
+    End Function
+
+
+    Public Function GetDateForCulture(iDay As Integer, iMonth As Integer, iYear As Integer, strFormat As String, strReportLanguage As String) As String
+        If String.IsNullOrEmpty(strReportLanguage) Then
+            strReportLanguage = "DE"
+        End If
+
+        If String.IsNullOrEmpty(strFormat) Then
+            strFormat = "d. MMMM yyy"
+        End If
+
+        Dim strCultureString As String = ""
+        Select Case strReportLanguage.ToLower()
+            Case "de"
+                strCultureString = "de-ch"
+                Exit Select
+            Case "fr"
+                strCultureString = "fr-ch"
+                Exit Select
+            Case "it"
+                strCultureString = "it-ch"
+                Exit Select
+            Case "en"
+                strCultureString = "en-us"
+                Exit Select
+            Case Else
+                strCultureString = strReportLanguage
+                Exit Select
+        End Select
+        ' End Switch strReportLanguage
+        Dim ci As New System.Globalization.CultureInfo(strCultureString)
+        Dim dt As New DateTime(iYear, iMonth, iDay)
+
+        Dim strDateAsString As String = dt.ToString(strFormat, ci)
+        strDateAsString = ci.TextInfo.ToTitleCase(strDateAsString)
+
+        Return strDateAsString
+    End Function ' GetDateForCulture
+
+
+
+    Public Function GetDateForCulture(ByVal iDay As Integer, ByVal iMonthNum As Integer, ByVal iYear As Integer, ByVal strReportLanguage As String) As String
+        Dim strReturnValue As String = ""
+        Try
+            strReportLanguage = strReportLanguage.ToLower()
+
+            'Dim dtThisDateDate As DateTime = DateTime.Now
+            'Dim dtThisDateDate As New DateTime(2010, 12, 31)
+            Dim dtThisDateDate As New DateTime(iYear, iMonthNum, iDay)
+
+            Dim strCultureString As String = ""
+            Select Case strReportLanguage
+                Case "de"
+                    strCultureString = "de-ch"
+                Case "fr"
+                    strCultureString = "fr-ch"
+                Case "it"
+                    strCultureString = "it-ch"
+                Case "en"
+                    strCultureString = "en-us"
+                Case Else
+                    strCultureString = strReportLanguage
+            End Select
+
+            Dim ci As New System.Globalization.CultureInfo(strCultureString)
+
+            Dim strFormat = ci.DateTimeFormat.LongDatePattern
+            If ci.CompareInfo.IndexOf(strFormat, "dddd, ", System.Globalization.CompareOptions.IgnoreCase) > -1 Then
+                strFormat = Mid(ci.DateTimeFormat.LongDatePattern, Len("dddd, ") + 1)
+            End If
+
+            strReturnValue = dtThisDateDate.ToString(strFormat, ci)
+            'strReturnValue = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(strReturnValue)
+            strReturnValue = ci.TextInfo.ToTitleCase(strReturnValue)
+        Catch ex As Exception
+            strReturnValue = iDay.ToString().PadLeft(2, "0") + "." + iMonthNum.ToString().PadLeft(2, "0") + "." + iYear.ToString()
+        End Try
+
+        Return strReturnValue
+    End Function
+
+
+    Function Concat(x As String, y As String, z As String) As String
+        If String.IsNullOrEmpty(x) Then
+            If String.IsNullOrEmpty(y) Then
+                Return ""
+            Else
+                Return y
+            End If
+        Else
+            If String.IsNullOrEmpty(y) Then
+                Return x
+            Else
+                Return x + z + y
+            End If
+        End If
+
+        Return ""
+    End Function
+
+
 End Class
